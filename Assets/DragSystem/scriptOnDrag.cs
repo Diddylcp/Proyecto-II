@@ -12,9 +12,4 @@ public class scriptOnDrag : MonoBehaviour
         Instantiate(SoldierImage, new Vector3(0, 1, -19), Quaternion.identity);
     }
 
-        // Update is called once per frame
-        void Update()
-    {
-        
-    }
 }
