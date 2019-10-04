@@ -23,7 +23,7 @@ public class ImageSoldierControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SetSoldierPosition();
-            Destroy(canvas);
+        
 
         }
 
@@ -46,9 +46,13 @@ public class ImageSoldierControl : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 1000))
         {
-            selectPosition = hit.point;
-            selectPosition.y += 2;
-            Instantiate(soldier, selectPosition, Quaternion.identity);
+            if (hit.transform.tag == "Respawn")
+            {
+                selectPosition = hit.point;
+                selectPosition.y += 1;
+                Instantiate(soldier, selectPosition, Quaternion.identity);
+                Destroy(canvas);
+            }
         }
     }
 }
