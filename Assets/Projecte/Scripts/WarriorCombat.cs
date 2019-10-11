@@ -5,7 +5,10 @@ using UnityEngine;
 public class WarriorCombat : MonoBehaviour
 {
 
-    
+    public int warriorPS;
+    public int warriorAttkDmg;
+    public float warriorAttkSpeed;
+    private float bonusDmgVsArcher;
 
     // Start is called before the first frame update
     void Start()
