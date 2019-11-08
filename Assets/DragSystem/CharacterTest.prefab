@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d, type: 2}
+  - {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,6 +95,9 @@ MonoBehaviour:
   team: 
   troopObjective: {fileID: 0}
   rb2D: {fileID: 0}
+  MaterialTropaEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d,
+    type: 2}
+  MaterialTropaAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
 --- !u!50 &6043947188621566409
 Rigidbody2D:
   serializedVersion: 4

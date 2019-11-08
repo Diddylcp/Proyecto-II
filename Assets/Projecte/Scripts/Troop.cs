@@ -76,15 +76,19 @@ public class Troop : MonoBehaviour
     public ability stats;
     public GameObject troopObjective;
     public Rigidbody2D rb2D;
-
+    [SerializeField] private Material MaterialTropaEnemigo;
+    [SerializeField] private Material MaterialTropaAliado;
+    
     // Start is called before the first frame update
     void Start()
     {
         stats.tipus = troopType.ARCHER;
         stats.SetStats(stats.tipus);
         pos = transform.position;
-        tag = "AllyTower";
+        tag = "AllyTroop";
         team = tag;
+        if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
+        else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         troopObjective = null;
 
@@ -103,10 +107,10 @@ public class Troop : MonoBehaviour
             }
             else if (troopObjective.GetComponent<TowerScript>() != null)
             {
+                //Debug.Log("AtacandoTorre");
                 AttackTower(troopObjective);
-                Debug.Log("AtacandoTorre");
             }
-            Debug.Log("En RANGO" + this.name);
+            //Debug.Log("En RANGO" + this.name);
         }
         else
         {
@@ -118,7 +122,8 @@ public class Troop : MonoBehaviour
     public GameObject DetectClosestEnemy()
     {
         GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("EnemyTower");
+        if(tag == "AllyTroop") gos = GameObject.FindGameObjectsWithTag("EnemyTower");
+        else gos = GameObject.FindGameObjectsWithTag("AllyTower");
         GameObject closest = null;
         float distance = Mathf.Infinity;
         pos = transform.position;
@@ -172,7 +177,7 @@ public class Troop : MonoBehaviour
     {
         if(stats.health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
