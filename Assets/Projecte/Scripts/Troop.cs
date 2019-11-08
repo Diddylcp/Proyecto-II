@@ -8,15 +8,15 @@ public class Troop : MonoBehaviour
     public enum troopType {MAGE, ARCHER, WARRIOR, PRIEST, COUNT};
     public struct ability
     {
-        troopType tipus;
+        public troopType tipus;
         public int health;
         public float movSpeed;
         public float area;
         public int residualDamage;
         public int damage;
-        public int range;
+        public float range;
         public float attackSpeed;
-        ability(troopType tipo)
+        public void SetStats(troopType tipo)
         {
             tipus = tipo;
             switch (tipus)
@@ -27,7 +27,7 @@ public class Troop : MonoBehaviour
                     area = 2f;
                     residualDamage = 0;
                     damage = 60;
-                    range = 8;
+                    range = 8f;
                     attackSpeed = 0.8f;
                     break;
                 case troopType.ARCHER:
@@ -36,7 +36,7 @@ public class Troop : MonoBehaviour
                     area = 1f;
                     residualDamage = 0;
                     damage = 20;
-                    range = 9;
+                    range = 5f;
                     attackSpeed = 2f;
                     break;
                 case troopType.WARRIOR:
@@ -45,7 +45,7 @@ public class Troop : MonoBehaviour
                     area = 1f;
                     residualDamage = 0;
                     damage = 30;
-                    range = 3;
+                    range = 3f;
                     attackSpeed = 1f;
                     break;
                 case troopType.PRIEST:
@@ -54,7 +54,7 @@ public class Troop : MonoBehaviour
                     area = 1f;
                     residualDamage = 0;
                     damage = 20;
-                    range = 10;
+                    range = 10f;
                     attackSpeed = 0.5f;
                     break;
                 default:
@@ -63,7 +63,7 @@ public class Troop : MonoBehaviour
                     area = 0f;
                     residualDamage = 0;
                     damage = 0;
-                    range = 0;
+                    range = 0f;
                     attackSpeed = 0f;
                     break;
 
@@ -72,14 +72,16 @@ public class Troop : MonoBehaviour
     };
     public Vector2 pos;
     public string team;
-    public ability stats;
     //public GameObject player;
+    public ability stats;
     public GameObject troopObjective;
     public Rigidbody2D rb2D;
 
     // Start is called before the first frame update
     void Start()
     {
+        stats.tipus = troopType.ARCHER;
+        stats.SetStats(stats.tipus);
         pos = transform.position;
         tag = "AllyTower";
         team = tag;
@@ -91,11 +93,29 @@ public class Troop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        troopObjective = DetectClosestTower();
-        FindPath(troopObjective);
+        troopObjective = DetectClosestEnemy();
+        Debug.Log(StillInRange(troopObjective));
+        if (StillInRange(troopObjective))
+        {
+            if (troopObjective.GetComponent<Troop>() != null)
+            {
+                AttackEnemy(troopObjective);
+            }
+            else if (troopObjective.GetComponent<TowerScript>() != null)
+            {
+                AttackTower(troopObjective);
+                Debug.Log("AtacandoTorre");
+            }
+            Debug.Log("En RANGO" + this.name);
+        }
+        else
+        {
+            //FindPath(troopObjective);
+        }
+        Debug.Log(stats.tipus);
     }
 
-    public GameObject DetectClosestTower()
+    public GameObject DetectClosestEnemy()
     {
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("EnemyTower");
@@ -116,7 +136,7 @@ public class Troop : MonoBehaviour
         }
         return closest;
     }
-
+    /*
     public void FindPath(GameObject objective)
     {
         Vector2 dir;
@@ -124,36 +144,46 @@ public class Troop : MonoBehaviour
         dir.y = objective.transform.position.y - pos.y;
         dir.x *= 0.2f;//stats.movSpeed;
         dir.y *= 0.2f;//stats.movSpeed;
-        Debug.Log(dir.ToString());
+        
         rb2D.AddForce(dir , ForceMode2D.Impulse);
     }
-
-    private void AnyoneToAttack()
-    {
-
-    }
+    */
 
     private bool StillInRange(GameObject objective)
     {
         bool inRange;
-        if ((pos.x - objective.transform.position.x) < stats.range && (pos.y - objective.transform.position.y) < stats.range)
+        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.y - objective.transform.position.y) < stats.range)
             inRange = true;
        else inRange = false;
-        return inRange;
+       return inRange;
     }
 
-    private void AttackEnemy()
+    private void AttackEnemy(GameObject enemy)
     {
+        enemy.GetComponent<Troop>().TakeDamage(stats.damage);       
+    }
 
+    private void AttackTower(GameObject tower)
+    {
+        tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
     }
 
     private void AmIAlive()
     {
-
+        if(stats.health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void CapturingTower(GameObject tower)
+    private void CapturingTower(GameObject _tower)
     {
 
     }
+
+    public void TakeDamage(int damage)
+    {
+        stats.health -= damage;
+        Debug.Log("DAMAGEAO");
+    } 
 }
