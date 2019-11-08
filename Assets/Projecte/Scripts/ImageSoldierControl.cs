@@ -49,7 +49,7 @@ public class ImageSoldierControl : MonoBehaviour
             if (hit.transform.tag == "Respawn")
             {
                 selectPosition = hit.point;
-                selectPosition.y += 1;
+                selectPosition.y += 1;               
                 Instantiate(soldier, selectPosition, Quaternion.identity);
                 Destroy(canvas);
             }
