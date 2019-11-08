@@ -9,7 +9,7 @@ public class ImageSoldierControl : MonoBehaviour
     Vector2 pos;
     public GameObject canvas;
     public GameObject soldier;
-
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +23,6 @@ public class ImageSoldierControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SetSoldierPosition();
-        
-
         }
 
 
@@ -39,6 +37,7 @@ public class ImageSoldierControl : MonoBehaviour
 
     }
 
+   
     void SetSoldierPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

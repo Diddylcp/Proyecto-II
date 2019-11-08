@@ -54,7 +54,7 @@ public class Troop : MonoBehaviour
 
     public void FindPath(GameObject objective)
     {
-       Vector2 dir = objective.pos - pos;
+    //     Vector2 dir = objective.pos - pos;
     }
 
     private void AnyoneToAttack()
