@@ -187,4 +187,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1724781632392674136}
-  soldier: {fileID: 2723432691266939723, guid: 4237572ae3b281c42a0dde7d55a13cc6, type: 3}
+  soldier: {fileID: 1275104735648256057, guid: 116875b7614732247b613a6a6b95b587, type: 3}

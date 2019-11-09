@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Troop : MonoBehaviour
 {
-    [SerializeField]
     public enum troopType {MAGE, ARCHER, WARRIOR, PRIEST, COUNT};
     public struct ability
     {
@@ -107,10 +106,8 @@ public class Troop : MonoBehaviour
             }
             else if (troopObjective.GetComponent<TowerScript>() != null)
             {
-                //Debug.Log("AtacandoTorre");
                 AttackTower(troopObjective);
             }
-            //Debug.Log("En RANGO" + this.name);
         }
         else
         {
@@ -141,18 +138,6 @@ public class Troop : MonoBehaviour
         }
         return closest;
     }
-    /*
-    public void FindPath(GameObject objective)
-    {
-        Vector2 dir;
-        dir.x = objective.transform.position.x - pos.x;
-        dir.y = objective.transform.position.y - pos.y;
-        dir.x *= 0.2f;//stats.movSpeed;
-        dir.y *= 0.2f;//stats.movSpeed;
-        
-        rb2D.AddForce(dir , ForceMode2D.Impulse);
-    }
-    */
 
     private bool StillInRange(GameObject objective)
     {
