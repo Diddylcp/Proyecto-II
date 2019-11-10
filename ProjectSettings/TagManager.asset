@@ -6,6 +6,8 @@ TagManager:
   tags:
   - AllyTower
   - EnemyTower
+  - AllyTroop
+  - EnemyTroop
   layers:
   - Default
   - TransparentFX
