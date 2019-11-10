@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    void SumMoney(int moneyToSum)
+    public void SumMoney(int moneyToSum)
     {
         userMoney += moneyToSum;
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 enum TowerType {MAGE_TOWER, ARCHER_TOWER, WARRIOR_TOWER, GOLD_TOWER, SPEED_TOWER, COUNT};
+
+
 public struct TowerStates
 {
    public int health;
@@ -15,24 +17,25 @@ public struct TowerStates
 
 public class TowerScript : MonoBehaviour
 {
-    GameObject player;// jugador el que controla
+    public PlayerController player;// jugador el que controla
     TowerStates state;
     private float speed;
     TowerType type;
     GameObject objective;  //Al que atacara
     Vector2 posMouse;
     bool isClicked = false;
+      
 
     // Start is called before the first frame update
     void Start()
     {
         TowerStates(1500, 10, 30, 1.6f, 12, 10);
+        StartCoroutine(WaitSec());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
 
     }
 
@@ -69,6 +72,20 @@ public class TowerScript : MonoBehaviour
         //
     }
 
+    //Augmenta el money
+    void DropCoin()
+    {
+        player.SumMoney(state.moneyPerSecond);
+
+    }
+
+    IEnumerator WaitSec()
+    {
+        // wait for 1 second
+        yield return new WaitForSeconds(1.0f);
+        DropCoin();
+        StartCoroutine(WaitSec());
+    }
     //Al clickar
     private void OnMouseDown()
     {
