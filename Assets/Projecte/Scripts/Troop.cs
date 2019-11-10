@@ -144,14 +144,13 @@ public class Troop : MonoBehaviour
     
     public void FindPath(GameObject objective)
     {
-<<<<<<< HEAD
+
     //     Vector2 dir = objective.pos - pos;
     }
 
     private void AnyoneToAttack()
     {
-
-=======
+       /*
         Vector2 dir;
         dir.x = objective.transform.position.x - pos.x;
         dir.y = objective.transform.position.y - pos.y;
@@ -159,7 +158,7 @@ public class Troop : MonoBehaviour
         dir.y *= 0.2f;//stats.movSpeed;
         
         rb2D.AddForce(dir , ForceMode2D.Impulse);
->>>>>>> develop
+        */
     }
     
 
