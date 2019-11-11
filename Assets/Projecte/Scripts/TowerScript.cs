@@ -130,7 +130,7 @@ public class TowerScript : MonoBehaviour
             ChangeTeam();
             Debug.Log("Changed team");
         }
-            Debug.Log("DAMAGEAO - " + stats.health);
+           // Debug.Log("DAMAGEAO: " + stats.health);
     }
 
     public void ChangeTeam()
@@ -140,11 +140,13 @@ public class TowerScript : MonoBehaviour
             {
                 this.tag = "EnemyTower";
                 this.GetComponent<MeshRenderer>().material = MaterialEnemigo;
+                stats.health = 1500;
             }
             else if(team == "EnemyTower")
             {
                 this.tag = "AllyTower";
                 this.GetComponent<MeshRenderer>().material = MaterialAliado;
+                stats.health = 1500;
             }
             team = this.tag;
         

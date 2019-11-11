@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
 {
     public enum troopType {MAGE, ARCHER, WARRIOR, PRIEST, COUNT};
+    public troopType tipus;
     public struct ability
     {
-        public troopType tipus;
         public int health;
         public float movSpeed;
         public float area;
@@ -15,10 +16,9 @@ public class Troop : MonoBehaviour
         public int damage;
         public float range;
         public float attackSpeed;
-        public void SetStats(troopType tipo)
+        public void SetStats(troopType _tipus)
         {
-            tipus = tipo;
-            switch (tipus)
+            switch (_tipus)
             {
                 case troopType.MAGE:
                     movSpeed = 1.25f;
@@ -75,31 +75,33 @@ public class Troop : MonoBehaviour
     public ability stats;
     public GameObject troopObjective;
     public Rigidbody2D rb2D;
+    public NavMeshAgent agent;
     [SerializeField] private Material MaterialTropaEnemigo;
     [SerializeField] private Material MaterialTropaAliado;
     
     // Start is called before the first frame update
     void Start()
     {
-        stats.tipus = troopType.ARCHER;
-        stats.SetStats(stats.tipus);
+        tipus = troopType.ARCHER;       // Cuando se creen las demás tropas, simplemente hace falta pasar por referencia en el boton, la tropa deseada
+        stats.SetStats(tipus);
         pos = transform.position;
-        tag = "AllyTroop";
         team = tag;
         if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
         else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        troopObjective = null;
+        troopObjective = DetectClosestEnemy();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        troopObjective = DetectClosestEnemy();
-        Debug.Log(StillInRange(troopObjective));
+        // Si pongo aqui el DetectClosestEnemy en cuanto haya alguien más cerca, aunque este atacando cambia de objetivo
+        Debug.Log("A rango: " + StillInRange(troopObjective));
         if (StillInRange(troopObjective))
         {
+            Debug.Log(troopObjective.tag);
+            agent.isStopped = true;                             // Stops the troop because he is attacking
             if (troopObjective.GetComponent<Troop>() != null)
             {
                 AttackEnemy(troopObjective);
@@ -108,12 +110,20 @@ public class Troop : MonoBehaviour
             {
                 AttackTower(troopObjective);
             }
+            if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower") ||
+                (this.tag == troopObjective.GetComponent<Troop>().tag))
+            {
+                troopObjective = DetectClosestEnemy();
+                FindPath(troopObjective);
+            }
         }
         else
         {
-            //FindPath(troopObjective);
-        }
-        Debug.Log(stats.tipus);
+            agent.isStopped = false;
+            Debug.Log("Buscando enemigo");
+            troopObjective = DetectClosestEnemy();              // While not attacking, finds the nearest enemy
+            FindPath(troopObjective);                           // Moves towards the closest enemy
+        }  
     }
 
     public GameObject DetectClosestEnemy()
@@ -139,7 +149,13 @@ public class Troop : MonoBehaviour
         return closest;
     }
 
-    private bool StillInRange(GameObject objective)
+    private void FindPath( GameObject _troopObjective)  // Move the troop to the objective
+    {
+        agent.SetDestination(_troopObjective.transform.position);
+    }
+
+
+    private bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         bool inRange;
         if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.y - objective.transform.position.y) < stats.range)
@@ -148,17 +164,17 @@ public class Troop : MonoBehaviour
        return inRange;
     }
 
-    private void AttackEnemy(GameObject enemy)
+    private void AttackEnemy(GameObject enemy)          // Attacks the enemy
     {
         enemy.GetComponent<Troop>().TakeDamage(stats.damage);       
     }
 
-    private void AttackTower(GameObject tower)
+    private void AttackTower(GameObject tower)          // Attacks the tower
     {
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
     }
 
-    private void AmIAlive()
+    private void AmIAlive()                             // Checks if he is alive
     {
         if(stats.health <= 0)
         {
@@ -166,7 +182,7 @@ public class Troop : MonoBehaviour
         }
     }
 
-    private void CapturingTower(GameObject _tower)
+    private void CapturingTower(GameObject _tower)      // Captures the tower
     {
 
     }
@@ -174,6 +190,5 @@ public class Troop : MonoBehaviour
     public void TakeDamage(int damage)
     {
         stats.health -= damage;
-        Debug.Log("DAMAGEAO");
     } 
 }

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1724781632392674136, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
       propertyPath: m_Name
-      value: imgAllyTroop Variant
+      value: imgEnemyTroop
       objectReference: {fileID: 0}
     - target: {fileID: 5444891881101219778, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
@@ -132,5 +132,11 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.09019608
       objectReference: {fileID: 0}
+    - target: {fileID: 3501355631668148923, guid: 9836d393a51585043b1a1a924783b328,
+        type: 3}
+      propertyPath: soldier
+      value: 
+      objectReference: {fileID: 4881171112713411438, guid: df57dbedca6f36d45aecc43337899879,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9836d393a51585043b1a1a924783b328, type: 3}

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8e258003bf6004cb5fdddedb787166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoldierImage: {fileID: 0}
+  SoldierImage: {fileID: 1724781632392674136}
 --- !u!1 &7394679369504871194
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,4 +201,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1724781632392674136}
-  soldier: {fileID: 1275104735648256057, guid: 116875b7614732247b613a6a6b95b587, type: 3}
+  soldier: {fileID: 71481914759088065, guid: e4e9393651af29b42a318f5bd49fb26e, type: 3}
