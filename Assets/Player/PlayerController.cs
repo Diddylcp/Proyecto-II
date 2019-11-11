@@ -5,22 +5,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float userMoney;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int userMoney;
 
     public void SumMoney(int moneyToSum)
     {
         userMoney += moneyToSum;
+    }
+    public int GetMoney()
+    {
+        return userMoney;
     }
 }

@@ -186,5 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493c48a13bebde649873918bb0f62c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyCost: 190
   canvas: {fileID: 1724781632392674136}
   soldier: {fileID: 2723432691266939723, guid: 4237572ae3b281c42a0dde7d55a13cc6, type: 3}

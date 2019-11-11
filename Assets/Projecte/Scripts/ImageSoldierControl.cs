@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class ImageSoldierControl : MonoBehaviour
 {
-
+    GameObject player;
+    PlayerController playerController;
     Vector3 selectPosition;
     Vector2 pos;
+    public int moneyCost;
     public GameObject canvas;
     public GameObject soldier;
         
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("GameController");
+        playerController = player.GetComponent<PlayerController>();
 
     }
     // Update is called once per frame
@@ -23,6 +27,7 @@ public class ImageSoldierControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SetSoldierPosition();
+            BuySoldier();
         }
 
 
@@ -37,6 +42,10 @@ public class ImageSoldierControl : MonoBehaviour
 
     }
 
+    void BuySoldier()
+    {
+        playerController.SumMoney(-moneyCost);
+    }
    
     void SetSoldierPosition()
     {
