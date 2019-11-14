@@ -31,7 +31,7 @@ public class Troop : MonoBehaviour
                     break;
                 case troopType.ARCHER:
                     movSpeed = 1f;
-                    health = 350;
+                    health = 1000; // Vida original 350
                     area = 1f;
                     residualDamage = 0;
                     damage = 20;
@@ -40,11 +40,11 @@ public class Troop : MonoBehaviour
                     break;
                 case troopType.WARRIOR:
                     movSpeed = 0.75f;
-                    health = 700;
+                    health = 1500;   // Vida original 350
                     area = 1f;
                     residualDamage = 0;
                     damage = 30;
-                    range = 3f;
+                    range = 2f;
                     attackSpeed = 1f;
                     break;
                 case troopType.PRIEST:
@@ -81,8 +81,7 @@ public class Troop : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {
-        tipus = troopType.ARCHER;       // Cuando se creen las demás tropas, simplemente hace falta pasar por referencia en el boton, la tropa deseada
+    {      
         stats.SetStats(tipus);
         pos = transform.position;
         team = tag;
@@ -102,9 +101,6 @@ public class Troop : MonoBehaviour
         }
         else
         {
-            // Si pongo aqui el DetectClosestEnemy en cuanto haya alguien más cerca, aunque este atacando cambia de objetivo
-            //Debug.Log("A rango: " + StillInRange(troopObjective));
-            Debug.Log(troopObjective.tag);
             if (StillInRange(troopObjective))
             {
                 agent.isStopped = true;                             // Stops the troop because he is attacking
@@ -115,22 +111,22 @@ public class Troop : MonoBehaviour
                 else if (troopObjective.GetComponent<TowerScript>() != null)
                 {
                     AttackTower(troopObjective);
-                }
-                if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower") ||
-                    (this.tag == troopObjective.GetComponent<Troop>().tag))
-                {
-                    troopObjective = DetectClosestEnemy();
-                    FindPath(troopObjective);
+                    if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
+                    {
+                        troopObjective = DetectClosestEnemy();
+                        FindPath(troopObjective);
+                    }
                 }
             }
             else
             {
                 agent.isStopped = false;
-                Debug.Log("Buscando enemigo");
                 troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
                 FindPath(troopObjective);                           // Moves towards the closest enemy
-            }  
+            }
         }
+        AmIAlive();
+        Debug.Log(tag + tipus);
     }
 
     public GameObject DetectClosestEnemy()
@@ -215,8 +211,9 @@ public class Troop : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int _damage)
     {
-        stats.health -= damage;
-    } 
+        stats.health -= _damage;
+    }
+
 }

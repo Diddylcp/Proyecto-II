@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c002a11cb65f7d848aaad42173b9d615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipus: 0
+  tipus: 1
   pos: {x: 0, y: 0}
   team: 
   troopObjective: {fileID: 0}
