@@ -103,25 +103,6 @@ public class TowerScript : MonoBehaviour
     {
 
     }
-    /*
-    void TowerStates(int h, int v, int dny, float dps, int r, int mps)
-    {
-        stats.health = h;
-        stats.area = v;
-        stats.damage = dny;
-        stats.attackSpeed = dps;
-        stats.range = r;
-        stats.moneyPerSecond = mps;
-
-    }*/
-    /* private:
-    //Mira si hi ha algú per atacar
-    GameObject AnyoneToAttack()
-    {
-        GameObject enemyToAttack;
-
-        return enemyToAttack;
-    } */
 
     //Si segueix en rang enemic
     bool StillInRange()
@@ -197,9 +178,7 @@ public class TowerScript : MonoBehaviour
         if (stats.health <= 0)
         {
             ChangeTeam();
-            Debug.Log("Changed team");
         }
-           // Debug.Log("DAMAGEAO: " + stats.health);
     }
 
     public void ChangeTeam()
