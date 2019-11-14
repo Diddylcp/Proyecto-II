@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum TowerType { NORMAL, MAGE_TOWER, ARCHER_TOWER, WARRIOR_TOWER, GOLD_TOWER, SPEED_TOWER, COUNT };
+public enum TowerType { NORMAL, MAGE_TOWER, ARCHER_TOWER, WARRIOR_TOWER, GOLD_TOWER, SPEED_TOWER, COUNT };
 
 
 public struct TowerStates
@@ -14,7 +14,8 @@ public struct TowerStates
     public int range;
     public float attackSpeed;
     public int moneyPerSecond;
-   /* public void SetStats(TowerType tipo)
+
+    public void SetStats(TowerType tipo)
     {
         switch (tipo)
         {
@@ -70,15 +71,16 @@ public struct TowerStates
                 moneyPerSecond = 10;
                 area = 0;
                 break;
-        } */
-    };
+        }
+    }
+}
 
 public class TowerScript : MonoBehaviour
 {
     public PlayerController player;// jugador el que controla
     TowerStates stats;
     private float speed;
-    TowerType type;
+    TowerType type = TowerType.NORMAL;
     GameObject objective;  //Al que atacara
     Vector2 pos;
     Vector2 posMouse;
@@ -88,7 +90,7 @@ public class TowerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TowerStates(1500, 10, 30, 1.6f, 12, 10);
+        stats.SetStats(type);
         StartCoroutine(WaitSec());
     }
 
@@ -101,7 +103,7 @@ public class TowerScript : MonoBehaviour
     {
 
     }
-
+    /*
     void TowerStates(int h, int v, int dny, float dps, int r, int mps)
     {
         stats.health = h;
@@ -111,7 +113,7 @@ public class TowerScript : MonoBehaviour
         stats.range = r;
         stats.moneyPerSecond = mps;
 
-    }
+    }*/
     /* private:
     //Mira si hi ha algú per atacar
     GameObject AnyoneToAttack()
@@ -164,7 +166,8 @@ public class TowerScript : MonoBehaviour
     private GameObject AnyoneToAttack()
     {
         GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("AllyTower");
+        if (tag == "AllyTower") gos = GameObject.FindGameObjectsWithTag("EnemyTroop");
+        else gos = GameObject.FindGameObjectsWithTag("AllyTroop");
         GameObject closest = null;
         float distance = Mathf.Infinity;
         pos = transform.position;

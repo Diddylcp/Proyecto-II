@@ -7,6 +7,12 @@ public class PlayerController : MonoBehaviour
 
     public int userMoney;
 
+    private void Start()
+    {
+        userMoney = 0;
+        Debug.Log(userMoney);
+    }
+
     public void SumMoney(int moneyToSum)
     {
         userMoney += moneyToSum;

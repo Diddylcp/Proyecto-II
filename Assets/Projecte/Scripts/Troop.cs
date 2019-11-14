@@ -96,51 +96,79 @@ public class Troop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Si pongo aqui el DetectClosestEnemy en cuanto haya alguien más cerca, aunque este atacando cambia de objetivo
-        Debug.Log("A rango: " + StillInRange(troopObjective));
-        if (StillInRange(troopObjective))
+        if(troopObjective == null)
         {
-            Debug.Log(troopObjective.tag);
-            agent.isStopped = true;                             // Stops the troop because he is attacking
-            if (troopObjective.GetComponent<Troop>() != null)
-            {
-                AttackEnemy(troopObjective);
-            }
-            else if (troopObjective.GetComponent<TowerScript>() != null)
-            {
-                AttackTower(troopObjective);
-            }
-            if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower") ||
-                (this.tag == troopObjective.GetComponent<Troop>().tag))
-            {
-                troopObjective = DetectClosestEnemy();
-                FindPath(troopObjective);
-            }
+            troopObjective = DetectClosestEnemy();
         }
         else
         {
-            agent.isStopped = false;
-            Debug.Log("Buscando enemigo");
-            troopObjective = DetectClosestEnemy();              // While not attacking, finds the nearest enemy
-            FindPath(troopObjective);                           // Moves towards the closest enemy
-        }  
+            // Si pongo aqui el DetectClosestEnemy en cuanto haya alguien más cerca, aunque este atacando cambia de objetivo
+            //Debug.Log("A rango: " + StillInRange(troopObjective));
+            Debug.Log(troopObjective.tag);
+            if (StillInRange(troopObjective))
+            {
+                agent.isStopped = true;                             // Stops the troop because he is attacking
+                if (troopObjective.GetComponent<Troop>() != null)
+                {
+                    AttackEnemy(troopObjective);
+                }
+                else if (troopObjective.GetComponent<TowerScript>() != null)
+                {
+                    AttackTower(troopObjective);
+                }
+                if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower") ||
+                    (this.tag == troopObjective.GetComponent<Troop>().tag))
+                {
+                    troopObjective = DetectClosestEnemy();
+                    FindPath(troopObjective);
+                }
+            }
+            else
+            {
+                agent.isStopped = false;
+                Debug.Log("Buscando enemigo");
+                troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
+                FindPath(troopObjective);                           // Moves towards the closest enemy
+            }  
+        }
     }
 
     public GameObject DetectClosestEnemy()
     {
-        GameObject[] gos;
-        if(tag == "AllyTroop") gos = GameObject.FindGameObjectsWithTag("EnemyTower");
-        else gos = GameObject.FindGameObjectsWithTag("AllyTower");
+        GameObject[] gosTroops, gosTower;
+        if (tag == "AllyTroop")
+        {
+            gosTower = GameObject.FindGameObjectsWithTag("EnemyTower");
+            gosTroops = GameObject.FindGameObjectsWithTag("EnemyTroop");
+            
+        }
+        else
+        {
+            gosTower = GameObject.FindGameObjectsWithTag("AllyTower");
+            gosTroops = GameObject.FindGameObjectsWithTag("AllyTroop");
+        }
         GameObject closest = null;
         float distance = Mathf.Infinity;
         pos = transform.position;
-        foreach(GameObject go in gos)
+        foreach(GameObject go in gosTroops)
         {
             Vector2 diff;
             diff.x = go.transform.position.x - pos.x;
             diff.y = go.transform.position.y - pos.y;
             float curDistance = diff.sqrMagnitude;
             if(curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        foreach (GameObject go in gosTower)
+        {
+            Vector2 diff;
+            diff.x = go.transform.position.x - pos.x;
+            diff.y = go.transform.position.y - pos.y;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
             {
                 closest = go;
                 distance = curDistance;
