@@ -135,28 +135,40 @@ public class Troop : MonoBehaviour
 
     public GameObject DetectClosestEnemy()
     {
-        GameObject[] gos;
+        GameObject[] gosTroops, gosTower;
         if (tag == "AllyTroop")
         {
-            gos = GameObject.FindGameObjectsWithTag("EnemyTower");          
-            gos = GameObject.FindGameObjectsWithTag("EnemyTroop");
+            gosTower = GameObject.FindGameObjectsWithTag("EnemyTower");
+            gosTroops = GameObject.FindGameObjectsWithTag("EnemyTroop");
             
         }
         else
         {
-            gos = GameObject.FindGameObjectsWithTag("AllyTower");
-            gos = GameObject.FindGameObjectsWithTag("AllyTroop");
+            gosTower = GameObject.FindGameObjectsWithTag("AllyTower");
+            gosTroops = GameObject.FindGameObjectsWithTag("AllyTroop");
         }
         GameObject closest = null;
         float distance = Mathf.Infinity;
         pos = transform.position;
-        foreach(GameObject go in gos)
+        foreach(GameObject go in gosTroops)
         {
             Vector2 diff;
             diff.x = go.transform.position.x - pos.x;
             diff.y = go.transform.position.y - pos.y;
             float curDistance = diff.sqrMagnitude;
             if(curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        foreach (GameObject go in gosTower)
+        {
+            Vector2 diff;
+            diff.x = go.transform.position.x - pos.x;
+            diff.y = go.transform.position.y - pos.y;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
             {
                 closest = go;
                 distance = curDistance;
