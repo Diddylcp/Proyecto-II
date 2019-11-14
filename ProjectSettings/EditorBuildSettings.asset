@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Projecte/Scenes/MainMenu.unity
+    guid: 1aa87237057749943a02a61213a38197
+  - enabled: 1
+    path: Assets/Projecte/Scenes/2D_Spawn_Enemic_Funcional.unity
+    guid: 4a8c29059d926054985b26388242ca0a
   m_configObjects: {}
