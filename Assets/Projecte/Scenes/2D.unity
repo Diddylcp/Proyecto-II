@@ -390,11 +390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74d11bd979e87b4f98f992a1739fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7566825251111513996, guid: da2cdda9ed873f84dbf708dbe66ea70a, type: 3}
   MaterialEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d, type: 2}
   MaterialAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
-  type: 0
-  pos: {x: 7.251329, y: 147.2377}
-  speed: 0
   team: 
 --- !u!65 &663101511
 BoxCollider:
@@ -545,8 +543,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938304703}
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: -0.67, y: 148.81, z: 203.26}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2.03, y: 148.81, z: 203.26}
+  m_LocalScale: {x: 1.4483, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -814,11 +812,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74d11bd979e87b4f98f992a1739fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7566825251111513996, guid: da2cdda9ed873f84dbf708dbe66ea70a, type: 3}
   MaterialEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d, type: 2}
   MaterialAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
-  type: 0
-  pos: {x: -8.718102, y: 147.3686}
-  speed: 0
   team: 
 --- !u!1 &1251956091
 GameObject:
@@ -1016,12 +1012,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74d11bd979e87b4f98f992a1739fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7566825251111513996, guid: da2cdda9ed873f84dbf708dbe66ea70a, type: 3}
   MaterialEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d, type: 2}
   MaterialAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
-  type: 0
-  pos: {x: 7.251329, y: 147.2377}
-  speed: 0
   team: 
+--- !u!1 &1476319321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1667901133}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1476319322}
+  m_Layer: 0
+  m_Name: Troop (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1476319322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1667901133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476319321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1667901133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1301,7 +1325,7 @@ PrefabInstance:
     - target: {fileID: 4921954184124698704, guid: 6c65bd0923c6fd7498c7c94d35896eab,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4921954184124698704, guid: 6c65bd0923c6fd7498c7c94d35896eab,
         type: 3}
