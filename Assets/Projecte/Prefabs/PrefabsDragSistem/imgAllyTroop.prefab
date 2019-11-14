@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SoldierImage: {fileID: 1724781632392674136}
-  soldierCost: 0
+  soldierCost: 190
 --- !u!1 &7394679369504871194
 GameObject:
   m_ObjectHideFlags: 0

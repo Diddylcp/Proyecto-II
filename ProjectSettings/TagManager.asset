@@ -8,6 +8,7 @@ TagManager:
   - EnemyTower
   - AllyTroop
   - EnemyTroop
+  - EnemyController
   layers:
   - Default
   - TransparentFX
