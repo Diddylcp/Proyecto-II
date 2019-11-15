@@ -10,6 +10,11 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Controles()
+    {
+        SceneManager.LoadScene("Controles");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
