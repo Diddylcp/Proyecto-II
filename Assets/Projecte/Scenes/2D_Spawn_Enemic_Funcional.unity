@@ -1824,6 +1824,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3194607430605856250, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430605856250, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3194607431072525955, guid: 7b4d76d655aa745439f159e8a106e833,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -2013,6 +2023,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430856028276, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430856028276, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430856028276, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430856028276, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430856028276, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430605856251, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_Text
+      value: Enemy Troop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430856028277, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_Text
+      value: Ally Troop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430856028277, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194607430856028277, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b4d76d655aa745439f159e8a106e833, type: 3}
