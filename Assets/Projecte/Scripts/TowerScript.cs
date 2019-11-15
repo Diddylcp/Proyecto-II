@@ -81,9 +81,9 @@ public class TowerScript : MonoBehaviour
     [SerializeField] PlayerController allyPlayer, enemyPlayer;
     TowerStates stats;
     private float speed;
-    TowerType type = TowerType.NORMAL;
+    TowerType type;
     GameObject objective;  //Al que atacara
-    Vector2 pos;
+    Vector3 pos;
     Vector2 posMouse;
     bool isClicked = false;
 
@@ -91,6 +91,8 @@ public class TowerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        type = TowerType.NORMAL;
+        objective = null;
         if (tag == "AllyTower") player = allyPlayer;
         else player = enemyPlayer;
         stats.SetStats(type);
@@ -104,21 +106,33 @@ public class TowerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(objective == null)
+        {
+            objective = AnyoneToAttack();
+            Debug.Log(objective.tag);
+        }
+        else
+        {
+            if (StillInRange())
+            {
+                Debug.Log("ATACANDO");
+                AttackEnemy(objective);
+            }
+            else
+            {
+                objective = AnyoneToAttack();
+            }
+        }
     }
 
     //Si segueix en rang enemic
     bool StillInRange()
     {
-       
-
-        return true;
-    }
-    
-    //Atacar l'enemic.
-    void AttackEnemy()
-    {
-        //
+        bool inRange;
+        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.z - objective.transform.position.z) < stats.range)
+            inRange = true;
+        else inRange = false;
+        return inRange;
     }
 
     //Augmenta el money
@@ -157,9 +171,10 @@ public class TowerScript : MonoBehaviour
         pos = transform.position;
         foreach (GameObject go in gos)
         {
-            Vector2 diff;
+            Vector3 diff;
             diff.x = go.transform.position.x - pos.x;
-            diff.y = go.transform.position.y - pos.y;
+            diff.y = 0f;
+            diff.z = go.transform.position.z - pos.z;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
             {
