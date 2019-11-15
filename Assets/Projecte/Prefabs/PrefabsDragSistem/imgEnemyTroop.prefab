@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: imgEnemyTroop
       objectReference: {fileID: 0}
+    - target: {fileID: 1724781632392674136, guid: 9836d393a51585043b1a1a924783b328,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyTroop
+      objectReference: {fileID: 0}
     - target: {fileID: 5444891881101219778, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -116,6 +121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394679369504871194, guid: 9836d393a51585043b1a1a924783b328,
+        type: 3}
+      propertyPath: m_TagString
+      value: EnemyTroop
       objectReference: {fileID: 0}
     - target: {fileID: 4900487582239692437, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}

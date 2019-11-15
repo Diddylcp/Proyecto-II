@@ -44,6 +44,9 @@ public class ImageSoldierControl : MonoBehaviour
 
     void BuySoldier()
     {
+        if (tag == "AllyTroop") player = GameObject.Find("PlayerEconomy");
+        else player = GameObject.Find("EnemyEconomy");
+        playerController = player.GetComponent<PlayerController>();
         playerController.SumMoney(-moneyCost);
     }
    

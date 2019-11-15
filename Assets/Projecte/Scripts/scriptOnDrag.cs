@@ -16,6 +16,7 @@ public class scriptOnDrag : MonoBehaviour
         if (tag == "AllyTroop") player = GameObject.Find("PlayerEconomy");
         else player = GameObject.Find("EnemyEconomy");
         playerController = player.GetComponent<PlayerController>();
+        Debug.Log(playerController.userMoney + playerController.name);
         if (playerController.GetMoney() > soldierCost)
             Instantiate(SoldierImage, new Vector3(0, 1, -19), Quaternion.identity);
     }

@@ -35,7 +35,7 @@ public class Troop : MonoBehaviour
                     area = 1f;
                     residualDamage = 0;
                     damage = 20;
-                    range = 5f;
+                    range = 4f;
                     attackSpeed = 2f;
                     break;
                 case troopType.WARRIOR:
@@ -44,7 +44,7 @@ public class Troop : MonoBehaviour
                     area = 1f;
                     residualDamage = 0;
                     damage = 30;
-                    range = 2f;
+                    range = 3f;
                     attackSpeed = 1f;
                     break;
                 case troopType.PRIEST:
