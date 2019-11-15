@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         userMoney = 0;
-        Debug.Log(userMoney);
     }
 
     private void Update()

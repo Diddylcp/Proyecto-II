@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 63203646103291520}
   m_Layer: 5
   m_Name: imgAllyTroop
-  m_TagString: Untagged
+  m_TagString: AllyTroop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 3501355631668148923}
   m_Layer: 5
   m_Name: ImageSoldier
-  m_TagString: Untagged
+  m_TagString: AllyTroop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
