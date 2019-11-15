@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
@@ -9,7 +10,7 @@ public class Troop : MonoBehaviour
     public troopType tipus;
     public struct ability
     {
-        public int health;
+        public float health;
         public float movSpeed;
         public float area;
         public int residualDamage;
@@ -69,20 +70,26 @@ public class Troop : MonoBehaviour
             }
         }
     };
+    private float startHealth;
     public Vector2 pos;
     public string team;
     //public GameObject player;
     public ability stats;
     public GameObject troopObjective;
-    public Rigidbody2D rb2D;
+    private Rigidbody2D rb2D;
     public NavMeshAgent agent;
     [SerializeField] private Material MaterialTropaEnemigo;
     [SerializeField] private Material MaterialTropaAliado;
+    public Transform barraVida;
+    public Transform barraVidaFill;
+
+    private Transform cam;
     
     // Start is called before the first frame update
     void Start()
     {      
         stats.SetStats(tipus);
+        startHealth = stats.health;
         pos = transform.position;
         team = tag;
         if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
@@ -91,6 +98,7 @@ public class Troop : MonoBehaviour
         troopObjective = DetectClosestEnemy();
         StartCoroutine(Attack());
 
+        cam = Camera.main.transform;
     }
 
     // Update is called once per frame
@@ -110,6 +118,7 @@ public class Troop : MonoBehaviour
             }
         }
         AmIAlive();
+        barraVida.transform.forward = cam.transform.forward;
     }
 
     public GameObject DetectClosestEnemy()
@@ -197,6 +206,8 @@ public class Troop : MonoBehaviour
     public void TakeDamage(int _damage)
     {
         stats.health -= _damage;
+
+        barraVidaFill.localScale = new Vector2(stats.health / startHealth, barraVidaFill.localScale.y);
     }
 
     IEnumerator Attack()

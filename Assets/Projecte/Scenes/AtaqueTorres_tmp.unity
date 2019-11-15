@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4d69d9189073dfc4a9c448f9cff44f2d, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2a4d1ba009f52584cae46c15f44f3969, type: 2}
 --- !u!1001 &42628080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,7 +861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1251956092
 Transform:
   m_ObjectHideFlags: 0
@@ -1617,7 +1617,7 @@ PrefabInstance:
     - target: {fileID: 3194607429907691777, guid: 7b4d76d655aa745439f159e8a106e833,
         type: 3}
       propertyPath: m_Name
-      value: ButtonsHUD
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 3194607429907691805, guid: 7b4d76d655aa745439f159e8a106e833,
         type: 3}
