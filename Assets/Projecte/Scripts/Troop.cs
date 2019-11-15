@@ -25,7 +25,7 @@ public class Troop : MonoBehaviour
                     health = 400;
                     area = 2f;
                     residualDamage = 0;
-                    damage = 60;
+                    damage = 150;
                     range = 8f;
                     attackSpeed = 0.8f;
                     break;
@@ -34,7 +34,7 @@ public class Troop : MonoBehaviour
                     health = 350; // Vida original 350
                     area = 1f;
                     residualDamage = 0;
-                    damage = 20;
+                    damage = 70;
                     range = 4f;
                     attackSpeed = 0.5f;
                     break;
@@ -43,8 +43,8 @@ public class Troop : MonoBehaviour
                     health = 500;   // Vida original 700
                     area = 1f;
                     residualDamage = 0;
-                    damage = 30;
-                    range = 3f;
+                    damage = 100;
+                    range = 2f;
                     attackSpeed = 1f;
                     break;
                 case troopType.PRIEST:
@@ -207,6 +207,7 @@ public class Troop : MonoBehaviour
             if (troopObjective.GetComponent<Troop>() != null)
             {
                 AttackEnemy(troopObjective);
+                Debug.Log("Tropa que ataca: " + tipus + " Mi vida: " + this.stats.health);
             }
             else if (troopObjective.GetComponent<TowerScript>() != null)
             {
@@ -218,7 +219,7 @@ public class Troop : MonoBehaviour
                 }
             }
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(this.stats.attackSpeed);
         StartCoroutine(Attack());
     }
 }
