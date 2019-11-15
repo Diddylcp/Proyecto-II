@@ -20,9 +20,9 @@ public struct TowerStates
         switch (tipo)
         {
             case TowerType.NORMAL:
-                health = 1500;
+                health = 750;       // Vida original 1500
                 damage = 30;
-                attackSpeed = 1.6f;
+                attackSpeed = 0.8f;
                 range = 12;
                 moneyPerSecond = 10;
                 area = 0;
@@ -92,10 +92,11 @@ public class TowerScript : MonoBehaviour
     void Start()
     {
         type = TowerType.NORMAL;
-        objective = null;
+        objective = AnyoneToAttack();
         if (tag == "AllyTower") player = allyPlayer;
         else player = enemyPlayer;
         stats.SetStats(type);
+        StartCoroutine(AttackEnemy(objective));
         StartCoroutine(WaitSec());
     }
 
@@ -109,16 +110,10 @@ public class TowerScript : MonoBehaviour
         if(objective == null)
         {
             objective = AnyoneToAttack();
-            Debug.Log(objective.tag);
         }
         else
         {
-            if (StillInRange())
-            {
-                Debug.Log("ATACANDO");
-                AttackEnemy(objective);
-            }
-            else
+            if (!StillInRange())
             {
                 objective = AnyoneToAttack();
             }
@@ -128,11 +123,8 @@ public class TowerScript : MonoBehaviour
     //Si segueix en rang enemic
     bool StillInRange()
     {
-        bool inRange;
-        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.z - objective.transform.position.z) < stats.range)
-            inRange = true;
-        else inRange = false;
-        return inRange;
+        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.z - objective.transform.position.z) < stats.range) return true;
+        else return false;
     }
 
     //Augmenta el money
@@ -185,9 +177,17 @@ public class TowerScript : MonoBehaviour
         return closest;
     }
 
-    private void AttackEnemy(GameObject objective)
+    IEnumerator AttackEnemy(GameObject _objective)
     {
-        objective.GetComponent<Troop>().TakeDamage(stats.damage);
+        Debug.Log("Entro en attack");
+        
+            Debug.Log(StillInRange());
+            if (StillInRange())
+            {
+                _objective.GetComponent<Troop>().TakeDamage(stats.damage);
+            }
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(AttackEnemy(_objective));
     }
 
     public void TakeDamage(int damage)
