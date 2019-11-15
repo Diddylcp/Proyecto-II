@@ -126,7 +126,6 @@ public class Troop : MonoBehaviour
             }
         }
         AmIAlive();
-        Debug.Log(tag + tipus);
     }
 
     public GameObject DetectClosestEnemy()

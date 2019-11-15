@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 71481914759088093}
   - component: {fileID: 71481914759088092}
   - component: {fileID: 71481914759088095}
-  - component: {fileID: 71481914759088094}
   m_Layer: 0
   m_Name: AllyTroop
   m_TagString: AllyTroop
@@ -145,17 +144,3 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &71481914759088094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71481914759088065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef5ccef4eb61b2c47ac5a4006a8f7b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  troop: {fileID: 71481914759088093}
-  agent: {fileID: 71481914759088095}

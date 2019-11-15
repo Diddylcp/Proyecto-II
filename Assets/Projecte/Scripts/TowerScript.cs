@@ -77,7 +77,8 @@ public struct TowerStates
 
 public class TowerScript : MonoBehaviour
 {
-    public PlayerController player;// jugador el que controla
+    private PlayerController player;// jugador el que controla
+    [SerializeField] PlayerController allyPlayer, enemyPlayer;
     TowerStates stats;
     private float speed;
     TowerType type = TowerType.NORMAL;
@@ -90,6 +91,8 @@ public class TowerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (tag == "AllyTower") player = allyPlayer;
+        else player = enemyPlayer;
         stats.SetStats(type);
         StartCoroutine(WaitSec());
     }
@@ -183,20 +186,22 @@ public class TowerScript : MonoBehaviour
 
     public void ChangeTeam()
     {
-        
-            if(team == "AllyTower")
-            {
-                this.tag = "EnemyTower";
-                this.GetComponent<MeshRenderer>().material = MaterialEnemigo;
-                stats.health = 1500;
-            }
-            else if(team == "EnemyTower")
-            {
-                this.tag = "AllyTower";
-                this.GetComponent<MeshRenderer>().material = MaterialAliado;
-                stats.health = 1500;
-            }
-            team = this.tag;
+        if(team == "AllyTower")
+        {
+            this.tag = "EnemyTower";
+            this.GetComponent<MeshRenderer>().material = MaterialEnemigo;
+            stats.health = 1500;
+            player = enemyPlayer;
+            
+        }
+        else if(team == "EnemyTower")
+        {
+            this.tag = "AllyTower";
+            this.GetComponent<MeshRenderer>().material = MaterialAliado;
+            stats.health = 1500;
+            player = allyPlayer;
+        }
+        team = this.tag;
         
     }
 }

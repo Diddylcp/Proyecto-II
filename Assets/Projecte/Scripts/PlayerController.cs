@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
         Debug.Log(userMoney);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) userMoney += 100;
+    }
+
     public void SumMoney(int moneyToSum)
     {
         userMoney += moneyToSum;
