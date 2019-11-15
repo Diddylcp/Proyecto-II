@@ -31,16 +31,16 @@ public class Troop : MonoBehaviour
                     break;
                 case troopType.ARCHER:
                     movSpeed = 1f;
-                    health = 1000; // Vida original 350
+                    health = 350; // Vida original 350
                     area = 1f;
                     residualDamage = 0;
                     damage = 20;
                     range = 4f;
-                    attackSpeed = 2f;
+                    attackSpeed = 0.5f;
                     break;
                 case troopType.WARRIOR:
                     movSpeed = 0.75f;
-                    health = 1500;   // Vida original 350
+                    health = 500;   // Vida original 700
                     area = 1f;
                     residualDamage = 0;
                     damage = 30;
@@ -89,6 +89,7 @@ public class Troop : MonoBehaviour
         else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         troopObjective = DetectClosestEnemy();
+        StartCoroutine(Attack());
 
     }
 
@@ -101,24 +102,7 @@ public class Troop : MonoBehaviour
         }
         else
         {
-            if (StillInRange(troopObjective))
-            {
-                agent.isStopped = true;                             // Stops the troop because he is attacking
-                if (troopObjective.GetComponent<Troop>() != null)
-                {
-                    AttackEnemy(troopObjective);
-                }
-                else if (troopObjective.GetComponent<TowerScript>() != null)
-                {
-                    AttackTower(troopObjective);
-                    if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
-                    {
-                        troopObjective = DetectClosestEnemy();
-                        FindPath(troopObjective);
-                    }
-                }
-            }
-            else
+            if (!StillInRange(troopObjective))
             {
                 agent.isStopped = false;
                 troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
@@ -215,4 +199,26 @@ public class Troop : MonoBehaviour
         stats.health -= _damage;
     }
 
+    IEnumerator Attack()
+    {
+        if (StillInRange(troopObjective))
+        {
+            agent.isStopped = true;                             // Stops the troop because he is attacking
+            if (troopObjective.GetComponent<Troop>() != null)
+            {
+                AttackEnemy(troopObjective);
+            }
+            else if (troopObjective.GetComponent<TowerScript>() != null)
+            {
+                AttackTower(troopObjective);
+                if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
+                {
+                    troopObjective = DetectClosestEnemy();
+                    FindPath(troopObjective);
+                }
+            }
+        }
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(Attack());
+    }
 }
