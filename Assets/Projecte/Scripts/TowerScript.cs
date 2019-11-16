@@ -125,8 +125,7 @@ public class TowerScript : MonoBehaviour
     {
         float distance;
         distance = Vector3.Distance(pos, objective.transform.position);
-        if (Mathf.Abs(distance) < stats.range) return true;
-        else return false;
+        return (Mathf.Abs(distance) < stats.range);
     }
 
     //Augmenta el money
@@ -165,11 +164,7 @@ public class TowerScript : MonoBehaviour
         pos = transform.position;
         foreach (GameObject go in gos)
         {
-            Vector3 diff;
-            diff.x = go.transform.position.x - pos.x;
-            diff.y = 0f;
-            diff.z = go.transform.position.z - pos.z;
-            float curDistance = diff.sqrMagnitude;
+            float curDistance = Vector3.Distance(pos, go.transform.position);
             if (curDistance < distance)
             {
                 closest = go;
@@ -184,8 +179,8 @@ public class TowerScript : MonoBehaviour
         Debug.Log("Entro en attack");
         if (StillInRange())
         {
-            Debug.Log("Estoy atacando");
-            objective.GetComponent<Troop>().TakeDamage(stats.damage);
+            if((objective.tag == "AllyTroop" && this.tag == "EnemyTower") || (objective.tag == "EnemyTroop" && this.tag == "AllyTower"))
+                objective.GetComponent<Troop>().TakeDamage(stats.damage);
         }
         yield return new WaitForSeconds(1f);
         StartCoroutine(AttackEnemy());

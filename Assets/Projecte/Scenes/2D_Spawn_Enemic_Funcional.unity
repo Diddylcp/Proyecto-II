@@ -1748,6 +1748,36 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2043155386}
+    - target: {fileID: 8154247228731950644, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000045776367
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154247228731950644, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154247228731950644, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8154247228731950644, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026045250736667294, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -73.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8026045250736667294, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 86.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b4d76d655aa745439f159e8a106e833, type: 3}
 --- !u!1001 &9058405230940813477
