@@ -71,7 +71,7 @@ public class Troop : MonoBehaviour
         }
     };
     private float startHealth;
-    public Vector2 pos;
+    public Vector3 pos;
     public string team;
     //public GameObject player;
     public ability stats;
@@ -140,11 +140,7 @@ public class Troop : MonoBehaviour
         pos = transform.position;
         foreach(GameObject go in gosTroops)
         {
-            Vector3 diff;
-            diff.x = go.transform.position.x - pos.x;
-            diff.y = 0;
-            diff.z = go.transform.position.z - pos.z;
-            float curDistance = diff.sqrMagnitude;
+            float curDistance = Vector3.Distance(pos, go.transform.position);
             if(curDistance < distance)
             {
                 closest = go;
@@ -153,11 +149,7 @@ public class Troop : MonoBehaviour
         }
         foreach (GameObject go in gosTower)
         {
-            Vector3 diff;
-            diff.x = go.transform.position.x - pos.x;
-            diff.y = 0;
-            diff.z = go.transform.position.z - pos.z;
-            float curDistance = diff.sqrMagnitude;
+            float curDistance = Vector3.Distance(pos, go.transform.position);
             if (curDistance < distance)
             {
                 closest = go;
@@ -175,11 +167,9 @@ public class Troop : MonoBehaviour
 
     private bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
-        bool inRange;
-        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.z - objective.transform.position.z) < stats.range)
-            inRange = true;
-       else inRange = false;
-       return inRange;
+        float distance;
+        distance = Vector3.Distance(pos, objective.transform.position);
+        return (Mathf.Abs(distance) < stats.range);
     }
 
     private void AttackEnemy(GameObject enemy)          // Attacks the enemy
