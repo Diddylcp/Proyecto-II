@@ -20,9 +20,9 @@ public struct TowerStates
         switch (tipo)
         {
             case TowerType.NORMAL:
-                health = 1500;
+                health = 750;       // Vida original 1500
                 damage = 30;
-                attackSpeed = 1.6f;
+                attackSpeed = 0.8f;
                 range = 12;
                 moneyPerSecond = 10;
                 area = 0;
@@ -92,10 +92,11 @@ public class TowerScript : MonoBehaviour
     void Start()
     {
         type = TowerType.NORMAL;
-        objective = null;
+        objective = AnyoneToAttack();
         if (tag == "AllyTower") player = allyPlayer;
         else player = enemyPlayer;
         stats.SetStats(type);
+        StartCoroutine(AttackEnemy());
         StartCoroutine(WaitSec());
     }
 
@@ -109,16 +110,10 @@ public class TowerScript : MonoBehaviour
         if(objective == null)
         {
             objective = AnyoneToAttack();
-            Debug.Log(objective.tag);
         }
         else
         {
-            if (StillInRange())
-            {
-                Debug.Log("ATACANDO");
-                AttackEnemy(objective);
-            }
-            else
+            if (!StillInRange())
             {
                 objective = AnyoneToAttack();
             }
@@ -128,11 +123,10 @@ public class TowerScript : MonoBehaviour
     //Si segueix en rang enemic
     bool StillInRange()
     {
-        bool inRange;
-        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.z - objective.transform.position.z) < stats.range)
-            inRange = true;
-        else inRange = false;
-        return inRange;
+        float distance;
+        distance = Vector3.Distance(pos, objective.transform.position);
+        if (Mathf.Abs(distance) < stats.range) return true;
+        else return false;
     }
 
     //Augmenta el money
@@ -185,9 +179,16 @@ public class TowerScript : MonoBehaviour
         return closest;
     }
 
-    private void AttackEnemy(GameObject objective)
+    IEnumerator AttackEnemy()
     {
-        objective.GetComponent<Troop>().TakeDamage(stats.damage);
+        Debug.Log("Entro en attack");
+        if (StillInRange())
+        {
+            Debug.Log("Estoy atacando");
+            objective.GetComponent<Troop>().TakeDamage(stats.damage);
+        }
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(AttackEnemy());
     }
 
     public void TakeDamage(int damage)

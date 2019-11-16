@@ -35,7 +35,7 @@ public class Troop : MonoBehaviour
                     health = 350; // Vida original 350
                     area = 1f;
                     residualDamage = 0;
-                    damage = 70;
+                    damage = 70;    
                     range = 4f;
                     attackSpeed = 0.5f;
                     break;
@@ -140,9 +140,10 @@ public class Troop : MonoBehaviour
         pos = transform.position;
         foreach(GameObject go in gosTroops)
         {
-            Vector2 diff;
+            Vector3 diff;
             diff.x = go.transform.position.x - pos.x;
-            diff.y = go.transform.position.y - pos.y;
+            diff.y = 0;
+            diff.z = go.transform.position.z - pos.z;
             float curDistance = diff.sqrMagnitude;
             if(curDistance < distance)
             {
@@ -152,9 +153,10 @@ public class Troop : MonoBehaviour
         }
         foreach (GameObject go in gosTower)
         {
-            Vector2 diff;
+            Vector3 diff;
             diff.x = go.transform.position.x - pos.x;
-            diff.y = go.transform.position.y - pos.y;
+            diff.y = 0;
+            diff.z = go.transform.position.z - pos.z;
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
             {
@@ -174,7 +176,7 @@ public class Troop : MonoBehaviour
     private bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         bool inRange;
-        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.y - objective.transform.position.y) < stats.range)
+        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.z - objective.transform.position.z) < stats.range)
             inRange = true;
        else inRange = false;
        return inRange;
@@ -228,7 +230,7 @@ public class Troop : MonoBehaviour
                     troopObjective = DetectClosestEnemy();
                     FindPath(troopObjective);
                 }
-            }
+            } 
         }
         yield return new WaitForSeconds(this.stats.attackSpeed);
         StartCoroutine(Attack());
