@@ -34,7 +34,7 @@ public class Troop : MonoBehaviour
                     health = 350; // Vida original 350
                     area = 1f;
                     residualDamage = 0;
-                    damage = 70;
+                    damage = 70;    
                     range = 4f;
                     attackSpeed = 0.5f;
                     break;

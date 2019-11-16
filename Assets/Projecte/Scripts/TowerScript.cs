@@ -96,7 +96,7 @@ public class TowerScript : MonoBehaviour
         if (tag == "AllyTower") player = allyPlayer;
         else player = enemyPlayer;
         stats.SetStats(type);
-        StartCoroutine(AttackEnemy(objective));
+        StartCoroutine(AttackEnemy());
         StartCoroutine(WaitSec());
     }
 
@@ -123,7 +123,9 @@ public class TowerScript : MonoBehaviour
     //Si segueix en rang enemic
     bool StillInRange()
     {
-        if (Mathf.Abs(pos.x - objective.transform.position.x) < stats.range && Mathf.Abs(pos.z - objective.transform.position.z) < stats.range) return true;
+        float distance;
+        distance = Vector3.Distance(pos, objective.transform.position);
+        if (Mathf.Abs(distance) < stats.range) return true;
         else return false;
     }
 
@@ -177,17 +179,16 @@ public class TowerScript : MonoBehaviour
         return closest;
     }
 
-    IEnumerator AttackEnemy(GameObject _objective)
+    IEnumerator AttackEnemy()
     {
         Debug.Log("Entro en attack");
-        
-            Debug.Log(StillInRange());
-            if (StillInRange())
-            {
-                _objective.GetComponent<Troop>().TakeDamage(stats.damage);
-            }
+        if (StillInRange())
+        {
+            Debug.Log("Estoy atacando");
+            objective.GetComponent<Troop>().TakeDamage(stats.damage);
+        }
         yield return new WaitForSeconds(1f);
-        StartCoroutine(AttackEnemy(_objective));
+        StartCoroutine(AttackEnemy());
     }
 
     public void TakeDamage(int damage)

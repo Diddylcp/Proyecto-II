@@ -10,12 +10,7 @@ PrefabInstance:
     - target: {fileID: 2517467004685489819, guid: da2cdda9ed873f84dbf708dbe66ea70a,
         type: 3}
       propertyPath: m_Name
-      value: EnemyController
-      objectReference: {fileID: 0}
-    - target: {fileID: 7566825251111513996, guid: da2cdda9ed873f84dbf708dbe66ea70a,
-        type: 3}
-      propertyPath: userMoney
-      value: 560
+      value: EnemyEconomy
       objectReference: {fileID: 0}
     - target: {fileID: 4159486382500635600, guid: da2cdda9ed873f84dbf708dbe66ea70a,
         type: 3}
@@ -71,6 +66,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566825251111513996, guid: da2cdda9ed873f84dbf708dbe66ea70a,
+        type: 3}
+      propertyPath: userMoney
+      value: 560
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da2cdda9ed873f84dbf708dbe66ea70a, type: 3}
