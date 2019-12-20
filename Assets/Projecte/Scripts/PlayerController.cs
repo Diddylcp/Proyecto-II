@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public int userMoney;
+    private int userMoney;
 
     private void Start()
     {

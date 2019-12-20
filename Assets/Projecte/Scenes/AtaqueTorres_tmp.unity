@@ -339,7 +339,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415256503}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0010478637, y: 0.6877075, z: -0.72598636, w: 0.0011061886}
   m_LocalPosition: {x: -6.2074604, y: 142.71947, z: 217.50545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -349,7 +349,7 @@ Transform:
   - {fileID: 1831999178}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 86.898, y: 0, z: -179.82501}
 --- !u!4 &761349009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3143668057515220215, guid: 2be9e5e245276154dadb71117745b849,
@@ -501,7 +501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938304703}
   m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 5.5374603, y: 39.75, z: -72.54}
+  m_LocalPosition: {x: -10.8, y: 39.3, z: -71.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 415256504}
@@ -745,7 +745,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 96.950005, z: -96.825005}
 --- !u!1001 &1139772087
 PrefabInstance:
@@ -957,7 +957,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270793928}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0010478637, y: 0.6877075, z: -0.72598636, w: 0.0011061886}
   m_LocalPosition: {x: 1.0674711, y: 141.8105, z: 215.25908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -965,7 +965,7 @@ Transform:
   - {fileID: 1730768288}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 86.898, y: 0, z: -179.82501}
 --- !u!1 &1294880938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,6 +2014,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 801897399943422062, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2043155386}
+    - target: {fileID: 6676655837619833982, guid: 7b4d76d655aa745439f159e8a106e833,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1441381405}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b4d76d655aa745439f159e8a106e833, type: 3}
 --- !u!1001 &9058405230940813477

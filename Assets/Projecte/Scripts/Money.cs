@@ -13,13 +13,14 @@ public class Money : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        strMoney = "";
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        strMoney = player.userMoney.ToString();
+        strMoney = player.GetMoney().ToString();
         text.text = strMoney + ('$');
     }
 }

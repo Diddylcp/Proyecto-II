@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 71481914759088088}
   - component: {fileID: 71481914759088091}
   - component: {fileID: 71481914759088090}
-  - component: {fileID: 71481914759088093}
   - component: {fileID: 71481914759088092}
   - component: {fileID: 71481914759088095}
+  - component: {fileID: 1795156468382102651}
   m_Layer: 0
   m_Name: AllyTroop
   m_TagString: AllyTroop
@@ -81,28 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &71481914759088093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71481914759088065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c002a11cb65f7d848aaad42173b9d615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipus: 1
-  pos: {x: 0, y: 0}
-  team: 
-  troopObjective: {fileID: 0}
-  agent: {fileID: 71481914759088095}
-  MaterialTropaEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d,
-    type: 2}
-  MaterialTropaAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
-  barraVida: {fileID: 4408151442112685341}
-  barraVidaFill: {fileID: 6036461748799832908}
 --- !u!50 &71481914759088092
 Rigidbody2D:
   serializedVersion: 4
@@ -146,6 +124,27 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1795156468382102651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71481914759088065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea5372018d48a14eab3830d4d95a590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0}
+  team: 
+  troopObjective: {fileID: 0}
+  agent: {fileID: 71481914759088095}
+  MaterialTropaEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d,
+    type: 2}
+  MaterialTropaAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
+  barraVida: {fileID: 4408151442112685341}
+  barraVidaFill: {fileID: 6036461748799832908}
 --- !u!1 &1024347969689329053
 GameObject:
   m_ObjectHideFlags: 0
