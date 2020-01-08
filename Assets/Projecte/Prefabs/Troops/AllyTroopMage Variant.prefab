@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 71481914759088065, guid: e4e9393651af29b42a318f5bd49fb26e,
         type: 3}
       propertyPath: m_Name
-      value: AllyTroopMage
+      value: AllyTroopMage Variant
       objectReference: {fileID: 0}
     - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
         type: 3}
@@ -71,6 +71,11 @@ PrefabInstance:
         type: 3}
       propertyPath: tipus
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7088958888723345526, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4e9393651af29b42a318f5bd49fb26e, type: 3}
