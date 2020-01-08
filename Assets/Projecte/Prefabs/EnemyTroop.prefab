@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 4881171112713411444}
   - component: {fileID: 4881171112713411445}
   - component: {fileID: 4881171112713411442}
+  - component: {fileID: 3085116749188155575}
   - component: {fileID: 4881171112713411443}
   - component: {fileID: 4881171112713411440}
   m_Layer: 0
@@ -247,13 +248,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4881171112713411438}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c002a11cb65f7d848aaad42173b9d615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipus: 2
-  pos: {x: 0, y: 0}
+  pos: {x: 0, y: 0, z: 0}
   team: 
   troopObjective: {fileID: 0}
   agent: {fileID: 4881171112713411440}
@@ -262,6 +262,29 @@ MonoBehaviour:
   MaterialTropaAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
   barraVida: {fileID: 808554455652734252}
   barraVidaFill: {fileID: 2067723300378757955}
+  cam: {fileID: 0}
+--- !u!114 &3085116749188155575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881171112713411438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c992a3c08ae6740b90ed684bfef4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0, z: 0}
+  team: 
+  troopObjective: {fileID: 0}
+  agent: {fileID: 4881171112713411440}
+  MaterialTropaEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d,
+    type: 2}
+  MaterialTropaAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
+  barraVida: {fileID: 808554455652734252}
+  barraVidaFill: {fileID: 2067723300378757955}
+  cam: {fileID: 0}
 --- !u!50 &4881171112713411443
 Rigidbody2D:
   serializedVersion: 4

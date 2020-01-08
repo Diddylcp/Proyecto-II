@@ -27,7 +27,6 @@ public struct TowerStates
                 moneyPerSecond = 10;
                 area = 0;
                 break;
-
             case TowerType.MAGE_TOWER:
                 health = 1800;
                 damage = 40;

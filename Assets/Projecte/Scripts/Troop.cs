@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
 {
-    public enum troopType {MAGE, ARCHER, WARRIOR, PRIEST, COUNT};
-    public troopType tipus;
+   // public enum troopType {MAGE, ARCHER, WARRIOR, PRIEST, COUNT};
+   // public troopType tipus;
     public struct ability
     {
         public float health;
@@ -17,7 +17,7 @@ public class Troop : MonoBehaviour
         public int damage;
         public float range;
         public float attackSpeed;
-        public void SetStats(troopType _tipus)
+       /* public void SetStats(troopType _tipus)
         {
             switch (_tipus)
             {
@@ -40,13 +40,7 @@ public class Troop : MonoBehaviour
                     attackSpeed = 0.5f;
                     break;
                 case troopType.WARRIOR:
-                    movSpeed = 0.75f;
-                    health = 500;   // Vida original 700
-                    area = 1f;
-                    residualDamage = 0;
-                    damage = 100;
-                    range = 2f;
-                    attackSpeed = 1f;
+                    
                     break;
                 case troopType.PRIEST:
                     movSpeed = 1f;
@@ -68,28 +62,28 @@ public class Troop : MonoBehaviour
                     break;
 
             }
-        }
+        }*/
     };
-    private float startHealth;
+    protected float startHealth;
     public Vector3 pos;
     public string team;
     //public GameObject player;
     public ability stats;
     public GameObject troopObjective;
-    private Rigidbody2D rb2D;
+    protected Rigidbody2D rb2D;
     public NavMeshAgent agent;
     [SerializeField] private Material MaterialTropaEnemigo;
     [SerializeField] private Material MaterialTropaAliado;
     public Transform barraVida;
     public Transform barraVidaFill;
 
-    private Transform cam;
+    [SerializeField]protected Transform cam;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {      
-        stats.SetStats(tipus);
-        startHealth = stats.health;
+        //stats.SetStats(tipus);
+        
         pos = transform.position;
         team = tag;
         if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
@@ -102,7 +96,7 @@ public class Troop : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if(troopObjective == null)
         {
@@ -119,7 +113,7 @@ public class Troop : MonoBehaviour
         }
         AmIAlive();
         barraVida.transform.forward = cam.transform.forward;
-    }
+    }*/
 
     public GameObject DetectClosestEnemy()
     {
@@ -159,30 +153,30 @@ public class Troop : MonoBehaviour
         return closest;
     }
 
-    private void FindPath( GameObject _troopObjective)  // Move the troop to the objective
+    protected void FindPath( GameObject _troopObjective)  // Move the troop to the objective
     {
         agent.SetDestination(_troopObjective.transform.position);
     }
 
 
-    private bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
+    protected bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         float distance;
         distance = Vector3.Distance(pos, objective.transform.position);
         return (Mathf.Abs(distance) < stats.range);
     }
 
-    private void AttackEnemy(GameObject enemy)          // Attacks the enemy
+    protected void AttackEnemy(GameObject enemy)          // Attacks the enemy
     {
         enemy.GetComponent<Troop>().TakeDamage(stats.damage);       
     }
 
-    private void AttackTower(GameObject tower)          // Attacks the tower
+    protected void AttackTower(GameObject tower)          // Attacks the tower
     {
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
     }
 
-    private void AmIAlive()                             // Checks if he is alive
+    protected void AmIAlive()                             // Checks if he is alive
     {
         if(stats.health <= 0)
         {
@@ -190,7 +184,7 @@ public class Troop : MonoBehaviour
         }
     }
 
-    private void CapturingTower(GameObject _tower)      // Captures the tower
+    protected void CapturingTower(GameObject _tower)      // Captures the tower
     {
 
     }
@@ -198,7 +192,6 @@ public class Troop : MonoBehaviour
     public void TakeDamage(int _damage)
     {
         stats.health -= _damage;
-
         barraVidaFill.localScale = new Vector2(stats.health / startHealth, barraVidaFill.localScale.y);
     }
 
@@ -210,7 +203,7 @@ public class Troop : MonoBehaviour
             if (troopObjective.GetComponent<Troop>() != null)
             {
                 AttackEnemy(troopObjective);
-                Debug.Log("Tropa que ataca: " + tipus + " Mi vida: " + this.stats.health);
+              //  Debug.Log("Tropa que ataca: " + tipus + " Mi vida: " + this.stats.health);
             }
             else if (troopObjective.GetComponent<TowerScript>() != null)
             {
