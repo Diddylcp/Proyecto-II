@@ -10,61 +10,37 @@ public class Troop : MonoBehaviour
    // public troopType tipus;
     public struct ability
     {
-        public float health;
+        [SerializeField]public float health;
         public float movSpeed;
         public float area;
         public int residualDamage;
         public int damage;
         public float range;
         public float attackSpeed;
-       /* public void SetStats(troopType _tipus)
-        {
-            switch (_tipus)
-            {
-                case troopType.MAGE:
-                    movSpeed = 1.25f;
-                    health = 400;
-                    area = 2f;
-                    residualDamage = 0;
-                    damage = 150;
-                    range = 8f;
-                    attackSpeed = 0.8f;
-                    break;
-                case troopType.ARCHER:
-                    movSpeed = 1f;
-                    health = 350; // Vida original 350
-                    area = 1f;
-                    residualDamage = 0;
-                    damage = 70;    
-                    range = 4f;
-                    attackSpeed = 0.5f;
-                    break;
-                case troopType.WARRIOR:
-                    
-                    break;
-                case troopType.PRIEST:
-                    movSpeed = 1f;
-                    health = 450;
-                    area = 1f;
-                    residualDamage = 0;
-                    damage = 20;
-                    range = 10f;
-                    attackSpeed = 0.5f;
-                    break;
-                default:
-                    movSpeed = 0f;
-                    health = 0;
-                    area = 0f;
-                    residualDamage = 0;
-                    damage = 0;
-                    range = 0f;
-                    attackSpeed = 0f;
-                    break;
+        /* public void SetStats(troopType _tipus)
+         {
+             switch (_tipus)
+             {
+                 case troopType.MAGE:
 
-            }
-        }*/
+                     break;
+                 case troopType.ARCHER:
+
+                     break;
+                 case troopType.WARRIOR:
+
+                     break;
+                 case troopType.PRIEST:
+                   
+                     break;
+                 default:
+
+                     break;
+
+             }
+         }*/
     };
-    protected float startHealth;
+    [SerializeField]protected float startHealth;
     public Vector3 pos;
     public string team;
     //public GameObject player;
@@ -77,7 +53,7 @@ public class Troop : MonoBehaviour
     public Transform barraVida;
     public Transform barraVidaFill;
 
-    [SerializeField]protected Transform cam;
+    protected Transform cam;
     
     // Start is called before the first frame update
     void Awake()
@@ -94,26 +70,6 @@ public class Troop : MonoBehaviour
 
         cam = Camera.main.transform;
     }
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        if(troopObjective == null)
-        {
-            troopObjective = DetectClosestEnemy();
-        }
-        else
-        {
-            if (!StillInRange(troopObjective))
-            {
-                agent.isStopped = false;
-                troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
-                FindPath(troopObjective);                           // Moves towards the closest enemy
-            }
-        }
-        AmIAlive();
-        barraVida.transform.forward = cam.transform.forward;
-    }*/
 
     public GameObject DetectClosestEnemy()
     {

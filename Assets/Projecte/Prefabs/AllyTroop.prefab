@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 71481914759088088}
   - component: {fileID: 71481914759088091}
   - component: {fileID: 71481914759088090}
-  - component: {fileID: 71481914759088093}
+  - component: {fileID: 7088958888723345526}
   - component: {fileID: 71481914759088092}
   - component: {fileID: 71481914759088095}
   m_Layer: 0
@@ -81,7 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &71481914759088093
+--- !u!114 &7088958888723345526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,11 +90,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 71481914759088065}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c002a11cb65f7d848aaad42173b9d615, type: 3}
+  m_Script: {fileID: 11500000, guid: 41f25ee11693a85439dbf8a4f0f89e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipus: 1
-  pos: {x: 0, y: 0}
+  startHealth: 0
+  pos: {x: 0, y: 0, z: 0}
   team: 
   troopObjective: {fileID: 0}
   agent: {fileID: 71481914759088095}
