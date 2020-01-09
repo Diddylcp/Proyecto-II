@@ -20,8 +20,8 @@ public struct TowerStates
         switch (tipo)
         {
             case TowerType.NORMAL:
-                health = 750;       // Vida original 1500
-                damage = 30;
+                health = 1000;       // Vida original 1500
+                damage = 120;
                 attackSpeed = 0.8f;
                 range = 12;
                 moneyPerSecond = 10;

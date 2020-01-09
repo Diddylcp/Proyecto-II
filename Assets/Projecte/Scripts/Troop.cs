@@ -17,28 +17,6 @@ public class Troop : MonoBehaviour
         public int damage;
         public float range;
         public float attackSpeed;
-        /* public void SetStats(troopType _tipus)
-         {
-             switch (_tipus)
-             {
-                 case troopType.MAGE:
-
-                     break;
-                 case troopType.ARCHER:
-
-                     break;
-                 case troopType.WARRIOR:
-
-                     break;
-                 case troopType.PRIEST:
-                   
-                     break;
-                 default:
-
-                     break;
-
-             }
-         }*/
     };
     [SerializeField]protected float startHealth;
     public Vector3 pos;
