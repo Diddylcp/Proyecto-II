@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
 {
+   
    // public enum troopType {MAGE, ARCHER, WARRIOR, PRIEST, COUNT};
    // public troopType tipus;
     public struct ability
@@ -30,13 +31,13 @@ public class Troop : MonoBehaviour
     [SerializeField] private Material MaterialTropaAliado;
     public Transform barraVida;
     public Transform barraVidaFill;
+    public GameObject projectile;
 
     protected Transform cam;
     
     // Start is called before the first frame update
     void Awake()
     {      
-        //stats.SetStats(tipus);
         
         pos = transform.position;
         team = tag;
@@ -45,7 +46,6 @@ public class Troop : MonoBehaviour
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         troopObjective = DetectClosestEnemy();
         StartCoroutine(Attack());
-
         cam = Camera.main.transform;
     }
 
@@ -102,12 +102,13 @@ public class Troop : MonoBehaviour
 
     protected void AttackEnemy(GameObject enemy)          // Attacks the enemy
     {
-        enemy.GetComponent<Troop>().TakeDamage(stats.damage);       
+        enemy.GetComponent<Troop>().TakeDamage(stats.damage);
     }
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
     {
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
+        
     }
 
     protected void AmIAlive()                             // Checks if he is alive
@@ -137,11 +138,12 @@ public class Troop : MonoBehaviour
             if (troopObjective.GetComponent<Troop>() != null)
             {
                 AttackEnemy(troopObjective);
-              //  Debug.Log("Tropa que ataca: " + tipus + " Mi vida: " + this.stats.health);
+                ShootProjectile();
             }
             else if (troopObjective.GetComponent<TowerScript>() != null)
             {
                 AttackTower(troopObjective);
+                ShootProjectile();
                 if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
                 {
                     troopObjective = DetectClosestEnemy();
@@ -151,5 +153,10 @@ public class Troop : MonoBehaviour
         }
         yield return new WaitForSeconds(this.stats.attackSpeed);
         StartCoroutine(Attack());
+    }
+
+    protected void ShootProjectile()
+    {
+        GameObject projectileSpawned = Instantiate(projectile, this.transform.position, this.transform.rotation) as GameObject;
     }
 }

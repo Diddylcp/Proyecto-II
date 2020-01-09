@@ -103,6 +103,8 @@ MonoBehaviour:
   MaterialTropaAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
   barraVida: {fileID: 4408151442112685341}
   barraVidaFill: {fileID: 6036461748799832908}
+  projectile: {fileID: 5876749387759512449, guid: cdddffa6a48b3bb499b5193311532e2e,
+    type: 3}
 --- !u!50 &71481914759088092
 Rigidbody2D:
   serializedVersion: 4
