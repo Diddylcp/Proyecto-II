@@ -9,6 +9,7 @@ TagManager:
   - AllyTroop
   - EnemyTroop
   - EnemyController
+  - EnemyRespawn
   layers:
   - Default
   - TransparentFX
