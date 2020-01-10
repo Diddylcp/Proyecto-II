@@ -12,7 +12,7 @@ public class ArcherTroop : Troop
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 70;
-        stats.range = 4f;
+        stats.range = 10f;
         stats.attackSpeed = 0.5f;
     }
 

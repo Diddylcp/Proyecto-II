@@ -39,4 +39,6 @@ public class MageTroop : Troop
         AmIAlive();
         barraVida.transform.forward = cam.transform.forward;
     }
+
+    
 }

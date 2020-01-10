@@ -22,6 +22,8 @@ MonoBehaviour:
   MaterialTropaAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
   barraVida: {fileID: 7087178658917288635}
   barraVidaFill: {fileID: 915216896399027434}
+  projectile: {fileID: 3284185663800144625, guid: b641cb8bc871a3946801b823ca56758f,
+    type: 3}
 --- !u!1001 &6878774615640780710
 PrefabInstance:
   m_ObjectHideFlags: 0

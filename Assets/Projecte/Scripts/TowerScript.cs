@@ -175,14 +175,17 @@ public class TowerScript : MonoBehaviour
 
     IEnumerator AttackEnemy()
     {
-        Debug.Log("Entro en attack");
-        if (StillInRange())
+        if(objective != null)
         {
-            if((objective.tag == "AllyTroop" && this.tag == "EnemyTower") || (objective.tag == "EnemyTroop" && this.tag == "AllyTower"))
-                objective.GetComponent<Troop>().TakeDamage(stats.damage);
+            if (StillInRange())
+            {
+                if ((objective.tag == "AllyTroop" && this.tag == "EnemyTower") || (objective.tag == "EnemyTroop" && this.tag == "AllyTower"))
+                    objective.GetComponent<Troop>().TakeDamage(stats.damage);
+            }
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(AttackEnemy());
         }
         yield return new WaitForSeconds(1f);
-        StartCoroutine(AttackEnemy());
     }
 
     public void TakeDamage(int damage)
