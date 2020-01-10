@@ -6,22 +6,24 @@ public class ProjectileMovement : MonoBehaviour
 {
     private AudioSource projectileAudio;
     public float speed;
+    Vector3 pos;
+    public float range;
 
     void Start()
     {
         projectileAudio = GetComponent<AudioSource>();
         projectileAudio.Play();
+        pos = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position += transform.forward * (speed * Time.deltaTime);
-    }
-
-    void OnCollisionEnter(Collision co)
-    {
-        speed = 0;
-        Destroy(this.gameObject);
+        
+        if (Mathf.Abs(Vector3.Distance(pos, this.transform.position)) > range)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

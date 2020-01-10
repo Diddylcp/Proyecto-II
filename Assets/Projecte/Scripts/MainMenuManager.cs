@@ -19,4 +19,9 @@ public class MainMenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void GoToTutorialMap()
+    {
+        SceneManager.LoadScene("2D");
+    }
 }

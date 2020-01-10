@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Projecte/Scenes/MainMenu.unity
     guid: 1aa87237057749943a02a61213a38197
-  - enabled: 0
-    path: Assets/Projecte/Scenes/2D_Spawn_Enemic_Funcional.unity
-    guid: 4a8c29059d926054985b26388242ca0a
   - enabled: 1
     path: Assets/Projecte/Scenes/Controles.unity
     guid: dbe89407f66e4b74981cb32559435c53
   - enabled: 1
     path: Assets/Projecte/Scenes/Level1.unity
     guid: 97c4f0c53cc375246b4f741903bcfaf6
+  - enabled: 1
+    path: Assets/Projecte/Scenes/2D.unity
+    guid: a7d71ccfc2e7c4c4ab3d02492b58d2f4
   m_configObjects: {}

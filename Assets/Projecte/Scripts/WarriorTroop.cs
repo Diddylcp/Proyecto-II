@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WarriorTroop : Troop
 {
+    private AudioSource swordAudio;
     // Start is called before the first frame update
     public WarriorTroop()
     {
@@ -17,7 +18,8 @@ public class WarriorTroop : Troop
     }
 
     void Start()
-    {  
+    {
+        swordAudio = GetComponent<AudioSource>();
         startHealth = stats.health;
     }
 
@@ -39,4 +41,6 @@ public class WarriorTroop : Troop
         AmIAlive();
         barraVida.transform.forward = cam.transform.forward;
     }
+
+    
 }
