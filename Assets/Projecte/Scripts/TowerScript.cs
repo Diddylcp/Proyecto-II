@@ -21,7 +21,7 @@ public struct TowerStates
         {
             case TowerType.NORMAL:
                 health = 1000;       // Vida original 1500
-                damage = 120;
+                damage = 130;
                 attackSpeed = 0.8f;
                 range = 12;
                 moneyPerSecond = 10;
@@ -180,12 +180,13 @@ public class TowerScript : MonoBehaviour
             if (StillInRange())
             {
                 if ((objective.tag == "AllyTroop" && this.tag == "EnemyTower") || (objective.tag == "EnemyTroop" && this.tag == "AllyTower"))
+                {
                     objective.GetComponent<Troop>().TakeDamage(stats.damage);
-            }
-            yield return new WaitForSeconds(1f);
-            StartCoroutine(AttackEnemy());
+                }
+            }                
         }
         yield return new WaitForSeconds(1f);
+        StartCoroutine(AttackEnemy());
     }
 
     public void TakeDamage(int damage)

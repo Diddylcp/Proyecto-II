@@ -13,7 +13,7 @@ public class WarriorTroop : Troop
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 100;
-        stats.range = 2f;
+        stats.range = 4f;
         stats.attackSpeed = 1f;
     }
 

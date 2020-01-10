@@ -33,6 +33,7 @@ public class Troop : MonoBehaviour
     public Transform barraVidaFill;
     public GameObject projectile;
 
+    public ProjectileMovement projectileAttack;
     protected Transform cam;
     
     // Start is called before the first frame update
@@ -55,8 +56,7 @@ public class Troop : MonoBehaviour
         if (tag == "AllyTroop")
         {
             gosTower = GameObject.FindGameObjectsWithTag("EnemyTower");
-            gosTroops = GameObject.FindGameObjectsWithTag("EnemyTroop");
-            
+            gosTroops = GameObject.FindGameObjectsWithTag("EnemyTroop");    
         }
         else
         {
@@ -130,6 +130,11 @@ public class Troop : MonoBehaviour
         barraVidaFill.localScale = new Vector2(stats.health / startHealth, barraVidaFill.localScale.y);
     }
 
+    public Quaternion vectorRotation(Vector3 thisPos, Vector3 targetPos)
+    {
+        return Quaternion.LookRotation(targetPos) * Quaternion.Inverse(Quaternion.LookRotation(thisPos));
+    }
+
     IEnumerator Attack()
     {
         if (StillInRange(troopObjective))
@@ -157,6 +162,7 @@ public class Troop : MonoBehaviour
 
     protected void ShootProjectile()
     {
-        GameObject projectileSpawned = Instantiate(projectile, this.transform.position, this.transform.rotation) as GameObject;
+        Vector3 vectorToEnemy = troopObjective.transform.position - this.pos;
+        GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
     }
 }
