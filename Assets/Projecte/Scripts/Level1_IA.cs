@@ -31,7 +31,6 @@ public class Level1_IA : MonoBehaviour
         gosTower = GameObject.FindGameObjectsWithTag("EnemyTower");
         GameObject closest = null;
         float distance = Mathf.Infinity;
-        referencePointSpawn = transform.position;
         foreach (GameObject go in gosTower)
         {
             float curDistance = Vector3.Distance(referencePointSpawn, go.transform.position);

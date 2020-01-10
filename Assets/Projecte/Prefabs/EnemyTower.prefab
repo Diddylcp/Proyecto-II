@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allyPlayer: {fileID: 0}
   enemyPlayer: {fileID: 0}
+  respawnArea: {fileID: 9058405230307760929}
   MaterialEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d, type: 2}
   MaterialAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
   team: 
@@ -124,7 +125,7 @@ GameObject:
   - component: {fileID: 9058405230307760928}
   m_Layer: 0
   m_Name: Area de Spawn
-  m_TagString: Respawn
+  m_TagString: EnemyRespawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8

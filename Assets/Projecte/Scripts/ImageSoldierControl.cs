@@ -27,7 +27,6 @@ public class ImageSoldierControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SetSoldierPosition();
-            BuySoldier();
         }
 
 
@@ -62,6 +61,7 @@ public class ImageSoldierControl : MonoBehaviour
                 selectPosition = hit.point;
                 selectPosition.y += 1;               
                 Instantiate(soldier, selectPosition, Quaternion.identity);
+                BuySoldier();
                 Destroy(canvas);
             }
         }

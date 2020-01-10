@@ -84,6 +84,7 @@ public class TowerScript : MonoBehaviour
     GameObject objective;  //Al que atacara
     Vector3 pos;
     Vector2 posMouse;
+    public GameObject respawnArea;
     bool isClicked = false;
 
 
@@ -205,6 +206,7 @@ public class TowerScript : MonoBehaviour
             this.GetComponent<MeshRenderer>().material = MaterialEnemigo;
             stats.health = 1500;
             player = enemyPlayer;
+            respawnArea.tag = "EnemyRespawn";
             
         }
         else if(team == "EnemyTower")
@@ -213,6 +215,7 @@ public class TowerScript : MonoBehaviour
             this.GetComponent<MeshRenderer>().material = MaterialAliado;
             stats.health = 1500;
             player = allyPlayer;
+            respawnArea.tag = "Respawn";
         }
         team = this.tag;
         
