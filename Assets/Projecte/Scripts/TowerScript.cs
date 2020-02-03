@@ -82,7 +82,7 @@ public class TowerScript : MonoBehaviour
     private float speed;
     TowerType type;
     GameObject objective;  //Al que atacara
-    Vector3 pos;
+    Vector2 pos;
     Vector2 posMouse;
     public GameObject respawnArea;
     bool isClicked = false;

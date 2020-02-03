@@ -31,9 +31,7 @@ public class MageTroop : Troop
         {
             if (!StillInRange(troopObjective))
             {
-                agent.isStopped = false;
                 troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
-                FindPath(troopObjective);                           // Moves towards the closest enemy
             }
         }
         AmIAlive();
