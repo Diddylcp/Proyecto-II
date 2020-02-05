@@ -182,7 +182,7 @@ public class TowerScript : MonoBehaviour
             {
                 if ((objective.tag == "AllyTroop" && this.tag == "EnemyTower") || (objective.tag == "EnemyTroop" && this.tag == "AllyTower"))
                 {
-                    objective.GetComponent<Troop>().TakeDamage(stats.damage);
+                    //objective.GetComponent<Troop>().TakeDamage(stats.damage);
                 }
             }                
         }

@@ -6,9 +6,6 @@ using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
 {
-   
-   // public enum troopType {MAGE, ARCHER, WARRIOR, PRIEST, COUNT};
-   // public troopType tipus;
     public struct ability
     {
         [SerializeField]public float health;
@@ -26,8 +23,8 @@ public class Troop : MonoBehaviour
     public ability stats;
     public GameObject troopObjective;
     protected Rigidbody2D rb2D;
-    [SerializeField] private Material MaterialTropaEnemigo;
-    [SerializeField] private Material MaterialTropaAliado;
+    //[SerializeField] private Material MaterialTropaEnemigo;
+    //[SerializeField] private Material MaterialTropaAliado;
     public Transform barraVida;
     public Transform barraVidaFill;
     public GameObject projectile;
@@ -35,23 +32,24 @@ public class Troop : MonoBehaviour
     Vector2[] path;
     int targetIndex;
 
-    public ProjectileMovement projectileAttack;
     protected Transform cam;
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pos = transform.position;
         team = tag;
         troopObjective = DetectClosestEnemy();
         Debug.Log(troopObjective);
-        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
-        if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
-        else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
+        //if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
+        //else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         troopObjective = DetectClosestEnemy();
         StartCoroutine(Attack());
         cam = Camera.main.transform;
+    }
+
+    private void Update()
+    {
     }
 
     public GameObject DetectClosestEnemy()
@@ -173,7 +171,7 @@ public class Troop : MonoBehaviour
     {
         Vector2 currWaypoint = path[0];
 
-        while (StillInRange(troopObjective))
+        while (!StillInRange(troopObjective))
         {
             if ((Vector2)transform.position == currWaypoint)
             {
