@@ -37,7 +37,7 @@ public class WarriorTroop : Troop
             }
         }
         AmIAlive();
-        barraVida.transform.forward = cam.transform.forward;
+       // barraVida.transform.forward = cam.transform.forward;
     }
 
     

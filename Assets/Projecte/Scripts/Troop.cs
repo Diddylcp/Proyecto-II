@@ -39,12 +39,13 @@ public class Troop : MonoBehaviour
     protected Transform cam;
     
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        troopObjective = DetectClosestEnemy();
-        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
         pos = transform.position;
         team = tag;
+        troopObjective = DetectClosestEnemy();
+        Debug.Log(troopObjective);
+        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
         if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
         else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
@@ -115,6 +116,7 @@ public class Troop : MonoBehaviour
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
     {
+        Debug.Log("Atacando");
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
         
     }
@@ -192,4 +194,26 @@ public class Troop : MonoBehaviour
         Vector3 vectorToEnemy = (Vector2)troopObjective.transform.position - this.pos;
         GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
     }
+
+    public void OnDrawGizmos()
+    {
+        if (path != null)
+        {
+            for (int i = targetIndex; i < path.Length; i++)
+            {
+                Gizmos.color = Color.black;
+                Gizmos.DrawCube(path[i], Vector2.one);
+
+                if (i == targetIndex)
+                {
+                    Gizmos.DrawLine((Vector2)transform.position, path[i]);
+                }
+                else
+                {
+                    Gizmos.DrawLine(path[i - 1], path[i]);
+                }
+            }
+        }
+    }
+
 }
