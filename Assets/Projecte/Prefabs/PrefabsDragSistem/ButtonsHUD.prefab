@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 1375919470943759908}
   - component: {fileID: 233078119134718721}
   m_Layer: 5
-  m_Name: ButtonsHUD 1
+  m_Name: ButtonsHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
