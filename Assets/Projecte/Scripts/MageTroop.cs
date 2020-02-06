@@ -12,7 +12,7 @@ public class MageTroop : Troop
         stats.area = 2f;
         stats.residualDamage = 0;
         stats.damage = 150;
-        stats.range = 8f;
+        stats.range = 3f;
         stats.attackSpeed = 0.8f;
     }
 
@@ -23,6 +23,7 @@ public class MageTroop : Troop
 
     void Update()
     {
+        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
         if (troopObjective == null)
         {
             troopObjective = DetectClosestEnemy();

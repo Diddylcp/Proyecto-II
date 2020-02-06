@@ -12,7 +12,7 @@ public class ArcherTroop : Troop
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 70;
-        stats.range = 10f;
+        stats.range = 3f;
         stats.attackSpeed = 0.5f;
     }
 
@@ -23,6 +23,7 @@ public class ArcherTroop : Troop
 
     void Update()
     {
+        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
         if (troopObjective == null)
         {
             troopObjective = DetectClosestEnemy();

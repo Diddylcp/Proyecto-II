@@ -48,10 +48,6 @@ public class Troop : MonoBehaviour
         cam = Camera.main.transform;
     }
 
-    private void Update()
-    {
-    }
-
     public GameObject DetectClosestEnemy()
     {
         GameObject[] gosTroops, gosTower;
