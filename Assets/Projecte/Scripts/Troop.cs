@@ -39,7 +39,6 @@ public class Troop : MonoBehaviour
         pos = transform.position;
         team = tag;
         troopObjective = DetectClosestEnemy();
-        Debug.Log(troopObjective);
         //if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
         //else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
