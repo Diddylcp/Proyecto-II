@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - AllyTower
+  - EnemyTower
+  - AllyTroop
+  - EnemyTroop
+  - EnemyController
+  - EnemyRespawn
   layers:
   - Default
   - TransparentFX
@@ -14,7 +20,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
+  - BG
   - 
   - 
   - 
