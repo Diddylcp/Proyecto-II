@@ -13,7 +13,7 @@ public class WarriorTroop : Troop
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 100;
-        stats.range = 4f;
+        stats.range = 1f;
         stats.attackSpeed = 1f;
     }
 
@@ -25,6 +25,8 @@ public class WarriorTroop : Troop
 
     void Update()
     {
+        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
+
         if (troopObjective == null)
         {
             troopObjective = DetectClosestEnemy();
@@ -33,13 +35,11 @@ public class WarriorTroop : Troop
         {
             if (!StillInRange(troopObjective))
             {
-                agent.isStopped = false;
                 troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
-                FindPath(troopObjective);                           // Moves towards the closest enemy
             }
         }
         AmIAlive();
-        barraVida.transform.forward = cam.transform.forward;
+       // barraVida.transform.forward = cam.transform.forward;
     }
 
     

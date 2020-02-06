@@ -197,8 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74d11bd979e87b4f98f992a1739fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allyPlayer: {fileID: 0}
-  enemyPlayer: {fileID: 0}
+  allyPlayer: {fileID: 7566825251111513996, guid: da2cdda9ed873f84dbf708dbe66ea70a,
+    type: 3}
+  enemyPlayer: {fileID: 8966115304980380644, guid: cf235a2388368ab439efc7f9cc76884f,
+    type: 3}
   respawnArea: {fileID: 3143668057444573071}
   MaterialEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d, type: 2}
   MaterialAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
