@@ -76,7 +76,7 @@ public struct TowerStates
 
 public class TowerScript : MonoBehaviour
 {
-    private PlayerController player;// jugador el que controla
+    public PlayerController player;// jugador el que controla
     [SerializeField] PlayerController allyPlayer, enemyPlayer;
     TowerStates stats;
     private float speed;
@@ -86,7 +86,8 @@ public class TowerScript : MonoBehaviour
     Vector2 posMouse;
     public GameObject respawnArea;
     bool isClicked = false;
-    public GameObject enhanceButtons;
+    public MilloresTower enhanceButtons;
+    MilloresTower hudEnhance;
     Vector3 positionToShowEnhance; 
 
     // Start is called before the first frame update
@@ -151,8 +152,9 @@ public class TowerScript : MonoBehaviour
         {
             
             isClicked = false;
-            Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
-          
+            hudEnhance = Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
+            hudEnhance.tower = this;   
+
             print("click");
         }
         else
