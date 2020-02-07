@@ -91,8 +91,8 @@ public class Troop : MonoBehaviour
         if (success)
         {
             path = newPath;
-            StopCoroutine("FollowPath");
-            StartCoroutine("FollowPath");
+            StopCoroutine(FollowPath());
+            StartCoroutine(FollowPath());
         }
     }
 
@@ -102,7 +102,7 @@ public class Troop : MonoBehaviour
         float distance;
        // distance = Vector3.Distance(pos, objective.transform.position);
         distance = Vector2.Distance(pos, (Vector2)objective.transform.position);
-        return (Mathf.Abs(distance) < stats.range);
+        return (distance < stats.range);
     }
 
     protected void AttackEnemy(GameObject enemy)          // Attacks the enemy
@@ -159,7 +159,7 @@ public class Troop : MonoBehaviour
                 if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
                 {
                     troopObjective = DetectClosestEnemy();
-                    PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
+                    //PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
                 }
             } 
         }
@@ -174,14 +174,9 @@ public class Troop : MonoBehaviour
         {
             while (!StillInRange(troopObjective))
             {  
-                if ((Vector2)transform.position == currWaypoint)
-                {
-                    targetIndex++;
-                    if (targetIndex >= path.Length)
-                    {
-                        yield break;
-                    }
-                    currWaypoint = path[targetIndex];
+                if (Vector2.Distance(transform.position, currWaypoint) < 0.1f)
+                { 
+                    PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
                 }
                 transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
                 yield return null;
