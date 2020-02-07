@@ -86,7 +86,7 @@ public class TowerScript : MonoBehaviour
     Vector2 posMouse;
     public GameObject respawnArea;
     bool isClicked = false;
-
+    public GameObject enhanceButtons;
 
     // Start is called before the first frame update
     void Start()
@@ -148,6 +148,8 @@ public class TowerScript : MonoBehaviour
         if (isClicked)
         {
             isClicked = false;
+            Instantiate(enhanceButtons, this.pos, Quaternion.identity);
+            print("click");
         }
         else
         {
