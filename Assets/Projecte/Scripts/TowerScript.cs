@@ -87,10 +87,12 @@ public class TowerScript : MonoBehaviour
     public GameObject respawnArea;
     bool isClicked = false;
     public GameObject enhanceButtons;
+    Vector3 positionToShowEnhance; 
 
     // Start is called before the first frame update
     void Start()
     {
+        positionToShowEnhance = new Vector3(454.3f, 36.9375f, 0);
         type = TowerType.NORMAL;
         objective = AnyoneToAttack();
         if (tag == "AllyTower") player = allyPlayer;
@@ -147,8 +149,10 @@ public class TowerScript : MonoBehaviour
     {
         if (isClicked)
         {
+            
             isClicked = false;
-            Instantiate(enhanceButtons, this.pos, Quaternion.identity);
+            Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
+          
             print("click");
         }
         else
