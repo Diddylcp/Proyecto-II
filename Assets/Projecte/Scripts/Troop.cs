@@ -100,7 +100,8 @@ public class Troop : MonoBehaviour
     protected bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         float distance;
-        distance = Vector3.Distance(pos, objective.transform.position);
+       // distance = Vector3.Distance(pos, objective.transform.position);
+        distance = Vector2.Distance(pos, (Vector2)objective.transform.position);
         return (Mathf.Abs(distance) < stats.range);
     }
 
@@ -121,6 +122,7 @@ public class Troop : MonoBehaviour
     {
         if(stats.health <= 0)
         {
+            StopAllCoroutines();
             Destroy(this.gameObject);
         }
     }
@@ -168,20 +170,22 @@ public class Troop : MonoBehaviour
     IEnumerator FollowPath()
     {
         Vector2 currWaypoint = path[0];
-
-        while (!StillInRange(troopObjective))
+        if (troopObjective != null)
         {
-            if ((Vector2)transform.position == currWaypoint)
-            {
-                targetIndex++;
-                if (targetIndex >= path.Length)
+            while (!StillInRange(troopObjective))
+            {  
+                if ((Vector2)transform.position == currWaypoint)
                 {
-                    yield break;
+                    targetIndex++;
+                    if (targetIndex >= path.Length)
+                    {
+                        yield break;
+                    }
+                    currWaypoint = path[targetIndex];
                 }
-                currWaypoint = path[targetIndex];
+                transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
+                yield return null;
             }
-            transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
-            yield return null;
         }
     }
 
@@ -198,7 +202,7 @@ public class Troop : MonoBehaviour
             for (int i = targetIndex; i < path.Length; i++)
             {
                 Gizmos.color = Color.black;
-                Gizmos.DrawCube(path[i], Vector2.one);
+                Gizmos.DrawCube(path[i], new Vector2(0.12f, 0.12f));
 
                 if (i == targetIndex)
                 {

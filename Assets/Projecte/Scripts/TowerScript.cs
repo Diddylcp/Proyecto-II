@@ -24,7 +24,7 @@ public struct TowerStates
                 health = 1000;       // Vida original 1500
                 damage = 130;
                 attackSpeed = 0.8f;
-                range = 4;
+                range = 11;
                 moneyPerSecond = 10;
                 area = 0;
                 break;
