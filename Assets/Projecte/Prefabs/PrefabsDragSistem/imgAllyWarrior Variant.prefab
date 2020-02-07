@@ -10,8 +10,19 @@ PrefabInstance:
     - target: {fileID: 1724781632392674136, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
       propertyPath: m_Name
-      value: imgAllyWarrior
+      value: imgAllyWarrior Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 63203646103291520, guid: 9836d393a51585043b1a1a924783b328,
+        type: 3}
+      propertyPath: soldierImage
+      value: 
+      objectReference: {fileID: 6966044536423539238, guid: 70f8282ab49be6145850ec24171a692f,
+        type: 3}
+    - target: {fileID: 63203646103291520, guid: 9836d393a51585043b1a1a924783b328,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 8509965738278853165}
     - target: {fileID: 5444891881101219778, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -121,7 +132,13 @@ PrefabInstance:
         type: 3}
       propertyPath: soldier
       value: 
-      objectReference: {fileID: 6884778413637937255, guid: 70f8282ab49be6145850ec24171a692f,
+      objectReference: {fileID: 6966044536423539238, guid: 70f8282ab49be6145850ec24171a692f,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9836d393a51585043b1a1a924783b328, type: 3}
+--- !u!223 &8509965738278853165 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2866857833297733464, guid: 9836d393a51585043b1a1a924783b328,
+    type: 3}
+  m_PrefabInstance: {fileID: 5895309505823702389}
+  m_PrefabAsset: {fileID: 0}

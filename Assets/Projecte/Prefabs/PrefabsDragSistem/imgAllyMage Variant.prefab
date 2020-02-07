@@ -10,13 +10,19 @@ PrefabInstance:
     - target: {fileID: 1724781632392674136, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
       propertyPath: m_Name
-      value: imgAllyMage
+      value: imgAllyMage Variant
       objectReference: {fileID: 0}
     - target: {fileID: 63203646103291520, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
       propertyPath: soldierCost
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 63203646103291520, guid: 9836d393a51585043b1a1a924783b328,
+        type: 3}
+      propertyPath: soldierImage
+      value: 
+      objectReference: {fileID: 5797991765935176803, guid: 10fd41f56dbbcfa438c098169850146d,
+        type: 3}
     - target: {fileID: 5444891881101219778, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -126,7 +132,7 @@ PrefabInstance:
         type: 3}
       propertyPath: soldier
       value: 
-      objectReference: {fileID: 4802357035077380696, guid: 10fd41f56dbbcfa438c098169850146d,
+      objectReference: {fileID: 6966044536423539238, guid: 70f8282ab49be6145850ec24171a692f,
         type: 3}
     - target: {fileID: 3501355631668148923, guid: 9836d393a51585043b1a1a924783b328,
         type: 3}
