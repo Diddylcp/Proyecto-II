@@ -21,11 +21,12 @@ public class WarriorTroop : Troop
     {
         swordAudio = GetComponent<AudioSource>();
         startHealth = stats.health;
+        troopObjective = DetectClosestEnemy();
     }
 
     void Update()
     {
-
+        AmIAlive();
         if (troopObjective == null)
         {
             troopObjective = DetectClosestEnemy();
@@ -37,7 +38,7 @@ public class WarriorTroop : Troop
                 troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
             }
         }
-        AmIAlive();
+        
         PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
        // barraVida.transform.forward = cam.transform.forward;
     }

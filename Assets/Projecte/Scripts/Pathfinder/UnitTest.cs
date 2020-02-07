@@ -14,10 +14,6 @@ public class UnitTest : MonoBehaviour
         PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)target.position, OnPathFound);
     }
 
-    private void Update()
-    {
-             
-    }
     public void OnPathFound(Vector2[] newPath, bool success)
     {
         if (success)
