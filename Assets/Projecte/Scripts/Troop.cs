@@ -6,9 +6,6 @@ using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
 {
-   
-   // public enum troopType {MAGE, ARCHER, WARRIOR, PRIEST, COUNT};
-   // public troopType tipus;
     public struct ability
     {
         [SerializeField]public float health;
@@ -20,30 +17,31 @@ public class Troop : MonoBehaviour
         public float attackSpeed;
     };
     [SerializeField]protected float startHealth;
-    public Vector3 pos;
+    public Vector2 pos;
     public string team;
     //public GameObject player;
     public ability stats;
     public GameObject troopObjective;
     protected Rigidbody2D rb2D;
-    public NavMeshAgent agent;
-    [SerializeField] private Material MaterialTropaEnemigo;
-    [SerializeField] private Material MaterialTropaAliado;
+    //[SerializeField] private Material MaterialTropaEnemigo;
+    //[SerializeField] private Material MaterialTropaAliado;
     public Transform barraVida;
     public Transform barraVidaFill;
     public GameObject projectile;
 
-    public ProjectileMovement projectileAttack;
+    Vector2[] path;
+    int targetIndex;
+
     protected Transform cam;
     
-    // Start is called before the first frame update
     void Awake()
-    {      
-        
+    {
         pos = transform.position;
         team = tag;
-        if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
-        else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
+        troopObjective = DetectClosestEnemy();
+        Debug.Log(troopObjective);
+        //if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
+        //else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         troopObjective = DetectClosestEnemy();
         StartCoroutine(Attack());
@@ -87,9 +85,14 @@ public class Troop : MonoBehaviour
         return closest;
     }
 
-    protected void FindPath( GameObject _troopObjective)  // Move the troop to the objective
+    public void OnPathFound(Vector2[] newPath, bool success)
     {
-        agent.SetDestination(_troopObjective.transform.position);
+        if (success)
+        {
+            path = newPath;
+            StopCoroutine("FollowPath");
+            StartCoroutine("FollowPath");
+        }
     }
 
 
@@ -107,6 +110,7 @@ public class Troop : MonoBehaviour
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
     {
+        Debug.Log("Atacando");
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
         
     }
@@ -139,7 +143,6 @@ public class Troop : MonoBehaviour
     {
         if (StillInRange(troopObjective))
         {
-            agent.isStopped = true;                             // Stops the troop because he is attacking
             if (troopObjective.GetComponent<Troop>() != null)
             {
                 AttackEnemy(troopObjective);
@@ -152,7 +155,7 @@ public class Troop : MonoBehaviour
                 if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
                 {
                     troopObjective = DetectClosestEnemy();
-                    FindPath(troopObjective);
+                    PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
                 }
             } 
         }
@@ -160,9 +163,51 @@ public class Troop : MonoBehaviour
         StartCoroutine(Attack());
     }
 
+    IEnumerator FollowPath()
+    {
+        Vector2 currWaypoint = path[0];
+
+        while (!StillInRange(troopObjective))
+        {
+            if ((Vector2)transform.position == currWaypoint)
+            {
+                targetIndex++;
+                if (targetIndex >= path.Length)
+                {
+                    yield break;
+                }
+                currWaypoint = path[targetIndex];
+            }
+            transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
+            yield return null;
+        }
+    }
+
     protected void ShootProjectile()
     {
-        Vector3 vectorToEnemy = troopObjective.transform.position - this.pos;
+        Vector3 vectorToEnemy = (Vector2)troopObjective.transform.position - this.pos;
         GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
     }
+
+    public void OnDrawGizmos()
+    {
+        if (path != null)
+        {
+            for (int i = targetIndex; i < path.Length; i++)
+            {
+                Gizmos.color = Color.black;
+                Gizmos.DrawCube(path[i], Vector2.one);
+
+                if (i == targetIndex)
+                {
+                    Gizmos.DrawLine((Vector2)transform.position, path[i]);
+                }
+                else
+                {
+                    Gizmos.DrawLine(path[i - 1], path[i]);
+                }
+            }
+        }
+    }
+
 }

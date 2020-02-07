@@ -82,15 +82,17 @@ public class TowerScript : MonoBehaviour
     private float speed;
     TowerType type;
     GameObject objective;  //Al que atacara
-    Vector3 pos;
+    Vector2 pos;
     Vector2 posMouse;
     public GameObject respawnArea;
     bool isClicked = false;
     public GameObject enhanceButtons;
+    Vector3 positionToShowEnhance; 
 
     // Start is called before the first frame update
     void Start()
     {
+        positionToShowEnhance = new Vector3(454.3f, 36.9375f, 0);
         type = TowerType.NORMAL;
         objective = AnyoneToAttack();
         if (tag == "AllyTower") player = allyPlayer;
@@ -147,8 +149,10 @@ public class TowerScript : MonoBehaviour
     {
         if (isClicked)
         {
+            
             isClicked = false;
-            Instantiate(enhanceButtons, this.pos, Quaternion.identity);
+            Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
+          
             print("click");
         }
         else
@@ -184,7 +188,7 @@ public class TowerScript : MonoBehaviour
             {
                 if ((objective.tag == "AllyTroop" && this.tag == "EnemyTower") || (objective.tag == "EnemyTroop" && this.tag == "AllyTower"))
                 {
-                    objective.GetComponent<Troop>().TakeDamage(stats.damage);
+                    //objective.GetComponent<Troop>().TakeDamage(stats.damage);
                 }
             }                
         }
