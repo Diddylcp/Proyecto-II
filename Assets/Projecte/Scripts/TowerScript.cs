@@ -24,7 +24,7 @@ public struct TowerStates
                 health = 1000;       // Vida original 1500
                 damage = 130;
                 attackSpeed = 0.8f;
-                range = 12;
+                range = 4;
                 moneyPerSecond = 10;
                 area = 0;
                 break;
@@ -32,7 +32,7 @@ public struct TowerStates
                 health = 1800;
                 damage = 40;
                 attackSpeed = 1.6f;
-                range = 12;
+                range = 4;
                 moneyPerSecond = 10;
                 area = 2;
                 break;
@@ -40,7 +40,7 @@ public struct TowerStates
                 health = 1800;
                 damage = 30;
                 attackSpeed = 2.1f;
-                range = 16;
+                range = 5;
                 moneyPerSecond = 10;
                 area = 0;
                 break;
@@ -49,7 +49,7 @@ public struct TowerStates
                 health = 1800;
                 damage = 30;
                 attackSpeed = 1.6f;
-                range = 12;
+                range = 4;
                 moneyPerSecond = 15;
                 area = 0;
                 break;
@@ -58,7 +58,7 @@ public struct TowerStates
                 health = 1800;
                 damage = 30;
                 attackSpeed = 2f;
-                range = 12;
+                range = 4;
                 moneyPerSecond = 10;
                 area = 0;
                 break;
@@ -67,7 +67,7 @@ public struct TowerStates
                 health = 2000;
                 damage = 30;
                 attackSpeed = 1.6f;
-                range = 12;
+                range = 4;
                 moneyPerSecond = 10;
                 area = 0;
                 break;
@@ -208,7 +208,7 @@ public class TowerScript : MonoBehaviour
             {
                 if ((objective.tag == "AllyTroop" && this.tag == "EnemyTower") || (objective.tag == "EnemyTroop" && this.tag == "AllyTower"))
                 {
-                    //objective.GetComponent<Troop>().TakeDamage(stats.damage);
+                    objective.GetComponent<Troop>().TakeDamage(stats.damage);
                 }
             }                
         }
