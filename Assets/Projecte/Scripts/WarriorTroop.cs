@@ -8,7 +8,7 @@ public class WarriorTroop : Troop
     // Start is called before the first frame update
     public WarriorTroop()
     {
-        stats.movSpeed = 0.75f;
+        stats.movSpeed = 3f;
         stats.health = 500;   // Vida original 700
         stats.area = 1f;
         stats.residualDamage = 0;
@@ -25,7 +25,6 @@ public class WarriorTroop : Troop
 
     void Update()
     {
-        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
 
         if (troopObjective == null)
         {
@@ -39,6 +38,7 @@ public class WarriorTroop : Troop
             }
         }
         AmIAlive();
+        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
        // barraVida.transform.forward = cam.transform.forward;
     }
 
