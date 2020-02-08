@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ScriptOnDrag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerUpHandler
+public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler, IDragHandler, IPointerUpHandler
 {
     [SerializeField] private GameObject soldierPrefab;
     [SerializeField] private GameObject soldierImage;
@@ -36,11 +36,6 @@ public class ScriptOnDrag : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         playerController = player.GetComponent<PlayerController>();
         if (playerController.GetMoney() > soldierCost)
             Instantiate(soldierImage, new Vector3(0, 1, -19), Quaternion.identity);
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        Debug.Log("OnBeginDrag");
     }
 
     public void OnDrag(PointerEventData eventData)
