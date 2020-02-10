@@ -16,11 +16,11 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     private RectTransform rectTransform;
     private Vector2 soldierPos = Vector2.zero;
     Collider2D col;
-
-
+    Image me;
 
     void Start()
     {
+        me = this.GetComponent<Image>();
         GameObject player;
         if (tag == "AllyTroop") player = GameObject.Find("AllyEconomy");
         else player = GameObject.Find("EnemyEconomy");
@@ -72,5 +72,38 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     public void OnPointerUp(PointerEventData eventData)
     {
         Destroy(soldierImageInstanciated);
+    }
+
+    public void ChangeColor()
+    {
+        StartCoroutine("ChangingRed");
+    }
+
+    IEnumerator ChangingRed()
+    {/*
+                                                                            //Algo así
+        for (float i = 1f; i >= fadeToBlueAmount; i -= 0.05f)
+		{
+
+			// Getting access to Color options
+			Color c = rend.material.color;
+
+			// Setting values for Red and Green channels
+			c.r = i;
+			c.g = i;
+
+			// Set color to Sprite Renderer
+			rend.material.color = c;
+
+			// Pause to make color be changed slowly
+			yield return new WaitForSeconds (fadingSpeed);
+		}
+         */
+        for (float i=0f; i>= 1f; i -= 0.1f)
+        {
+            Color c= me.color;
+            c.r = i;
+            yield  return new WaitForSeconds(0.2f);
+        }
     }
 }
