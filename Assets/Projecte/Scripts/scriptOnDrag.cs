@@ -10,9 +10,8 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     [SerializeField] private GameObject soldierImage;
     [SerializeField] private int soldierCost;
 
-
-    private GameObject soldierImageInstanciated;
     PlayerController playerController;
+    private GameObject soldierImageInstanciated;
     private RectTransform rectTransform;
     private Vector2 soldierPos = Vector2.zero;
     Collider2D col;
@@ -40,8 +39,11 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-        soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        soldierImageInstanciated.transform.position = soldierPos;
+        if(soldierImageInstanciated != null)
+        {
+            soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            soldierImageInstanciated.transform.position = soldierPos;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -60,13 +62,16 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     public void OnPointerDown(PointerEventData eventData)
     {
         col = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
-        if (col != null)
+        if (col != null && playerController.GetMoney() > soldierCost)
         {
             soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             soldierImageInstanciated = Instantiate(soldierImage, soldierPos, Quaternion.identity);
         }
+        if (col != null && playerController.GetMoney() < soldierCost)
+        {
+            ChangeColor();
+        }
         rectTransform = soldierImage.GetComponent<RectTransform>();
-
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -80,30 +85,29 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     }
 
     IEnumerator ChangingRed()
-    {/*
-                                                                            //Algo así
-        for (float i = 1f; i >= fadeToBlueAmount; i -= 0.05f)
-		{
-
-			// Getting access to Color options
-			Color c = rend.material.color;
-
-			// Setting values for Red and Green channels
-			c.r = i;
-			c.g = i;
-
-			// Set color to Sprite Renderer
-			rend.material.color = c;
-
-			// Pause to make color be changed slowly
-			yield return new WaitForSeconds (fadingSpeed);
-		}
-         */
-        for (float i=0f; i>= 1f; i -= 0.1f)
+    {
+        for (float i=0f; i<= 1f; i += 0.02f)
         {
             Color c= me.color;
-            c.r = i;
-            yield  return new WaitForSeconds(0.2f);
+            c.r += i;
+            c.b -= i;
+            me.color = c;
+            Debug.Log("Cambio el color");
+            yield  return new WaitForSeconds(0.01f);
+        }
+        StartCoroutine("ChangingBlue");
+    }
+
+    IEnumerator ChangingBlue()
+    {
+        for (float i = 1f; i >= 0f; i -= 0.02f)
+        {
+            Color c = me.color;
+            c.r -= i;
+            c.b += i;
+            me.color = c;
+            Debug.Log("Cambio el color");
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

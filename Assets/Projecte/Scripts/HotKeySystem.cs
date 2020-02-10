@@ -103,6 +103,9 @@ public class HotKeySystem : MonoBehaviour
                     {
                         Instantiate(magePrefab, soldierPos, Quaternion.identity);
                         playerController.SumMoney(-mageCost);
+                        scriptOnDrag aux = collision.GetComponent<scriptOnDrag>();
+                        Debug.Log("Entrar Hotkey");
+                        aux.ChangeColor();
                     }
                 }
             }
