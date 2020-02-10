@@ -92,7 +92,6 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
             c.r += i;
             c.b -= i;
             me.color = c;
-            Debug.Log("Cambio el color");
             yield  return new WaitForSeconds(0.01f);
         }
         StartCoroutine("ChangingBlue");
@@ -106,7 +105,6 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
             c.r -= i;
             c.b += i;
             me.color = c;
-            Debug.Log("Cambio el color");
             yield return new WaitForSeconds(0.01f);
         }
     }

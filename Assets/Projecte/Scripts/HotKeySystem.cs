@@ -48,8 +48,17 @@ public class HotKeySystem : MonoBehaviour
             warriorHotKey = true;
             mageHotKey = false;
             archerHotKey = false;
-            soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            soldierImageInstanciated = Instantiate(warriorImage, soldierPos, Quaternion.identity);
+            if(playerController.GetMoney() > warriorCost)
+            {
+                soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                soldierImageInstanciated = Instantiate(warriorImage, soldierPos, Quaternion.identity);
+            }
+            else
+            {
+                GameObject aux = GameObject.Find("WarriorButton");
+                aux.GetComponent<scriptOnDrag>().ChangeColor();
+            }
+            
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
@@ -58,8 +67,16 @@ public class HotKeySystem : MonoBehaviour
             warriorHotKey = false;
             mageHotKey = true;
             archerHotKey = false;
-            soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            soldierImageInstanciated = Instantiate(mageImage, soldierPos, Quaternion.identity);
+            if (playerController.GetMoney() > mageCost)
+            {
+                soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                soldierImageInstanciated = Instantiate(mageImage, soldierPos, Quaternion.identity);
+            }
+            else
+            {
+                GameObject aux = GameObject.Find("MageButton");
+                aux.GetComponent<scriptOnDrag>().ChangeColor();
+            }
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
@@ -68,8 +85,16 @@ public class HotKeySystem : MonoBehaviour
             warriorHotKey = false;
             mageHotKey = false;
             archerHotKey = true;
-            soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            soldierImageInstanciated = Instantiate(archerImage, soldierPos, Quaternion.identity);
+            if (playerController.GetMoney() > mageCost)
+            {
+                soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                soldierImageInstanciated = Instantiate(archerImage, soldierPos, Quaternion.identity);
+            }
+            else
+            {
+                GameObject aux = GameObject.Find("ArcherButton");
+                aux.GetComponent<scriptOnDrag>().ChangeColor();
+            }
         }
         if (soldierImageInstanciated != null)
         {
@@ -103,9 +128,6 @@ public class HotKeySystem : MonoBehaviour
                     {
                         Instantiate(magePrefab, soldierPos, Quaternion.identity);
                         playerController.SumMoney(-mageCost);
-                        scriptOnDrag aux = collision.GetComponent<scriptOnDrag>();
-                        Debug.Log("Entrar Hotkey");
-                        aux.ChangeColor();
                     }
                 }
             }
