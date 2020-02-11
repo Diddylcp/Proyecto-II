@@ -78,9 +78,9 @@ public class TowerScript : MonoBehaviour
 {
     public PlayerController player;// jugador el que controla
     [SerializeField] PlayerController allyPlayer, enemyPlayer;
-    TowerStates stats;
+    public TowerStates stats;
     private float speed;
-    TowerType type;
+    public TowerType type;
     GameObject objective;  //Al que atacara
     Vector2 pos;
     Vector2 posMouse;
@@ -146,21 +146,24 @@ public class TowerScript : MonoBehaviour
         StartCoroutine(WaitSec());
     }
     //Al clickar
+    public void SetIsClicked(bool a)
+    {
+        isClicked = a;
+    }
+
     private void OnMouseDown()
     {
-        if (isClicked)
+        if (!player.playerWithTower)
         {
-            
-            isClicked = false;
+            player.SetPlayerWithTower(true);
             hudEnhance = Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
-            hudEnhance.tower = this;   
-
-            print("click");
-        }
-        else
-        {
-            isClicked = true;
-        }
+            hudEnhance.tower = this;
+        }  
+       else
+        {   
+            hudEnhance = GameObject.FindObjectOfType<MilloresTower>();
+            hudEnhance.tower = this;
+        } 
     }
     private GameObject AnyoneToAttack()
     {

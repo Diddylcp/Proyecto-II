@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
 
     public int userMoney;
 
+    public bool playerWithTower;
+
     private void Start()
     {
+        playerWithTower = false;
     }
 
     private void Update()
@@ -23,5 +26,11 @@ public class PlayerController : MonoBehaviour
     public int GetMoney()
     {
         return userMoney;
+    }
+
+    //Si el jugador esta mirant les compres de la torra aixo estara a true;
+    public void SetPlayerWithTower(bool a)
+    {
+        playerWithTower = a;
     }
 }

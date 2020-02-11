@@ -9,7 +9,6 @@ public class Money : MonoBehaviour
     public PlayerController player;
     public TMP_Text text;
     string strMoney;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -22,4 +21,5 @@ public class Money : MonoBehaviour
         strMoney = player.userMoney.ToString();
         text.text = strMoney + ('$');
     }
+
 }
