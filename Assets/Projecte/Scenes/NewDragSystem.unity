@@ -2881,6 +2881,12 @@ PrefabInstance:
       propertyPath: soldierCost
       value: 190
       objectReference: {fileID: 0}
+    - target: {fileID: 7090235359514621610, guid: 158dc7378b2acd442a9ab84fab0bc9ce,
+        type: 3}
+      propertyPath: soldierImage
+      value: 
+      objectReference: {fileID: 5915108951437684086, guid: 163efc941f3450441b54b2ab5b300a5c,
+        type: 3}
     - target: {fileID: 7090235359832467611, guid: 158dc7378b2acd442a9ab84fab0bc9ce,
         type: 3}
       propertyPath: soldierCost
