@@ -6,10 +6,16 @@ public class MyNode : MonoBehaviour
 {
     public Vector2 pos;
     public List<MyNode> neighbours;
-    public int gCost;
-    public int hCost;
+    public float gCost;
+    public float hCost;
+    public MyNode parent;
 
-    public int fCost
+    private void Awake()
+    {
+        pos = transform.position;
+    }
+
+    public float fCost
     {
         get
         {
