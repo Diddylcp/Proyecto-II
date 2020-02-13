@@ -88,7 +88,8 @@ public class TowerScript : MonoBehaviour
     bool isClicked = false;
     public MilloresTower enhanceButtons;
     MilloresTower hudEnhance;
-    Vector3 positionToShowEnhance; 
+    Vector3 positionToShowEnhance;
+    public Light towerLight;
 
     // Start is called before the first frame update
     void Start()
@@ -158,6 +159,7 @@ public class TowerScript : MonoBehaviour
             player.SetPlayerWithTower(true);
             hudEnhance = Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
             hudEnhance.tower = this;
+           // towerLight.intensity = 1;
         }  
        else
         {   
