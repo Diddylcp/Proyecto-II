@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6747657526818140423}
   - component: {fileID: 1522364726183681448}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Respawn
   m_Icon: {fileID: 0}
