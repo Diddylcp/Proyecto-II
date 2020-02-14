@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
 {
+    protected enum TroopState { INIT, MOVING, ATTACKING, DYING, COUNT};
     public struct ability
     {
         [SerializeField]public float health;
@@ -16,36 +17,54 @@ public class Troop : MonoBehaviour
         public float range;
         public float attackSpeed;
     };
+    protected TroopState troopState;
     [SerializeField]protected float startHealth;
     public Vector2 pos;
     public string team;
-    //public GameObject player;
     public ability stats;
     public GameObject troopObjective;
-    protected Rigidbody2D rb2D;
-    //[SerializeField] private Material MaterialTropaEnemigo;
-    //[SerializeField] private Material MaterialTropaAliado;
+    protected MyNode towerToMove;
     public Transform barraVida;
     public Transform barraVidaFill;
     public GameObject projectile;
+    protected GraphPathfinder pathRequest;
+    protected MyNode currNode;
+
+    protected bool isAttacking = false, isMoving = false;
 
     Vector2[] path;
-    int targetIndex;
+    int targetIndex = 0;
 
     protected Transform cam;
     
-    void Awake()
+    protected void Start()
     {
+        troopState = TroopState.INIT;
         pos = transform.position;
         team = tag;
         troopObjective = DetectClosestEnemy();
-        Debug.Log(troopObjective);
-        //if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
-        //else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
         troopObjective = DetectClosestEnemy();
         StartCoroutine(Attack());
         cam = Camera.main.transform;
+    }
+
+    public MyNode findClosestNode()
+    {
+        GameObject[] gosNodes;
+        gosNodes = GameObject.FindGameObjectsWithTag("Node");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+
+        foreach(GameObject go in gosNodes)
+        {
+            float currDistance = Vector2.Distance(this.transform.position, go.transform.position);
+            if(currDistance < distance)
+            {
+                closest = go;
+                distance = currDistance;
+            }
+        }
+        return closest.GetComponent<MyNode>();
     }
 
     public GameObject DetectClosestEnemy()
@@ -63,7 +82,7 @@ public class Troop : MonoBehaviour
         }
         GameObject closest = null;
         float distance = Mathf.Infinity;
-        pos = transform.position;
+        pos = this.transform.position;
         foreach(GameObject go in gosTroops)
         {
             float curDistance = Vector3.Distance(pos, go.transform.position);
@@ -80,26 +99,15 @@ public class Troop : MonoBehaviour
             {
                 closest = go;
                 distance = curDistance;
+                towerToMove = go.GetComponentInChildren<MyNode>();
             }
         }
         return closest;
     }
 
-    public void OnPathFound(Vector2[] newPath, bool success)
-    {
-        if (success)
-        {
-            path = newPath;
-            StopCoroutine(FollowPath());
-            StartCoroutine(FollowPath());
-        }
-    }
-
-
     protected bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         float distance;
-       // distance = Vector3.Distance(pos, objective.transform.position);
         distance = Vector2.Distance(pos, (Vector2)objective.transform.position);
         return (distance < stats.range);
     }
@@ -116,13 +124,13 @@ public class Troop : MonoBehaviour
         
     }
 
-    protected void AmIAlive()                             // Checks if he is alive
+    protected bool AmIAlive()                             // Checks if he is alive
     {
         if(stats.health <= 0)
         {
-            StopAllCoroutines();
-            Destroy(this.gameObject);
+            return false;
         }
+        return true;
     }
 
     protected void CapturingTower(GameObject _tower)      // Captures the tower
@@ -141,7 +149,7 @@ public class Troop : MonoBehaviour
         return Quaternion.LookRotation(targetPos) * Quaternion.Inverse(Quaternion.LookRotation(thisPos));
     }
 
-    IEnumerator Attack()
+    protected IEnumerator Attack()
     {
         if (StillInRange(troopObjective))
         {
@@ -157,7 +165,6 @@ public class Troop : MonoBehaviour
                 if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
                 {
                     troopObjective = DetectClosestEnemy();
-                    //PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
                 }
             } 
         }
@@ -165,16 +172,16 @@ public class Troop : MonoBehaviour
         StartCoroutine(Attack());
     }
 
-    IEnumerator FollowPath()
+    protected IEnumerator FollowPath()
     {
-        Vector2 currWaypoint = path[0];
-        if (troopObjective != null)
+        Vector2 currWaypoint = path[targetIndex];
+        if (towerToMove != null)
         {
             while (!StillInRange(troopObjective))
             {  
                 if (Vector2.Distance(transform.position, currWaypoint) < 0.1f)
                 { 
-                    PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
+                    
                 }
                 transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
                 yield return null;

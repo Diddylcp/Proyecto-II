@@ -34,7 +34,6 @@ public class ArcherTroop : Troop
             if (!StillInRange(troopObjective))
             {
                 troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
-                PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
             }
         }
         barraVida.transform.forward = cam.transform.forward;

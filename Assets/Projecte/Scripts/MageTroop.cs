@@ -23,7 +23,6 @@ public class MageTroop : Troop
 
     void Update()
     {
-        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
         if (troopObjective == null)
         {
             troopObjective = DetectClosestEnemy();
