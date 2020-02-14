@@ -9,6 +9,7 @@ public enum TowerType { NORMAL, MAGE_TOWER, ARCHER_TOWER, WARRIOR_TOWER, GOLD_TO
 public struct TowerStates
 {
     public int health;
+    public int startHealth;
     public float area;
     public int damage;
     public int range;
@@ -71,6 +72,7 @@ public struct TowerStates
                 area = 0;
                 break;
         }
+        startHealth = health;
     }
 }
 
@@ -90,6 +92,8 @@ public class TowerScript : MonoBehaviour
     MilloresTower hudEnhance;
     Vector3 positionToShowEnhance;
     public GameObject selected;
+    public Scrollbar HealthBar;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -215,6 +219,7 @@ public class TowerScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         stats.health -= damage;
+        //HealthBar.size = stats.health / stats.startHealth;
         if (stats.health <= 0)
         {
             ChangeTeam();
@@ -228,6 +233,7 @@ public class TowerScript : MonoBehaviour
             this.tag = "EnemyTower";
             this.GetComponent<MeshRenderer>().material = MaterialEnemigo;
             stats.health = 1500;
+            //HealthBar.size = stats.health / stats.startHealth;
             player = enemyPlayer;
             respawnArea.tag = "EnemyRespawn";
             
