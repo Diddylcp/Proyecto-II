@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 5856bee5ceba65742848f7953acfe82b
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Birth 001
+    100002: Bone001
+    100004: Bone002
+    100006: Bone003
+    100008: Bone004
+    100010: Bone005
+    100012: Bone007
+    100014: Bone008
+    100016: Bone009
+    100018: Bone010
+    100020: Bone011
+    100022: Bone012
+    100024: Display 001
+    100026: Display 002
+    100028: Event 001
+    100030: Event 002
+    100032: Mesher001
+    100034: Mesher002
+    100036: Object018
+    100038: Object020
+    100040: Particle View 001
+    100042: Plane001
+    100044: Plane007
+    100046: Plane008
+    100048: Plane009
+    100050: Plane010
+    100052: Plane011
+    100054: Plane012
+    100056: Position Object 001
+    100058: Render 001
+    100060: Rotation 001
+    100062: Scale 001
+    100064: Shape Instance 001
+    100066: //RootNode
+    400000: Birth 001
+    400002: Bone001
+    400004: Bone002
+    400006: Bone003
+    400008: Bone004
+    400010: Bone005
+    400012: Bone007
+    400014: Bone008
+    400016: Bone009
+    400018: Bone010
+    400020: Bone011
+    400022: Bone012
+    400024: Display 001
+    400026: Display 002
+    400028: Event 001
+    400030: Event 002
+    400032: Mesher001
+    400034: Mesher002
+    400036: Object018
+    400038: Object020
+    400040: Particle View 001
+    400042: Plane001
+    400044: Plane007
+    400046: Plane008
+    400048: Plane009
+    400050: Plane010
+    400052: Plane011
+    400054: Plane012
+    400056: Position Object 001
+    400058: Render 001
+    400060: Rotation 001
+    400062: Scale 001
+    400064: Shape Instance 001
+    400066: //RootNode
+    2100000: defaultMat
+    2100002: 'Material #3'
+    2100004: 'Material #2'
+    2300000: Mesher001
+    2300002: Mesher002
+    2300004: Plane001
+    2300006: Plane007
+    2300008: Plane008
+    2300010: Plane009
+    2300012: Plane010
+    2300014: Plane011
+    2300016: Plane012
+    3300000: Mesher001
+    3300002: Mesher002
+    3300004: Plane001
+    3300006: Plane007
+    3300008: Plane008
+    3300010: Plane009
+    3300012: Plane010
+    3300014: Plane011
+    3300016: Plane012
+    4300000: Object018
+    4300002: Plane001
+    4300004: Plane007
+    4300006: Plane008
+    4300008: Plane009
+    4300010: Plane010
+    4300012: Plane011
+    4300014: Plane012
+    4300016: Mesher001
+    4300018: Mesher002
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Object018
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #2'
+    second: {fileID: 2100000, guid: 43d4dfd8196553844bec38b7b40db736, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #3'
+    second: {fileID: 2100000, guid: ce9ef4b5884c0b44785f377fd91de743, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultMat
+    second: {fileID: 2100000, guid: d1ef337bfdfab24438e2afda554d161e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
