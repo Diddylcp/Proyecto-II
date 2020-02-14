@@ -33,7 +33,6 @@ public class Troop : MonoBehaviour
 
     protected bool isAttacking = false, isMoving = false;
 
-    Vector2[] path;
     int targetIndex = 0;
 
     protected Transform cam;
@@ -181,17 +180,20 @@ public class Troop : MonoBehaviour
 
     protected IEnumerator FollowPath()
     {
-        Vector2 currWaypoint = path[targetIndex];
-        if (towerToMove != null)
+        if (targetIndex < pathRequest.waypoints.Length)
         {
-            while (!StillInRange(troopObjective))
-            {  
-                if (Vector2.Distance(transform.position, currWaypoint) < 0.1f)
-                { 
-                    
+            Vector2 currWaypoint = pathRequest.waypoints[targetIndex];
+            if (towerToMove != null)
+            {
+                if (!StillInRange(troopObjective))
+                {
+                    if (Vector2.Distance(transform.position, currWaypoint) < 0.1f*Time.deltaTime)
+                    {
+                        targetIndex++;
+                    }
+                    transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
+                    yield return null;
                 }
-                transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
-                yield return null;
             }
         }
     }
@@ -204,20 +206,20 @@ public class Troop : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        if (path != null)
+        if (pathRequest != null)
         {
-            for (int i = targetIndex; i < path.Length; i++)
+            for (int i = targetIndex; i < pathRequest.waypoints.Length; i++)
             {
                 Gizmos.color = Color.black;
-                Gizmos.DrawCube(path[i], new Vector2(0.12f, 0.12f));
+                Gizmos.DrawCube(pathRequest.waypoints[i], new Vector2(0.12f, 0.12f));
 
                 if (i == targetIndex)
                 {
-                    Gizmos.DrawLine((Vector2)transform.position, path[i]);
+                    Gizmos.DrawLine((Vector2)transform.position, pathRequest.waypoints[i]);
                 }
                 else
                 {
-                    Gizmos.DrawLine(path[i - 1], path[i]);
+                    Gizmos.DrawLine(pathRequest.waypoints[i - 1], pathRequest.waypoints[i]);
                 }
             }
         }

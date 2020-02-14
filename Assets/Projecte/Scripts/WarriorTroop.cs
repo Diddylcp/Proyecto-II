@@ -19,7 +19,7 @@ public class WarriorTroop : Troop
 
     void Start()
     {
-        base.Start();
+        //base.Start();
         pathRequest = new GraphPathfinder();
         swordAudio = GetComponent<AudioSource>();
         startHealth = stats.health;
@@ -59,7 +59,7 @@ public class WarriorTroop : Troop
                         StartCoroutine(FollowPath());
                     else
                     {
-
+                        
                     }
                 }
 

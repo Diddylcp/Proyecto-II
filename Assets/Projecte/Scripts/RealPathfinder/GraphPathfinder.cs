@@ -28,7 +28,7 @@ public class GraphPathfinder
                 {
                     neighbour.gCost = currNode.gCost + Vector2.Distance(neighbour.pos, currNode.pos);
                     neighbour.hCost = Vector2.Distance(neighbour.pos, endNode.pos);
-                    if(currNode.CompareTo(neighbour) < 0)
+                    if(neighbour.parent == null || neighbour.CompareTo(currNode) < 0)
                     {
                         neighbour.parent = currNode;    //Si la f del vecino es menor currNode pasa a ser el parent del vecino
                     }
@@ -39,7 +39,7 @@ public class GraphPathfinder
             MyNode min = openList[0];
             foreach(MyNode node in openList)    //Busco el nodo con el valor f más pequeño
             {
-                if(min.CompareTo(node) > 0)
+                if(node.CompareTo(min) < 0)
                 {
                     min = node;
                 }
@@ -65,7 +65,7 @@ public class GraphPathfinder
         }
 
         Vector2[] _waypoints = path.ToArray();
-        Array.Reverse(waypoints);
+        Array.Reverse(_waypoints);
         return _waypoints;
     }
 }
