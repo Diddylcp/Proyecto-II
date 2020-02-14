@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class GraphPathfinder : MonoBehaviour
+public class GraphPathfinder
 {
-    Vector2[] waypoints;
+    public Vector2[] waypoints;
 
-    bool findPath(MyNode startNode, MyNode endNode)
+    public GraphPathfinder()
     {
+       
+    }
+
+    public bool findPath(MyNode startNode, MyNode endNode)
+    {
+        Debug.Log("HE ENCONTRADO: " + endNode);
         List<MyNode> openList = new List<MyNode>();
         List<MyNode> closedList = new List<MyNode>();
         MyNode currNode = startNode;
@@ -22,7 +28,7 @@ public class GraphPathfinder : MonoBehaviour
                 {
                     neighbour.gCost = currNode.gCost + Vector2.Distance(neighbour.pos, currNode.pos);
                     neighbour.hCost = Vector2.Distance(neighbour.pos, endNode.pos);
-                    if(neighbour.CompareTo(currNode) < 0)
+                    if(currNode.CompareTo(neighbour) < 0)
                     {
                         neighbour.parent = currNode;    //Si la f del vecino es menor currNode pasa a ser el parent del vecino
                     }
@@ -33,7 +39,7 @@ public class GraphPathfinder : MonoBehaviour
             MyNode min = openList[0];
             foreach(MyNode node in openList)    //Busco el nodo con el valor f más pequeño
             {
-                if(node.CompareTo(min) < 0)
+                if(min.CompareTo(node) > 0)
                 {
                     min = node;
                 }
@@ -43,7 +49,7 @@ public class GraphPathfinder : MonoBehaviour
         }
 
         waypoints = RetracePath(startNode, endNode);
-
+        Debug.Log("PATH ENCONTRADO");
         return true;
     }
 

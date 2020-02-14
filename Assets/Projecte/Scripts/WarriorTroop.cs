@@ -19,13 +19,79 @@ public class WarriorTroop : Troop
 
     void Start()
     {
+        base.Start();
+        pathRequest = new GraphPathfinder();
         swordAudio = GetComponent<AudioSource>();
         startHealth = stats.health;
         troopObjective = DetectClosestEnemy();
+        currNode = findClosestNode();
     }
 
     void Update()
     {
+       switch(troopState)
+       {
+            case TroopState.INIT:
+                if (pathRequest.findPath(currNode, towerToMove) && !StillInRange(troopObjective))   
+                     troopState = TroopState.MOVING;
+                else if (troopObjective != null)
+                     if(StillInRange(troopObjective))
+                        troopState = TroopState.ATTACKING;
+
+                break;
+
+            case TroopState.MOVING:
+                if (!AmIAlive())
+                {
+                    isMoving = false;
+                    StopCoroutine(FollowPath());
+                    troopState = TroopState.DYING;
+                }
+                else if (StillInRange(troopObjective))
+                {
+                    isMoving = false;
+                    StopCoroutine(FollowPath());
+                    troopState = TroopState.ATTACKING;
+                }
+                else
+                {
+                    if (!isMoving)
+                        StartCoroutine(FollowPath());
+                    else
+                    {
+
+                    }
+                }
+
+                break;
+
+            case TroopState.ATTACKING:
+                if (!AmIAlive())
+                {
+                    isAttacking = false;
+                    StopCoroutine(Attack());
+                    troopState = TroopState.DYING;
+                }
+                else if (!StillInRange(troopObjective))
+                {
+                    isAttacking = false;
+                    StopCoroutine(Attack());
+                    troopState = TroopState.MOVING;
+                }
+                else
+                {
+
+                }
+
+                break;
+
+            case TroopState.DYING:
+                StopAllCoroutines();
+                Destroy(this.gameObject);
+                break;
+       }
+        currNode = findClosestNode();
+        /*
         AmIAlive();
         if (troopObjective == null)
         {
@@ -37,11 +103,8 @@ public class WarriorTroop : Troop
             {
                 troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
             }
-        }
+        }*/
+        //barraVida.transform.forward = cam.transform.forward;
         
-        PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
-       // barraVida.transform.forward = cam.transform.forward;
-    }
-
-    
+    }   
 }
