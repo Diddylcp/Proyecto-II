@@ -92,8 +92,10 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
             c.r += i;
             c.b -= i;
             me.color = c;
-            yield  return new WaitForSeconds(0.01f);
+            yield return new WaitForEndOfFrame();
+            //yield  return new WaitForSeconds(0.01f);
         }
+        //StopCoroutine("ChangingRed");
         StartCoroutine("ChangingBlue");
     }
 
@@ -105,7 +107,9 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
             c.r -= i;
             c.b += i;
             me.color = c;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForEndOfFrame();
+            //yield return new WaitForSeconds(0.01f);
         }
+        StopCoroutine("ChangingBlue");
     }
 }
