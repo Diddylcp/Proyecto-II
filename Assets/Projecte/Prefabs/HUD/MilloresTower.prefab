@@ -1764,11 +1764,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1125822636616336544}
     m_Modifications:
-    - target: {fileID: 4780811272077292679, guid: 30fbc3acd99ba2e418ab11bbac13f420,
-        type: 3}
-      propertyPath: m_Name
-      value: Information
-      objectReference: {fileID: 0}
     - target: {fileID: 9216774319269107783, guid: 30fbc3acd99ba2e418ab11bbac13f420,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1874,10 +1869,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3346776433978005418, guid: 30fbc3acd99ba2e418ab11bbac13f420,
+    - target: {fileID: 4780811272077292679, guid: 30fbc3acd99ba2e418ab11bbac13f420,
         type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
+      propertyPath: m_Name
+      value: Information
       objectReference: {fileID: 0}
     - target: {fileID: 3316595112922387694, guid: 30fbc3acd99ba2e418ab11bbac13f420,
         type: 3}
@@ -1932,6 +1927,11 @@ PrefabInstance:
     - target: {fileID: 8154858400722498605, guid: 30fbc3acd99ba2e418ab11bbac13f420,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346776433978005418, guid: 30fbc3acd99ba2e418ab11bbac13f420,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

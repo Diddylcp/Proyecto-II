@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public int userMoney;
 
-    public bool playerWithTower;
+    bool playerWithTower = false;
 
     private void Start()
     {
@@ -32,5 +32,9 @@ public class PlayerController : MonoBehaviour
     public void SetPlayerWithTower(bool a)
     {
         playerWithTower = a;
+    }
+    public bool GetPlayerWithTower()
+    {
+        return playerWithTower;
     }
 }

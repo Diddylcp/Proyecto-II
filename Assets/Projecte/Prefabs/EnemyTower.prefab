@@ -155,8 +155,11 @@ MonoBehaviour:
     type: 3}
   enemyPlayer: {fileID: 8966115304980380644, guid: cf235a2388368ab439efc7f9cc76884f,
     type: 3}
+  type: 0
   respawnArea: {fileID: 9058405230307760929}
-  enhanceButtons: {fileID: 0}
+  enhanceButtons: {fileID: 7815171546284655493, guid: a8b2f7b856c0d2e42937a04b3d6ecb34,
+    type: 3}
+  towerLight: {fileID: 0}
   MaterialEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d, type: 2}
   MaterialAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
   team: 

@@ -89,7 +89,7 @@ public class TowerScript : MonoBehaviour
     public MilloresTower enhanceButtons;
     MilloresTower hudEnhance;
     Vector3 positionToShowEnhance;
-    public Light towerLight;
+    public GameObject selected;
 
     // Start is called before the first frame update
     void Start()
@@ -122,6 +122,8 @@ public class TowerScript : MonoBehaviour
                 objective = AnyoneToAttack();
             }
         }
+
+
     }
 
     //Si segueix en rang enemic
@@ -154,18 +156,25 @@ public class TowerScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!player.playerWithTower)
-        {
-            player.SetPlayerWithTower(true);
-            hudEnhance = Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
-            hudEnhance.tower = this;
-           // towerLight.intensity = 1;
-        }  
-       else
-        {   
-            hudEnhance = GameObject.FindObjectOfType<MilloresTower>();
-            hudEnhance.tower = this;
-        } 
+        if (tag == "AllyTower")
+        { 
+            if (!player.GetPlayerWithTower())
+            {
+                player.SetPlayerWithTower(true);
+                hudEnhance = Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
+                hudEnhance.tower = this;
+                hudEnhance.tower.selected.GetComponent<SpriteRenderer>().enabled = true;
+                // towerLight.intensity = 1;
+            }
+            else
+            {
+                hudEnhance = GameObject.FindObjectOfType<MilloresTower>();
+                hudEnhance.tower.selected.GetComponent<SpriteRenderer>().enabled = false;
+                hudEnhance.tower = this;
+                hudEnhance.tower.selected.GetComponent<SpriteRenderer>().enabled = true;
+            }
+        }
+        
     }
     private GameObject AnyoneToAttack()
     {
