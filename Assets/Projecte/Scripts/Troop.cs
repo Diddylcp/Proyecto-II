@@ -16,6 +16,7 @@ public class Troop : MonoBehaviour
         public float range;
         public float attackSpeed;
     };
+    protected Animator myAnimator;
     [SerializeField]protected float startHealth;
     public Vector2 pos;
     public string team;
@@ -36,6 +37,7 @@ public class Troop : MonoBehaviour
     
     void Awake()
     {
+        myAnimator = GetComponentInChildren<Animator>();
         pos = transform.position;
         team = tag;
         troopObjective = DetectClosestEnemy();
@@ -104,12 +106,13 @@ public class Troop : MonoBehaviour
 
     protected void AttackEnemy(GameObject enemy)          // Attacks the enemy
     {
+        myAnimator.SetBool("Attack", true);
         enemy.GetComponent<Troop>().TakeDamage(stats.damage);
     }
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
     {
-        Debug.Log("Atacando");
+        myAnimator.SetBool("Attack", true);
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
         
     }
