@@ -192,10 +192,14 @@ public class Troop : MonoBehaviour
                         targetIndex++;
                     }
                     transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
-                    yield return null;
+                }
+                else
+                {
+                    StopCoroutine(FollowPath());
                 }
             }
         }
+        yield return null;
     }
 
     protected void ShootProjectile()
