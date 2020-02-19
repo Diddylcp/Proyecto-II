@@ -17,7 +17,7 @@ public class Troop : MonoBehaviour
         public float range;
         public float attackSpeed;
     };
-    protected TroopState troopState;
+    [SerializeField]protected TroopState troopState;
     [SerializeField]protected float startHealth;
     public Vector2 pos;
     public string team;
@@ -185,10 +185,14 @@ public class Troop : MonoBehaviour
                         targetIndex++;
                     }
                     transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
-                    yield return null;
+                }
+                else
+                {
+                    StopCoroutine(FollowPath());
                 }
             }
         }
+        yield return null;
     }
 
     protected void ShootProjectile()
