@@ -17,8 +17,8 @@ public class Troop : MonoBehaviour
         public float range;
         public float attackSpeed;
     };
-    protected TroopState troopState;
     protected Animator myAnimator;
+    [SerializeField]protected TroopState troopState;
     [SerializeField]protected float startHealth;
     public string team;
     public ability stats;
@@ -42,10 +42,6 @@ public class Troop : MonoBehaviour
         troopState = TroopState.INIT;
         team = tag;
         troopObjective = DetectClosestEnemy();
-        Debug.Log(troopObjective);
-        //if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
-        //else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
         troopObjective = DetectClosestEnemy();
         //StartCoroutine(Attack());
         cam = Camera.main.transform;
