@@ -141,6 +141,7 @@ public class Troop : MonoBehaviour
     {
         stats.health -= _damage;
         barraVidaFill.localScale = new Vector2(stats.health / startHealth, barraVidaFill.localScale.y);
+        StartCoroutine("ChangingRed");
     }
 
     public Quaternion vectorRotation(Vector3 thisPos, Vector3 targetPos)
@@ -221,5 +222,33 @@ public class Troop : MonoBehaviour
             }
         }
     }
+    IEnumerator ChangingRed()
+    {
+        
+        for (float i = 0f; i <= 1f; i += 0.5f)
+        {
+            Color c = GameObject.FindWithTag("TextureCharacter").GetComponent<Material>().color;
+            c.g -= i;
+            c.b -= i;
+            GameObject.FindWithTag("TextureCharacter").GetComponent<Material>().color = c;
+            yield return new WaitForEndOfFrame();
+            //yield  return new WaitForSeconds(0.01f);
+        }
+        
+        StartCoroutine("ChangingWhite");
+    }
 
+    IEnumerator ChangingWhite()
+    {
+        for (float i = 0f; i <= 1f; i += 0.5f)
+        {
+            Color c = this.GetComponentInChildren<Material>().color;
+            c.g += i;
+            c.b += i;
+            this.GetComponentInChildren<Material>().color = c;
+            yield return new WaitForEndOfFrame();
+            //yield return new WaitForSeconds(0.01f);
+        }
+        StopCoroutine("ChangingWhite");
+    }
 }

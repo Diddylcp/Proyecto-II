@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f25ee11693a85439dbf8a4f0f89e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  troopState: 0
   startHealth: 0
-  pos: {x: 0, y: 0}
   team: 
   troopObjective: {fileID: 0}
   barraVida: {fileID: 1287089377367717263}
@@ -404,6 +404,10 @@ PrefabInstance:
     - target: {fileID: 408822, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 194754, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
+      propertyPath: m_TagString
+      value: TextureCharacter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
