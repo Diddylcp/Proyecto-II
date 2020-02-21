@@ -27,6 +27,7 @@ public class UnitTest : MonoBehaviour
     IEnumerator FollowPath()
     {
         Vector2 currWaypoint = path[0];
+        targetIndex = 0;
 
         while (true)
         {
@@ -35,6 +36,7 @@ public class UnitTest : MonoBehaviour
                 targetIndex++;
                 if(targetIndex >= path.Length)
                 {
+                    PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)target.position, OnPathFound);
                     yield break;
                 }
                 currWaypoint = path[targetIndex];

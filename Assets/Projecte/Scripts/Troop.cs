@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
 {
+    protected enum TroopState { INIT, MOVING, ATTACKING, DYING, COUNT};
     public struct ability
     {
         [SerializeField]public float health;
@@ -17,36 +18,52 @@ public class Troop : MonoBehaviour
         public float attackSpeed;
     };
     protected Animator myAnimator;
+    [SerializeField]protected TroopState troopState;
     [SerializeField]protected float startHealth;
-    public Vector2 pos;
     public string team;
-    //public GameObject player;
     public ability stats;
     public GameObject troopObjective;
-    protected Rigidbody2D rb2D;
-    //[SerializeField] private Material MaterialTropaEnemigo;
-    //[SerializeField] private Material MaterialTropaAliado;
+    protected MyNode towerToMove;
     public Transform barraVida;
     public Transform barraVidaFill;
     public GameObject projectile;
+    protected GraphPathfinder pathRequest;
+    protected MyNode currNode;
 
-    Vector2[] path;
-    int targetIndex;
+    protected bool isAttacking = false, isMoving = false;
+
+    protected int targetIndex = 0;
 
     protected Transform cam;
     
-    void Awake()
+    protected void Start()
     {
         myAnimator = GetComponentInChildren<Animator>();
-        pos = transform.position;
+        troopState = TroopState.INIT;
         team = tag;
         troopObjective = DetectClosestEnemy();
-        //if(tag == "EnemyTroop") this.GetComponent<MeshRenderer>().material = MaterialTropaEnemigo;
-        //else this.GetComponent<MeshRenderer>().material = MaterialTropaAliado;
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
         troopObjective = DetectClosestEnemy();
-        StartCoroutine(Attack());
+        //StartCoroutine(Attack());
         cam = Camera.main.transform;
+    }
+
+    public MyNode findClosestNode()
+    {
+        GameObject[] gosNodes;
+        gosNodes = GameObject.FindGameObjectsWithTag("Node");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+
+        foreach(GameObject go in gosNodes)
+        {
+            float currDistance = Vector2.Distance(this.transform.position, go.transform.position);
+            if(currDistance < distance)
+            {
+                closest = go;
+                distance = currDistance;
+            }
+        }
+        return closest.GetComponent<MyNode>();
     }
 
     public GameObject DetectClosestEnemy()
@@ -64,10 +81,9 @@ public class Troop : MonoBehaviour
         }
         GameObject closest = null;
         float distance = Mathf.Infinity;
-        pos = transform.position;
         foreach(GameObject go in gosTroops)
         {
-            float curDistance = Vector3.Distance(pos, go.transform.position);
+            float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
             if(curDistance < distance)
             {
                 closest = go;
@@ -76,32 +92,22 @@ public class Troop : MonoBehaviour
         }
         foreach (GameObject go in gosTower)
         {
-            float curDistance = Vector3.Distance(pos, go.transform.position);
+            float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
             if (curDistance < distance)
             {
                 closest = go;
                 distance = curDistance;
+                towerToMove = go.GetComponentInChildren<MyNode>();
             }
         }
         return closest;
     }
 
-    public void OnPathFound(Vector2[] newPath, bool success)
-    {
-        if (success)
-        {
-            path = newPath;
-            StopCoroutine("FollowPath");
-            StartCoroutine("FollowPath");
-        }
-    }
-
-
     protected bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         float distance;
-        distance = Vector3.Distance(pos, objective.transform.position);
-        return (Mathf.Abs(distance) < stats.range);
+        distance = Vector2.Distance(this.transform.position, objective.transform.position);
+        return (distance < stats.range);
     }
 
     protected void AttackEnemy(GameObject enemy)          // Attacks the enemy
@@ -112,17 +118,18 @@ public class Troop : MonoBehaviour
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
     {
-        myAnimator.SetBool("Attack", true);
+        //myAnimator.SetBool("Attack", true);
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
         
     }
 
-    protected void AmIAlive()                             // Checks if he is alive
+    protected bool AmIAlive()                             // Checks if he is alive
     {
         if(stats.health <= 0)
         {
-            Destroy(this.gameObject);
+            return false;
         }
+        return true;
     }
 
     protected void CapturingTower(GameObject _tower)      // Captures the tower
@@ -141,7 +148,7 @@ public class Troop : MonoBehaviour
         return Quaternion.LookRotation(targetPos) * Quaternion.Inverse(Quaternion.LookRotation(thisPos));
     }
 
-    IEnumerator Attack()
+    protected IEnumerator Attack()
     {
         if (StillInRange(troopObjective))
         {
@@ -157,7 +164,6 @@ public class Troop : MonoBehaviour
                 if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
                 {
                     troopObjective = DetectClosestEnemy();
-                    PathRequestManager.RequestPath((Vector2)transform.position, (Vector2)troopObjective.transform.position, OnPathFound);
                 }
             } 
         }
@@ -165,48 +171,52 @@ public class Troop : MonoBehaviour
         StartCoroutine(Attack());
     }
 
-    IEnumerator FollowPath()
+    protected void FollowPath()
     {
-        Vector2 currWaypoint = path[0];
-
-        while (!StillInRange(troopObjective))
+        if (targetIndex < pathRequest.waypoints.Length)
         {
-            if ((Vector2)transform.position == currWaypoint)
+            Vector2 currWaypoint = pathRequest.waypoints[targetIndex];
+            if (towerToMove != null)
             {
-                targetIndex++;
-                if (targetIndex >= path.Length)
+                if (!StillInRange(troopObjective))
                 {
-                    yield break;
+                    if (Vector2.Distance(transform.position, currWaypoint) < 0.1f*Time.deltaTime)
+                    {
+                        targetIndex++;
+                    }
+                    transform.position = Vector2.MoveTowards(transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
                 }
-                currWaypoint = path[targetIndex];
+                else
+                {
+                    return;
+                }
             }
-            transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
-            yield return null;
         }
+        //yield return null;
     }
 
     protected void ShootProjectile()
     {
-        Vector3 vectorToEnemy = (Vector2)troopObjective.transform.position - this.pos;
+        Vector3 vectorToEnemy = troopObjective.transform.position - this.transform.position;
         GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
     }
 
     public void OnDrawGizmos()
     {
-        if (path != null)
+        if (pathRequest != null)
         {
-            for (int i = targetIndex; i < path.Length; i++)
+            for (int i = targetIndex; i < pathRequest.waypoints.Length; i++)
             {
                 Gizmos.color = Color.black;
-                Gizmos.DrawCube(path[i], Vector2.one);
+                Gizmos.DrawCube(pathRequest.waypoints[i], new Vector2(0.12f, 0.12f));
 
                 if (i == targetIndex)
                 {
-                    Gizmos.DrawLine((Vector2)transform.position, path[i]);
+                    Gizmos.DrawLine((Vector2)transform.position, pathRequest.waypoints[i]);
                 }
                 else
                 {
-                    Gizmos.DrawLine(path[i - 1], path[i]);
+                    Gizmos.DrawLine(pathRequest.waypoints[i - 1], pathRequest.waypoints[i]);
                 }
             }
         }
