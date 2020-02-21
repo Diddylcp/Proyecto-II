@@ -19,7 +19,6 @@ public class Troop : MonoBehaviour
     };
     [SerializeField]protected TroopState troopState;
     [SerializeField]protected float startHealth;
-    public Vector2 pos;
     public string team;
     public ability stats;
     public GameObject troopObjective;
@@ -32,18 +31,17 @@ public class Troop : MonoBehaviour
 
     protected bool isAttacking = false, isMoving = false;
 
-    int targetIndex = 0;
+    protected int targetIndex = 0;
 
     protected Transform cam;
     
     protected void Start()
     {
         troopState = TroopState.INIT;
-        pos = transform.position;
         team = tag;
         troopObjective = DetectClosestEnemy();
         troopObjective = DetectClosestEnemy();
-        StartCoroutine(Attack());
+        //StartCoroutine(Attack());
         cam = Camera.main.transform;
     }
 
@@ -81,10 +79,9 @@ public class Troop : MonoBehaviour
         }
         GameObject closest = null;
         float distance = Mathf.Infinity;
-        pos = this.transform.position;
         foreach(GameObject go in gosTroops)
         {
-            float curDistance = Vector3.Distance(pos, go.transform.position);
+            float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
             if(curDistance < distance)
             {
                 closest = go;
@@ -93,7 +90,7 @@ public class Troop : MonoBehaviour
         }
         foreach (GameObject go in gosTower)
         {
-            float curDistance = Vector3.Distance(pos, go.transform.position);
+            float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
             if (curDistance < distance)
             {
                 closest = go;
@@ -107,7 +104,7 @@ public class Troop : MonoBehaviour
     protected bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         float distance;
-        distance = Vector2.Distance(pos, (Vector2)objective.transform.position);
+        distance = Vector2.Distance(this.transform.position, objective.transform.position);
         return (distance < stats.range);
     }
 
@@ -171,7 +168,7 @@ public class Troop : MonoBehaviour
         StartCoroutine(Attack());
     }
 
-    protected IEnumerator FollowPath()
+    protected void FollowPath()
     {
         if (targetIndex < pathRequest.waypoints.Length)
         {
@@ -184,20 +181,20 @@ public class Troop : MonoBehaviour
                     {
                         targetIndex++;
                     }
-                    transform.position = Vector2.MoveTowards((Vector2)transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
+                    transform.position = Vector2.MoveTowards(transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
                 }
                 else
                 {
-                    StopCoroutine(FollowPath());
+                    return;
                 }
             }
         }
-        yield return null;
+        //yield return null;
     }
 
     protected void ShootProjectile()
     {
-        Vector3 vectorToEnemy = (Vector2)troopObjective.transform.position - this.pos;
+        Vector3 vectorToEnemy = troopObjective.transform.position - this.transform.position;
         GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
     }
 
