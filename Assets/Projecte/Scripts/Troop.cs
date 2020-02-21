@@ -118,7 +118,7 @@ public class Troop : MonoBehaviour
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
     {
-        myAnimator.SetBool("Attack", true);
+        //myAnimator.SetBool("Attack", true);
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
         
     }
