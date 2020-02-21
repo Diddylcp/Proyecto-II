@@ -14,12 +14,11 @@ public class WarriorTroop : Troop
         stats.residualDamage = 0;
         stats.damage = 100;
         stats.range = 1f;
-        stats.attackSpeed = 1f;
+        stats.attackSpeed = 0.5f;
     }
 
     void Start()
     {
-        //base.Start();
         pathRequest = new GraphPathfinder();
         swordAudio = GetComponent<AudioSource>();
         startHealth = stats.health;
@@ -37,32 +36,25 @@ public class WarriorTroop : Troop
                 else if (troopObjective != null)
                      if(StillInRange(troopObjective))
                         troopState = TroopState.ATTACKING;
-
                 break;
 
             case TroopState.MOVING:
                 if (!AmIAlive())
                 {
                     isMoving = false;
-                    StopCoroutine(FollowPath());
                     troopState = TroopState.DYING;
                 }
                 else if (StillInRange(troopObjective))
                 {
                     isMoving = false;
-                    StopCoroutine(FollowPath());
                     troopState = TroopState.ATTACKING;
+                    StartCoroutine(Attack());
                 }
                 else
                 {
-                    if (!isMoving)
-                        StartCoroutine(FollowPath());
-                    else
-                    {
-                        
-                    }
+                    FollowPath();
+                    isMoving = true;
                 }
-
                 break;
 
             case TroopState.ATTACKING:
@@ -72,17 +64,13 @@ public class WarriorTroop : Troop
                     StopCoroutine(Attack());
                     troopState = TroopState.DYING;
                 }
-                else if (!StillInRange(troopObjective))
+                else if ((troopObjective == null || !StillInRange(troopObjective)) && pathRequest.findPath(currNode, towerToMove))
                 {
-                    isAttacking = false;
+                    targetIndex = 0;
                     StopCoroutine(Attack());
+                    isAttacking = false;
                     troopState = TroopState.MOVING;
                 }
-                else
-                {
-
-                }
-
                 break;
 
             case TroopState.DYING:
