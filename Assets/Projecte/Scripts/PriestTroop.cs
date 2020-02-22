@@ -35,6 +35,5 @@ public class PriestTroop : Troop
             }
         }
         AmIAlive();
-        barraVida.transform.forward = cam.transform.forward;
     }
 }
