@@ -24,17 +24,14 @@ public class Troop : MonoBehaviour
     public ability stats;
     public GameObject troopObjective;
     protected MyNode towerToMove;
-    public Transform barraVida;
-    public Transform barraVidaFill;
+    [SerializeField] private Image healthBar;
     public GameObject projectile;
     protected GraphPathfinder pathRequest;
     protected MyNode currNode;
 
     protected bool isAttacking = false, isMoving = false;
-
     protected int targetIndex = 0;
 
-    protected Transform cam;
     
     protected void Start()
     {
@@ -44,7 +41,6 @@ public class Troop : MonoBehaviour
         troopObjective = DetectClosestEnemy();
         troopObjective = DetectClosestEnemy();
         //StartCoroutine(Attack());
-        cam = Camera.main.transform;
     }
 
     public MyNode findClosestNode()
@@ -140,8 +136,8 @@ public class Troop : MonoBehaviour
     public void TakeDamage(int _damage)
     {
         stats.health -= _damage;
-        barraVidaFill.localScale = new Vector2(stats.health / startHealth, barraVidaFill.localScale.y);
-        StartCoroutine("ChangingRed");
+        healthBar.fillAmount = stats.health / startHealth;
+        //StartCoroutine("ChangingRed");
     }
 
     public Quaternion vectorRotation(Vector3 thisPos, Vector3 targetPos)

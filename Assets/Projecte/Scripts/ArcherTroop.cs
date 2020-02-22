@@ -36,6 +36,5 @@ public class ArcherTroop : Troop
                 troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
             }
         }
-        barraVida.transform.forward = cam.transform.forward;
     }
 }

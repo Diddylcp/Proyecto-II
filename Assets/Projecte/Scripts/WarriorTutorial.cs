@@ -24,6 +24,5 @@ public class WarriorTutorial : Troop
     void Update()
     {
         AmIAlive();
-        barraVida.transform.forward = cam.transform.forward;
     }
 }
