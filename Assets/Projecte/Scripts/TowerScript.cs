@@ -12,7 +12,7 @@ public struct TowerStates
     public float startHealth;
     public float area;
     public int damage;
-    public int range;
+    public float range;
     public float attackSpeed;
     public int moneyPerSecond;
 
@@ -24,7 +24,7 @@ public struct TowerStates
                 health = 1000;       // Vida original 1500
                 damage = 130;
                 attackSpeed = 0.8f;
-                range = 11; //11
+                range = 1f; //11
                 moneyPerSecond = 10;
                 area = 0;
                 break;
@@ -168,7 +168,6 @@ public class TowerScript : MonoBehaviour
                 hudEnhance = Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
                 hudEnhance.tower = this;
                 hudEnhance.tower.selected.GetComponent<SpriteRenderer>().enabled = true;
-                // towerLight.intensity = 1;
             }
             else
             {
