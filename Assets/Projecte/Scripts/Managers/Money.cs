@@ -12,6 +12,7 @@ public class Money : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("AllyEconomy").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame

@@ -101,8 +101,8 @@ public class TowerScript : MonoBehaviour
         positionToShowEnhance = new Vector3(454.3f, 36.9375f, 0);
         type = TowerType.NORMAL;
         objective = AnyoneToAttack();
-        if (tag == "AllyTower") player = allyPlayer;
-        else player = enemyPlayer;
+        if (tag == "AllyTower") player = GameObject.Find("AllyEconomy").GetComponent<PlayerController>();
+        else player = player = GameObject.Find("EnemyEconomy").GetComponent<PlayerController>();
         stats.SetStats(type);
         StartCoroutine(AttackEnemy());
         StartCoroutine(WaitSec());
@@ -148,8 +148,8 @@ public class TowerScript : MonoBehaviour
     IEnumerator WaitSec()
     {
         // wait for 1 second
-        yield return new WaitForSeconds(1.0f);
         DropCoin();
+        yield return new WaitForSeconds(1.0f);
         StartCoroutine(WaitSec());
     }
     //Al clickar
