@@ -12,30 +12,13 @@ public class MageTroop : Troop
         stats.area = 2f;
         stats.residualDamage = 0;
         stats.damage = 150;
-        stats.range = 3f;
+        stats.range = 1f;
         stats.attackSpeed = 0.8f;
     }
 
     void Start()
     {
+        base.Start();
         startHealth = stats.health;
     }
-
-    void Update()
-    {
-        if (troopObjective == null)
-        {
-            troopObjective = DetectClosestEnemy();
-        }
-        else
-        {
-            if (!StillInRange(troopObjective))
-            {
-                troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
-            }
-        }
-        AmIAlive();
-    }
-
-    
 }

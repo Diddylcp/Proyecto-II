@@ -12,29 +12,14 @@ public class ArcherTroop : Troop
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 70;
-        stats.range = 10f;
+        stats.range = 1f;
         stats.attackSpeed = 0.5f;
     }
 
     void Start()
     {
+        base.Start();
         startHealth = stats.health;
         troopObjective = DetectClosestEnemy();
-    }
-
-    void FixedUpdate()
-    {
-        AmIAlive();
-        if (troopObjective == null)
-        {
-            troopObjective = DetectClosestEnemy();
-        }
-        else
-        {
-            if (!StillInRange(troopObjective))
-            {
-                troopObjective = DetectClosestEnemy();            // While not attacking, finds the nearest enemy
-            }
-        }
     }
 }

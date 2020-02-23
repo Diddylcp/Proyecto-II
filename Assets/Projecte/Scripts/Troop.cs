@@ -39,8 +39,76 @@ public class Troop : MonoBehaviour
         troopState = TroopState.INIT;
         team = tag;
         troopObjective = DetectClosestEnemy();
-        troopObjective = DetectClosestEnemy();
-        //StartCoroutine(Attack());
+        currNode = findClosestNode();
+        pathRequest = new GraphPathfinder();
+    }
+
+    void Update()
+    {
+        switch (troopState)
+        {
+            case TroopState.INIT:
+                if (pathRequest.findPath(currNode, towerToMove) && !StillInRange(troopObjective))
+                {
+                    troopState = TroopState.MOVING;
+                    myAnimator.SetBool("Running", true);
+                    myAnimator.SetBool("Attack", false);
+                }
+                else if (troopObjective != null)
+                    if (StillInRange(troopObjective))
+                    {
+                        troopState = TroopState.ATTACKING;
+                        myAnimator.SetBool("Running", false);
+                        myAnimator.SetBool("Attack", true);
+                        StartCoroutine(Attack());
+                    }
+                break;
+
+            case TroopState.MOVING:
+                if (!AmIAlive())
+                {
+                    isMoving = false;
+                    troopState = TroopState.DYING;
+                }
+                else if (StillInRange(troopObjective))
+                {
+                    isMoving = false;
+                    troopState = TroopState.ATTACKING;
+                    myAnimator.SetBool("Attack", true);
+                    myAnimator.SetBool("Running", false);
+                    StartCoroutine(Attack());
+                }
+                else
+                {
+                    FollowPath();
+                    isMoving = true;
+                }
+                break;
+
+            case TroopState.ATTACKING:
+                if (!AmIAlive())
+                {
+                    isAttacking = false;
+                    StopCoroutine(Attack());
+                    troopState = TroopState.DYING;
+                }
+                else if ((troopObjective == null || !StillInRange(troopObjective)) && pathRequest.findPath(currNode, towerToMove))
+                {
+                    targetIndex = 0;
+                    StopCoroutine(Attack());
+                    isAttacking = false;
+                    myAnimator.SetBool("Running", true);
+                    myAnimator.SetBool("Attack", false);
+                    troopState = TroopState.MOVING;
+                }
+                break;
+
+            case TroopState.DYING:
+                StopAllCoroutines();
+                Destroy(this.gameObject);
+                break;
+        }
+        currNode = findClosestNode();
     }
 
     public MyNode findClosestNode()
@@ -64,28 +132,42 @@ public class Troop : MonoBehaviour
 
     public GameObject DetectClosestEnemy()
     {
-        GameObject[] gosTroops, gosTower;
+        GameObject[] gosTroops;
         if (tag == "AllyTroop")
         {
-            gosTower = GameObject.FindGameObjectsWithTag("EnemyTower");
             gosTroops = GameObject.FindGameObjectsWithTag("EnemyTroop");    
         }
         else
         {
-            gosTower = GameObject.FindGameObjectsWithTag("AllyTower");
             gosTroops = GameObject.FindGameObjectsWithTag("AllyTroop");
         }
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
-        foreach(GameObject go in gosTroops)
+        GameObject closest = DetectClosestTower();
+        float distance = Vector3.Distance(this.transform.position, closest.transform.position);
+        foreach (GameObject go in gosTroops)
         {
             float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
-            if(curDistance < distance)
+            if (curDistance < distance)
             {
                 closest = go;
                 distance = curDistance;
             }
         }
+        return closest;
+    }
+
+    public GameObject DetectClosestTower()
+    {
+        GameObject[] gosTower;
+        if (tag == "AllyTroop")
+        {
+            gosTower = GameObject.FindGameObjectsWithTag("EnemyTower");
+        }
+        else
+        {
+            gosTower = GameObject.FindGameObjectsWithTag("AllyTower");
+        }
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
         foreach (GameObject go in gosTower)
         {
             float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
@@ -93,30 +175,28 @@ public class Troop : MonoBehaviour
             {
                 closest = go;
                 distance = curDistance;
-                towerToMove = go.GetComponentInChildren<MyNode>();
             }
         }
+        towerToMove = closest.GetComponentInChildren<MyNode>();
         return closest;
     }
 
     protected bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         float distance;
+        if (objective == null) return false;
         distance = Vector2.Distance(this.transform.position, objective.transform.position);
         return (distance < stats.range);
     }
 
     protected void AttackEnemy(GameObject enemy)          // Attacks the enemy
     {
-        myAnimator.SetBool("Attack", true);
         enemy.GetComponent<Troop>().TakeDamage(stats.damage);
     }
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
     {
-        //myAnimator.SetBool("Attack", true);
         tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
-        
     }
 
     protected bool AmIAlive()                             // Checks if he is alive
@@ -137,7 +217,6 @@ public class Troop : MonoBehaviour
     {
         stats.health -= _damage;
         healthBar.fillAmount = stats.health / startHealth;
-        //StartCoroutine("ChangingRed");
     }
 
     public Quaternion vectorRotation(Vector3 thisPos, Vector3 targetPos)
@@ -189,7 +268,6 @@ public class Troop : MonoBehaviour
                 }
             }
         }
-        //yield return null;
     }
 
     protected void ShootProjectile()
@@ -198,7 +276,7 @@ public class Troop : MonoBehaviour
         GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
     }
 
-    public void OnDrawGizmos()
+    /*public void OnDrawGizmos()
     {
         if (pathRequest != null)
         {
@@ -217,34 +295,5 @@ public class Troop : MonoBehaviour
                 }
             }
         }
-    }
-    IEnumerator ChangingRed()
-    {
-        
-        for (float i = 0f; i <= 1f; i += 0.5f)
-        {
-            Color c = GameObject.FindWithTag("TextureCharacter").GetComponent<Material>().color;
-            c.g -= i;
-            c.b -= i;
-            GameObject.FindWithTag("TextureCharacter").GetComponent<Material>().color = c;
-            yield return new WaitForEndOfFrame();
-            //yield  return new WaitForSeconds(0.01f);
-        }
-        
-        StartCoroutine("ChangingWhite");
-    }
-
-    IEnumerator ChangingWhite()
-    {
-        for (float i = 0f; i <= 1f; i += 0.5f)
-        {
-            Color c = this.GetComponentInChildren<Material>().color;
-            c.g += i;
-            c.b += i;
-            this.GetComponentInChildren<Material>().color = c;
-            yield return new WaitForEndOfFrame();
-            //yield return new WaitForSeconds(0.01f);
-        }
-        StopCoroutine("ChangingWhite");
-    }
+    }*/
 }
