@@ -17,12 +17,13 @@ public class WarriorTutorial : Troop
     }
 
     void Start()
-    {  
+    {
+        base.Start();
         startHealth = stats.health;
     }
 
     void Update()
     {
-        AmIAlive();
+        if (!AmIAlive()) Destroy(this.gameObject);
     }
 }

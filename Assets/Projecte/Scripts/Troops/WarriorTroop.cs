@@ -12,8 +12,8 @@ public class WarriorTroop : Troop
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 100;
-        stats.range = 1f;
-        stats.attackSpeed = 0.5f;
+        stats.range = 2f;
+        stats.attackSpeed = 1f;
     }
 
     void Start()
