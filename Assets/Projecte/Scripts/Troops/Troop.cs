@@ -244,7 +244,6 @@ public class Troop : MonoBehaviour
             } 
         }
         yield return new WaitForSeconds(this.stats.attackSpeed);
-        //StartCoroutine(Attack());
     }
 
     protected void FollowPath()
@@ -276,24 +275,4 @@ public class Troop : MonoBehaviour
         GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
     }
 
-    /*public void OnDrawGizmos()
-    {
-        if (pathRequest != null)
-        {
-            for (int i = targetIndex; i < pathRequest.waypoints.Length; i++)
-            {
-                Gizmos.color = Color.black;
-                Gizmos.DrawCube(pathRequest.waypoints[i], new Vector2(0.12f, 0.12f));
-
-                if (i == targetIndex)
-                {
-                    Gizmos.DrawLine((Vector2)transform.position, pathRequest.waypoints[i]);
-                }
-                else
-                {
-                    Gizmos.DrawLine(pathRequest.waypoints[i - 1], pathRequest.waypoints[i]);
-                }
-            }
-        }
-    }*/
 }
