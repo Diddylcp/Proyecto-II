@@ -65,6 +65,7 @@ public class Troop : MonoBehaviour
                 break;
 
             case TroopState.MOVING:
+                if (troopObjective == null) troopObjective = DetectClosestEnemy();
                 if (!AmIAlive())
                 {
                     isMoving = false;
@@ -244,6 +245,7 @@ public class Troop : MonoBehaviour
             } 
         }
         yield return new WaitForSeconds(this.stats.attackSpeed);
+        StartCoroutine("Attack");
     }
 
     protected void FollowPath()

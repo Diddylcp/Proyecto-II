@@ -27,7 +27,8 @@ public class GraphPathfinder
                 {
                     neighbour.gCost = currNode.gCost + Vector2.Distance(neighbour.pos, currNode.pos);
                     neighbour.hCost = Vector2.Distance(neighbour.pos, endNode.pos);
-                    if(neighbour.parent == null || neighbour.CompareTo(currNode) < 0)
+                    //if(neighbour.parent == null || neighbour.CompareTo(currNode) < 0)
+                    if(!closedList.Contains(neighbour) || neighbour.CompareTo(currNode) < 0)
                     {
                         neighbour.parent = currNode;    //Si la f del vecino es menor currNode pasa a ser el parent del vecino
                     }
@@ -48,25 +49,25 @@ public class GraphPathfinder
             openList.TrimExcess();
         }
 
-        waypoints = RetracePath(startNode, endNode);
+        RetracePath(startNode, endNode);
         
         return true;
     }
 
-    Vector2[] RetracePath(MyNode startNode, MyNode endNode)
+    void RetracePath(MyNode startNode, MyNode endNode)
     {
         List<Vector2> path = new List<Vector2>();
         MyNode currNode = endNode;
 
-        while (currNode != startNode)
+        while (currNode.gCost != 0)
         {
             if(!path.Contains(currNode.pos))
                 path.Add(currNode.pos);
             currNode = currNode.parent;
         }
 
-        Vector2[] _waypoints = path.ToArray();
-        Array.Reverse(_waypoints);
-        return _waypoints;
+        waypoints = path.ToArray();
+        Array.Reverse(waypoints);
+        
     }
 }
