@@ -38,7 +38,7 @@ public class GraphPathfinder
             MyNode min = openList[0];
             foreach(MyNode node in openList)    //Busco el nodo con el valor f más pequeño
             {
-                if(node.CompareTo(min) > 0)
+                if(node.CompareTo(min) < 0)
                 {
                     min = node;
                 }
@@ -60,7 +60,8 @@ public class GraphPathfinder
 
         while (currNode != startNode)
         {
-            path.Add(currNode.pos);
+            if(!path.Contains(currNode.pos))
+                path.Add(currNode.pos);
             currNode = currNode.parent;
         }
 

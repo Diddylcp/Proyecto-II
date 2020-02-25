@@ -244,7 +244,7 @@ public class Troop : MonoBehaviour
             } 
         }
         yield return new WaitForSeconds(this.stats.attackSpeed);
-        StartCoroutine(Attack());
+        //StartCoroutine(Attack());
     }
 
     protected void FollowPath()
