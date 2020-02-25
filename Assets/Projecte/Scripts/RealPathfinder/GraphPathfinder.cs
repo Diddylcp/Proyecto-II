@@ -14,7 +14,6 @@ public class GraphPathfinder
 
     public bool findPath(MyNode startNode, MyNode endNode)
     {
-        //Debug.Log("HE ENCONTRADO: " + endNode);
         List<MyNode> openList = new List<MyNode>();
         HashSet<MyNode> closedList = new HashSet<MyNode>();
         MyNode currNode = startNode;
@@ -46,12 +45,11 @@ public class GraphPathfinder
             }
             currNode = min;
             openList.Remove(min);
+            openList.TrimExcess();
         }
 
         waypoints = RetracePath(startNode, endNode);
-        openList.Clear();
-        openList.TrimExcess();
-        //Debug.Log("PATH ENCONTRADO");
+        
         return true;
     }
 
