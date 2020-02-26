@@ -8,11 +8,11 @@ public class MageTroop : Troop
     public MageTroop()
     {
         stats.movSpeed = 1.35f;
-        stats.health = 400;
+        stats.health = 250;
         stats.area = 2f;
         stats.residualDamage = 0;
         stats.damage = 150;
-        stats.range = 2f;
+        stats.range = 1f;
         stats.attackSpeed = 1.75f;
     }
 
