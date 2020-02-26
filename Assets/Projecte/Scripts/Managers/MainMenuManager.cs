@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level01");
     }
 
     public void Controles()
@@ -22,12 +22,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void GoToTutorialMap()
     {
-        SceneManager.LoadScene("2D");
+        SceneManager.LoadScene("Level01");
     }
 
-    public void GoToHistory()
+    public void LevelSelection()
     {
-        SceneManager.LoadScene("History");
+        SceneManager.LoadScene("Level Selection");
     }
 
     public void ReturnToMainMenu()

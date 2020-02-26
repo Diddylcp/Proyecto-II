@@ -83,13 +83,14 @@ public class Troop : MonoBehaviour
                 }
                 else
                 {                   
-                    FollowPath();
                     isMoving = true;
                     if(tag == "AllyTroop" && towerToMove.tag == "AllyTower")
                     {
-                        DetectClosestTower();
                         pathRequest.findPath(currNode, towerToMove);
+                        DetectClosestTower();
                     }
+                    pathRequest.findPath(currNode, towerToMove);
+                    FollowPath();
                 }
                 break;
 
