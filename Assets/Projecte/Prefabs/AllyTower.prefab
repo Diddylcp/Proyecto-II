@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6747657526818140423}
   - component: {fileID: 1522364726183681448}
   m_Layer: 11
-  m_Name: GameObject
+  m_Name: SpawnAreaCollider
   m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 3143668057444573065}
   m_Layer: 0
   m_Name: Area de Spawn
-  m_TagString: Respawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -439,7 +439,7 @@ MonoBehaviour:
   enemyPlayer: {fileID: 8966115304980380644, guid: cf235a2388368ab439efc7f9cc76884f,
     type: 3}
   type: 0
-  respawnArea: {fileID: 3143668057444573071}
+  respawnArea: {fileID: 363929281535238}
   enhanceButtons: {fileID: 7815171546284655493, guid: a8b2f7b856c0d2e42937a04b3d6ecb34,
     type: 3}
   selected: {fileID: 54542374627914594}
