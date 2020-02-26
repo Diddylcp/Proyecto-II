@@ -14,6 +14,11 @@ public class GraphPathfinder
 
     public bool findPath(MyNode startNode, MyNode endNode)
     {
+        if(startNode == endNode)
+        {
+            waypoints[0] = startNode.pos;
+            return true;
+        }
         List<MyNode> openList = new List<MyNode>();
         HashSet<MyNode> closedList = new HashSet<MyNode>();
         MyNode currNode = startNode;
