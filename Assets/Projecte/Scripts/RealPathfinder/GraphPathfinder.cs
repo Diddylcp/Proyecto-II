@@ -14,9 +14,13 @@ public class GraphPathfinder
 
     public bool findPath(MyNode startNode, MyNode endNode)
     {
-        Debug.Log("HE ENCONTRADO: " + endNode);
+        if(startNode == endNode)
+        {
+            waypoints[0] = startNode.pos;
+            return true;
+        }
         List<MyNode> openList = new List<MyNode>();
-        List<MyNode> closedList = new List<MyNode>();
+        HashSet<MyNode> closedList = new HashSet<MyNode>();
         MyNode currNode = startNode;
         currNode.hCost = Vector2.Distance(currNode.pos, endNode.pos);
         currNode.gCost = 0;
@@ -28,7 +32,8 @@ public class GraphPathfinder
                 {
                     neighbour.gCost = currNode.gCost + Vector2.Distance(neighbour.pos, currNode.pos);
                     neighbour.hCost = Vector2.Distance(neighbour.pos, endNode.pos);
-                    if(neighbour.parent == null || neighbour.CompareTo(currNode) < 0)
+                    //if(neighbour.parent == null || neighbour.CompareTo(currNode) < 0)
+                    if(!closedList.Contains(neighbour) || neighbour.CompareTo(currNode) < 0)
                     {
                         neighbour.parent = currNode;    //Si la f del vecino es menor currNode pasa a ser el parent del vecino
                     }
@@ -46,26 +51,28 @@ public class GraphPathfinder
             }
             currNode = min;
             openList.Remove(min);
+            openList.TrimExcess();
         }
 
-        waypoints = RetracePath(startNode, endNode);
-        Debug.Log("PATH ENCONTRADO");
+        RetracePath(startNode, endNode);
+        
         return true;
     }
 
-    Vector2[] RetracePath(MyNode startNode, MyNode endNode)
+    void RetracePath(MyNode startNode, MyNode endNode)
     {
         List<Vector2> path = new List<Vector2>();
         MyNode currNode = endNode;
 
-        while (currNode != startNode)
+        while (currNode.gCost != 0)
         {
-            path.Add(currNode.pos);
+            if(!path.Contains(currNode.pos))
+                path.Add(currNode.pos);
             currNode = currNode.parent;
         }
 
-        Vector2[] _waypoints = path.ToArray();
-        Array.Reverse(_waypoints);
-        return _waypoints;
+        waypoints = path.ToArray();
+        Array.Reverse(waypoints);
+        
     }
 }

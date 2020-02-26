@@ -25,11 +25,12 @@ public class MyNode : MonoBehaviour
 
     public int CompareTo(MyNode nodeToCompare)
     {
-        int compare = fCost.CompareTo(nodeToCompare.fCost);
-        if (compare == 0)
+        if(fCost >= nodeToCompare.fCost)
         {
-            compare = hCost.CompareTo(nodeToCompare.hCost);
+            if (fCost == nodeToCompare.fCost)
+                return hCost >= nodeToCompare.hCost ? 1 : -1;
+            return 1;
         }
-        return -compare;
+        return -1;
     }
 }

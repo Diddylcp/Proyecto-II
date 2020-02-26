@@ -7,13 +7,13 @@ public class ArcherTroop : Troop
     // Start is called before the first frame update
     public ArcherTroop()
     {
-        stats.movSpeed = 4f;
+        stats.movSpeed = 2f;
         stats.health = 350; // Vida original 350
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 70;
-        stats.range = 1f;
-        stats.attackSpeed = 0.5f;
+        stats.range = 2.2f;
+        stats.attackSpeed = 0.75f;
     }
 
     void Start()

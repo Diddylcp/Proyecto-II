@@ -41,10 +41,12 @@ public class Troop : MonoBehaviour
         troopObjective = DetectClosestEnemy();
         currNode = findClosestNode();
         pathRequest = new GraphPathfinder();
+        StartCoroutine(Attack());
     }
 
     void Update()
     {
+        troopObjective = DetectClosestEnemy();
         switch (troopState)
         {
             case TroopState.INIT:
@@ -60,7 +62,7 @@ public class Troop : MonoBehaviour
                         troopState = TroopState.ATTACKING;
                         myAnimator.SetBool("Running", false);
                         myAnimator.SetBool("Attack", true);
-                        StartCoroutine(Attack());
+                        //StartCoroutine(Attack());
                     }
                 break;
 
@@ -76,12 +78,18 @@ public class Troop : MonoBehaviour
                     troopState = TroopState.ATTACKING;
                     myAnimator.SetBool("Attack", true);
                     myAnimator.SetBool("Running", false);
-                    StartCoroutine(Attack());
+                    targetIndex = 0;
+                    //StartCoroutine(Attack());
                 }
                 else
-                {
+                {                   
                     FollowPath();
                     isMoving = true;
+                    if(tag == "AllyTroop" && towerToMove.tag == "AllyTower")
+                    {
+                        DetectClosestTower();
+                        pathRequest.findPath(currNode, towerToMove);
+                    }
                 }
                 break;
 
@@ -89,13 +97,13 @@ public class Troop : MonoBehaviour
                 if (!AmIAlive())
                 {
                     isAttacking = false;
-                    StopCoroutine(Attack());
+                    //StopCoroutine(Attack());
                     troopState = TroopState.DYING;
                 }
-                else if ((troopObjective == null || !StillInRange(troopObjective)) && pathRequest.findPath(currNode, towerToMove))
+                else if (!StillInRange(troopObjective) && pathRequest.findPath(currNode, towerToMove))
                 {
-                    targetIndex = 0;
-                    StopCoroutine(Attack());
+                    
+                    //StopCoroutine(Attack());
                     isAttacking = false;
                     myAnimator.SetBool("Running", true);
                     myAnimator.SetBool("Attack", false);
@@ -196,7 +204,8 @@ public class Troop : MonoBehaviour
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
     {
-        tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
+        if(tag == "AllyTroop" && tower.tag != "AllyTower" || tag == "EnemyTroop" && tower.tag != "EnemyTower")
+            tower.GetComponent<TowerScript>().TakeDamage(stats.damage);
     }
 
     protected bool AmIAlive()                             // Checks if he is alive
@@ -244,7 +253,7 @@ public class Troop : MonoBehaviour
             } 
         }
         yield return new WaitForSeconds(this.stats.attackSpeed);
-        StartCoroutine(Attack());
+        StartCoroutine("Attack");
     }
 
     protected void FollowPath()
@@ -256,7 +265,7 @@ public class Troop : MonoBehaviour
             {
                 if (!StillInRange(troopObjective))
                 {
-                    if (Vector2.Distance(transform.position, currWaypoint) < 0.1f*Time.deltaTime)
+                    if (Vector2.Distance((Vector2)transform.position, currWaypoint) < 0.01f*Time.deltaTime)
                     {
                         targetIndex++;
                     }
@@ -276,24 +285,4 @@ public class Troop : MonoBehaviour
         GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
     }
 
-    /*public void OnDrawGizmos()
-    {
-        if (pathRequest != null)
-        {
-            for (int i = targetIndex; i < pathRequest.waypoints.Length; i++)
-            {
-                Gizmos.color = Color.black;
-                Gizmos.DrawCube(pathRequest.waypoints[i], new Vector2(0.12f, 0.12f));
-
-                if (i == targetIndex)
-                {
-                    Gizmos.DrawLine((Vector2)transform.position, pathRequest.waypoints[i]);
-                }
-                else
-                {
-                    Gizmos.DrawLine(pathRequest.waypoints[i - 1], pathRequest.waypoints[i]);
-                }
-            }
-        }
-    }*/
 }
