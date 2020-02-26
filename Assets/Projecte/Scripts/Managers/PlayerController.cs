@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) userMoney += 100;
+        if (Input.GetKeyDown(KeyCode.Backspace)) userMoney += 500;
     }
 
     public void SumMoney(int moneyToSum)
