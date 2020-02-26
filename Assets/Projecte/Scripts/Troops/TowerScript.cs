@@ -42,7 +42,7 @@ public struct TowerStates
                 attackSpeed = 2.1f;
                 range = 2.7f;
                 moneyPerSecond = 30;
-                area = 0;
+                area = 0;       
                 break;
 
             case TowerType.GOLD_TOWER:
@@ -93,7 +93,13 @@ public class TowerScript : MonoBehaviour
     Vector3 positionToShowEnhance;
     public GameObject selected;
     public Image HealthBar;
-    
+
+    public Mesh towerArcher;
+    public Mesh towerWizard;
+    public Mesh towerWarrior;
+    public Mesh towerVelocity;
+    public Mesh towerEconomy;
+
 
     // Start is called before the first frame update
     void Start()
@@ -160,7 +166,7 @@ public class TowerScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (tag == "AllyTower")
+        if (tag == "AllyTower" && this.type == TowerType.NORMAL)
         { 
             if (!player.GetPlayerWithTower())
             {

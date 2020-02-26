@@ -466,6 +466,11 @@ MonoBehaviour:
     type: 3}
   selected: {fileID: 2224767067744088771}
   HealthBar: {fileID: 8244257750037488439}
+  towerArcher: {fileID: 4300000, guid: e64e5e6bc2127bb4ca1b710ed2440001, type: 3}
+  towerWizard: {fileID: 4300000, guid: 28e6f737809f2df4282b69c49f480ef7, type: 3}
+  towerWarrior: {fileID: 4300000, guid: 7b33a7f9e42a80a40b130b8f6d41a42f, type: 3}
+  towerVelocity: {fileID: 4300000, guid: 329a69d06a5b1b34487ef27eef4feb5e, type: 3}
+  towerEconomy: {fileID: 4300000, guid: dfded056366ba7c4f94ab9e14e1a79d8, type: 3}
   MaterialEnemigo: {fileID: 2100000, guid: 62d29dfa4e6562e40b222130f01fb86d, type: 2}
   MaterialAliado: {fileID: 2100000, guid: bb7e2b784b9c95f4599d6c0c2c4ef4f2, type: 2}
   team: 
