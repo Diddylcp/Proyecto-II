@@ -24,4 +24,14 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("2D");
     }
+
+    public void GoToHistory()
+    {
+        SceneManager.LoadScene("History");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
