@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     {
         if(GameObject.FindWithTag("EnemyTower") == null || GameObject.FindWithTag("AllyTower") == null)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("Level Selection");
         }
     }
 }
