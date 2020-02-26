@@ -11,8 +11,8 @@ public class ArcherTroop : Troop
         stats.health = 350; // Vida original 350
         stats.area = 1f;
         stats.residualDamage = 0;
-        stats.damage = 70;
-        stats.range = 2.2f;
+        stats.damage = 45;
+        stats.range = 1.5f;
         stats.attackSpeed = 0.75f;
     }
 

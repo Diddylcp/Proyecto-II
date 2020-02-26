@@ -1896,12 +1896,12 @@ PrefabInstance:
         type: 3}
       propertyPath: allyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1199061882}
     - target: {fileID: 9058405230139969641, guid: f7a38140abc3da049af1ba7a71f28243,
         type: 3}
       propertyPath: enemyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1470952561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a38140abc3da049af1ba7a71f28243, type: 3}
 --- !u!114 &531276918 stripped
@@ -2339,12 +2339,12 @@ PrefabInstance:
         type: 3}
       propertyPath: allyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1199061882}
     - target: {fileID: 9058405230139969641, guid: f7a38140abc3da049af1ba7a71f28243,
         type: 3}
       propertyPath: enemyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1470952561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a38140abc3da049af1ba7a71f28243, type: 3}
 --- !u!114 &628316741 stripped
@@ -4430,6 +4430,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1199061882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 479681258320673369, guid: 1630baa128119f3439ccf8c39905fe5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 129334121}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96892ce951b56f1439f49b83dcbcb352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1234049444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5083,6 +5095,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e46432fccc74d7f4d990c33943569641, type: 3}
+--- !u!114 &1470952561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5275473509648853021, guid: 1630baa128119f3439ccf8c39905fe5a,
+    type: 3}
+  m_PrefabInstance: {fileID: 129334121}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96892ce951b56f1439f49b83dcbcb352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1477304768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5343,12 +5367,12 @@ PrefabInstance:
         type: 3}
       propertyPath: allyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1199061882}
     - target: {fileID: 9058405230139969641, guid: f7a38140abc3da049af1ba7a71f28243,
         type: 3}
       propertyPath: enemyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1470952561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a38140abc3da049af1ba7a71f28243, type: 3}
 --- !u!114 &1495833815 stripped
@@ -6401,12 +6425,12 @@ PrefabInstance:
         type: 3}
       propertyPath: allyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1199061882}
     - target: {fileID: 9058405230139969641, guid: f7a38140abc3da049af1ba7a71f28243,
         type: 3}
       propertyPath: enemyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1470952561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a38140abc3da049af1ba7a71f28243, type: 3}
 --- !u!114 &1834904776 stripped
@@ -6817,12 +6841,12 @@ PrefabInstance:
         type: 3}
       propertyPath: allyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1199061882}
     - target: {fileID: 9058405230139969641, guid: f7a38140abc3da049af1ba7a71f28243,
         type: 3}
       propertyPath: enemyPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1470952561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a38140abc3da049af1ba7a71f28243, type: 3}
 --- !u!114 &1933317659 stripped

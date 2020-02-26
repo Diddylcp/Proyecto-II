@@ -21,27 +21,27 @@ public struct TowerStates
         switch (tipo)
         {
             case TowerType.NORMAL:
-                health = 1000;       // Vida original 1500
+                health = 1500;       // Vida original 1500
                 damage = 130;
                 attackSpeed = 0.8f;
-                range = 1f; //11
-                moneyPerSecond = 10;
+                range = 2.4f; //11
+                moneyPerSecond = 30;
                 area = 0;
                 break;
             case TowerType.MAGE_TOWER:
                 health = 1800;
                 damage = 40;
                 attackSpeed = 1.6f;
-                range = 4;
-                moneyPerSecond = 10;
+                range = 2.4f;
+                moneyPerSecond = 30;
                 area = 2;
                 break;
             case TowerType.ARCHER_TOWER:
                 health = 1800;
                 damage = 30;
                 attackSpeed = 2.1f;
-                range = 5;
-                moneyPerSecond = 10;
+                range = 2.7f;
+                moneyPerSecond = 30;
                 area = 0;
                 break;
 
@@ -49,8 +49,8 @@ public struct TowerStates
                 health = 1800;
                 damage = 30;
                 attackSpeed = 1.6f;
-                range = 4;
-                moneyPerSecond = 15;
+                range = 2.4f;
+                moneyPerSecond = 45;
                 area = 0;
                 break;
 
@@ -58,8 +58,8 @@ public struct TowerStates
                 health = 1800;
                 damage = 30;
                 attackSpeed = 2f;
-                range = 4;
-                moneyPerSecond = 10;
+                range = 2.4f;
+                moneyPerSecond = 30;
                 area = 0;
                 break;
 
@@ -67,8 +67,8 @@ public struct TowerStates
                 health = 2000;
                 damage = 30;
                 attackSpeed = 1.6f;
-                range = 4;
-                moneyPerSecond = 10;
+                range = 2.4f;
+                moneyPerSecond = 30;
                 area = 0;
                 break;
         }
@@ -211,7 +211,7 @@ public class TowerScript : MonoBehaviour
                 }
             }                
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(stats.attackSpeed);
         StartCoroutine(AttackEnemy());
     }
 

@@ -8,11 +8,11 @@ public class WarriorTroop : Troop
     public WarriorTroop()
     {
         stats.movSpeed = 1f;
-        stats.health = 500;   // Vida original 700
+        stats.health = 350;   // Vida original 700
         stats.area = 1f;
         stats.residualDamage = 0;
-        stats.damage = 100;
-        stats.range = 1f;
+        stats.damage = 50;
+        stats.range = 0.5f;
         stats.attackSpeed = 1f;
     }
 
