@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WarriorTroop : Troop
 {
+
+    public bool returnDamage = false;
+
     // Start is called before the first frame update
     public WarriorTroop()
     {
@@ -20,5 +23,35 @@ public class WarriorTroop : Troop
     {
         base.Start();
         startHealth = stats.health;
+
+        SearchWarriorTower();
+
+
+    }
+
+    void SearchWarriorTower()
+    {
+        if (CompareTag("AllyTroop"))
+        {
+            foreach (GameObject tower in GameObject.FindGameObjectsWithTag("AllyTower"))
+            {
+                if (tower.GetComponent<TowerScript>().type == TowerType.WARRIOR_TOWER)
+                {
+                    returnDamage = true;
+                    break;
+                }
+            }
+        }
+        else if (CompareTag("EnemyTroop"))
+        {
+            foreach (GameObject tower in GameObject.FindGameObjectsWithTag("EnemyTower"))
+            {
+                if (tower.GetComponent<TowerScript>().type == TowerType.WARRIOR_TOWER)
+                {
+                    returnDamage = true;
+                    break;
+                }
+            }
+        }
     }
 }

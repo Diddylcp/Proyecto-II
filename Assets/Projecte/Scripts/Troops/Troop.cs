@@ -201,6 +201,13 @@ public class Troop : MonoBehaviour
     protected void AttackEnemy(GameObject enemy)          // Attacks the enemy
     {
         enemy.GetComponent<Troop>().TakeDamage(stats.damage);
+        if (enemy.GetComponent<WarriorTroop>())
+        {
+            if (enemy.GetComponent<WarriorTroop>().returnDamage)
+                TakeDamage(enemy.GetComponent<Troop>().stats.damage * 20 / 100);
+           
+        }
+
     }
 
     protected void AttackTower(GameObject tower)          // Attacks the tower

@@ -38,7 +38,7 @@ public class InfoHUD : MonoBehaviour
     {
         gameObject.GetComponent<CanvasRenderer>().SetAlpha(1f);
         text.GetComponent<CanvasRenderer>().SetAlpha(1f);
-        text.text = "Archer Tower 600$\n\n +300 health \n Your warrior soldiers will return \n 25% of the damage taken";
+        text.text = "Archer Tower 600$\n\n +300 health \n Your warrior soldiers will return ";
     }
     public void OnHoverVelocityEnhancement()
     {

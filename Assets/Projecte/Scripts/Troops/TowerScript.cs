@@ -94,6 +94,7 @@ public class TowerScript : MonoBehaviour
     public GameObject selected;
     public Image HealthBar;
 
+    public Mesh towerNormal;
     public Mesh towerArcher;
     public Mesh towerWizard;
     public Mesh towerWarrior;
@@ -228,6 +229,8 @@ public class TowerScript : MonoBehaviour
         if (stats.health <= 0)
         {
             ChangeTeam();
+            type = TowerType.NORMAL;
+            this.GetComponent<MeshFilter>().mesh = towerNormal;
         }
     }
 

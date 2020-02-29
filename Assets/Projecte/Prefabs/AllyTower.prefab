@@ -444,6 +444,7 @@ MonoBehaviour:
     type: 3}
   selected: {fileID: 54542374627914594}
   HealthBar: {fileID: 8863800492210058416}
+  towerNormal: {fileID: 4300000, guid: 9d7c2d9d7c468d14598869146b1f4632, type: 3}
   towerArcher: {fileID: 4300000, guid: e64e5e6bc2127bb4ca1b710ed2440001, type: 3}
   towerWizard: {fileID: 4300000, guid: 28e6f737809f2df4282b69c49f480ef7, type: 3}
   towerWarrior: {fileID: 4300000, guid: 7b33a7f9e42a80a40b130b8f6d41a42f, type: 3}

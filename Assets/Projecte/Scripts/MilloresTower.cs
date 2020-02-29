@@ -139,7 +139,34 @@ public class MilloresTower : MonoBehaviour
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
             tower.player.SetPlayerWithTower(false);
-            
+            EnhanceAllWarriors();
+
+        }
+    }
+
+
+    //Fa que els guerrers tinguin returnDamage true per poder retornar el 20% quan hi hagi una WwarriorTower
+    void EnhanceAllWarriors()
+    {
+        if (tower.CompareTag("AllyTower"))
+        {
+            foreach (GameObject troop in GameObject.FindGameObjectsWithTag("AllyTroop"))
+            {
+                if (troop.GetComponent<WarriorTroop>())
+                {
+                    troop.GetComponent<WarriorTroop>().returnDamage = true;
+                }
+            }
+        }
+        else if (tower.CompareTag("EnemyTower"))
+        {
+            foreach (GameObject troop in GameObject.FindGameObjectsWithTag("EnemyTroop"))
+            {
+                if (troop.GetComponent<WarriorTroop>())
+                {
+                    troop.GetComponent<WarriorTroop>().returnDamage = true;
+                }
+            }
         }
     }
 }
