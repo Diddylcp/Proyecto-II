@@ -169,4 +169,29 @@ public class MilloresTower : MonoBehaviour
             }
         }
     }
+
+    //Millora velocitat 20%
+    void EnhanceAllTropsVelocity()
+    {
+        if (tower.CompareTag("AllyTower"))
+        {
+            foreach (GameObject troop in GameObject.FindGameObjectsWithTag("AllyTroop"))
+            {
+                if (troop.GetComponent<Troop>())
+                {
+                    troop.GetComponent<Troop>().stats.movSpeed += troop.GetComponent<Troop>().stats.movSpeed * 20 / 100;
+                }
+            }
+        }
+        else if (tower.CompareTag("EnemyTower"))
+        {
+            foreach (GameObject troop in GameObject.FindGameObjectsWithTag("EnemyTroop"))
+            {
+                if (troop.GetComponent<Troop>())
+                {
+                    troop.GetComponent<Troop>().stats.movSpeed += troop.GetComponent<Troop>().stats.movSpeed * 20 / 100;
+                }
+            }
+        }
+    }
 }

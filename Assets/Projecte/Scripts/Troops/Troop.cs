@@ -32,11 +32,13 @@ public class Troop : MonoBehaviour
     protected bool isAttacking = false, isMoving = false;
     protected int targetIndex = 0;
 
+
     
     protected void Start()
     {
         myAnimator = GetComponentInChildren<Animator>();
         troopState = TroopState.INIT;
+        VelocityEnhance(FindVelocityTower()); //Mira si existeix torre de velocitat, i aplica la millora
         team = tag;
         troopObjective = DetectClosestEnemy();
         currNode = findClosestNode();
@@ -291,6 +293,44 @@ public class Troop : MonoBehaviour
     {
         Vector3 vectorToEnemy = troopObjective.transform.position - this.transform.position;
         GameObject projectileSpawned = Instantiate(projectile, this.transform.position, Quaternion.LookRotation(vectorToEnemy)) as GameObject;
+    }
+
+
+    bool FindVelocityTower()
+    {
+        if (CompareTag("AllyTroop"))
+        {
+            foreach (GameObject tower in GameObject.FindGameObjectsWithTag("AllyTower"))
+            {
+                if (tower.GetComponent<TowerScript>().type == TowerType.SPEED_TOWER)
+                {
+                    return true;
+               
+                }
+            }
+        }
+        else if (CompareTag("EnemyTroop"))
+        {
+            foreach (GameObject tower in GameObject.FindGameObjectsWithTag("EnemyTower"))
+            {
+                if (tower.GetComponent<TowerScript>().type == TowerType.SPEED_TOWER)
+                {
+                    return true;
+                    
+                }
+            }
+        }
+        return false;
+    }
+
+    void VelocityEnhance(bool existTower)
+    {
+        if(existTower)
+        {
+            print(stats.movSpeed);
+            stats.movSpeed += stats.movSpeed * 20 / 100;
+            print(stats.movSpeed);
+        }
     }
 
 }
