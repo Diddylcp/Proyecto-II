@@ -179,7 +179,7 @@ public class MilloresTower : MonoBehaviour
             {
                 if (troop.GetComponent<Troop>())
                 {
-                    troop.GetComponent<Troop>().stats.movSpeed += troop.GetComponent<Troop>().stats.movSpeed * 20 / 100;
+                    troop.GetComponent<Troop>().stats.attackSpeed += troop.GetComponent<Troop>().stats.attackSpeed * 20 / 100;
                 }
             }
         }
@@ -189,7 +189,7 @@ public class MilloresTower : MonoBehaviour
             {
                 if (troop.GetComponent<Troop>())
                 {
-                    troop.GetComponent<Troop>().stats.movSpeed += troop.GetComponent<Troop>().stats.movSpeed * 20 / 100;
+                    troop.GetComponent<Troop>().stats.attackSpeed += troop.GetComponent<Troop>().stats.attackSpeed * 20 / 100;
                 }
             }
         }

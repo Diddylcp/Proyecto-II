@@ -326,10 +326,9 @@ public class Troop : MonoBehaviour
     void VelocityEnhance(bool existTower)
     {
         if(existTower)
-        {
-            print(stats.movSpeed);
-            stats.movSpeed += stats.movSpeed * 20 / 100;
-            print(stats.movSpeed);
+        { 
+            stats.attackSpeed += stats.attackSpeed * 20 / 100;
+            
         }
     }
 
