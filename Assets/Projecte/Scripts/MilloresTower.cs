@@ -83,6 +83,7 @@ public class MilloresTower : MonoBehaviour
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
             tower.player.SetPlayerWithTower(false);
+            EnhanceAllWizard();
             
         }
 
@@ -112,6 +113,7 @@ public class MilloresTower : MonoBehaviour
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
             tower.player.SetPlayerWithTower(false);
+            EnhanceAllTroopsVelocity();
         }
 
     }
@@ -170,8 +172,33 @@ public class MilloresTower : MonoBehaviour
         }
     }
 
-    //Millora velocitat 20%
-    void EnhanceAllTropsVelocity()
+    //Wizard
+    void EnhanceAllWizard()
+    {
+        if (tower.CompareTag("AllyTower"))
+        {
+            foreach (GameObject troop in GameObject.FindGameObjectsWithTag("AllyTroop"))
+            {
+                if (troop.GetComponent<MageTroop>())
+                {
+                    troop.GetComponent<MageTroop>().areaAttack = true;
+                }
+            }
+        }
+        else if (tower.CompareTag("EnemyTower"))
+        {
+            foreach (GameObject troop in GameObject.FindGameObjectsWithTag("EnemyTroop"))
+            {
+                if (troop.GetComponent<MageTroop>())
+                {
+                    troop.GetComponent<MageTroop>().areaAttack = true;
+                }
+            }
+        }
+    }
+
+    //Velocity 
+    void EnhanceAllTroopsVelocity()
     {
         if (tower.CompareTag("AllyTower"))
         {

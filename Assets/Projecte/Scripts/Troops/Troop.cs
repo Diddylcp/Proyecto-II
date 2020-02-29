@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 public class Troop : MonoBehaviour
 {
@@ -192,6 +193,41 @@ public class Troop : MonoBehaviour
         return closest;
     }
 
+    public List<GameObject> DetectAllClosestEnemies()
+    {
+        
+        GameObject[] gosTroops;
+        GameObject[] gosTowers;
+        if (tag == "AllyTroop")
+        {
+            gosTroops = GameObject.FindGameObjectsWithTag("EnemyTroop");
+            gosTowers = GameObject.FindGameObjectsWithTag("EnemyTower");
+        }
+        else
+        {
+            gosTroops = GameObject.FindGameObjectsWithTag("AllyTroop");
+            gosTowers = GameObject.FindGameObjectsWithTag("AllyTower");
+        }
+        List<GameObject> closest = new List<GameObject>();
+        foreach (GameObject go in gosTroops)
+        {
+            float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
+            if (curDistance < stats.range)
+            {
+                closest.Add(go);
+            }
+        }
+        foreach (GameObject go in gosTowers)
+        {
+            float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
+            if (curDistance < stats.range)
+            {
+                closest.Add(go);
+            }
+        }
+        return closest;
+    }
+
     protected bool StillInRange(GameObject objective)     // Checks if troop is still in range of the enemy
     {
         float distance;
@@ -203,13 +239,15 @@ public class Troop : MonoBehaviour
     protected void AttackEnemy(GameObject enemy)          // Attacks the enemy
     {
         enemy.GetComponent<Troop>().TakeDamage(stats.damage);
+
+        
         if (enemy.GetComponent<WarriorTroop>())
         {
+            //enhance tower 20%
             if (enemy.GetComponent<WarriorTroop>().returnDamage)
                 TakeDamage(enemy.GetComponent<Troop>().stats.damage * 20 / 100);
            
         }
-
     }
 
     protected void AttackTower(GameObject tower)          // Attacks the tower
@@ -244,7 +282,55 @@ public class Troop : MonoBehaviour
     }
 
     protected IEnumerator Attack()
-    {
+    {   
+        if(GetComponent<MageTroop>())
+        {
+            if (GetComponent<MageTroop>().areaAttack)
+            {
+                List<GameObject> Objectives = DetectAllClosestEnemies();
+                foreach (GameObject go in Objectives)
+                {
+                    troopObjective = go;
+                    if (StillInRange(troopObjective))
+                    {
+                        if (troopObjective.GetComponent<Troop>() != null)
+                        {
+                            AttackEnemy(troopObjective);
+                            ShootProjectile();
+                        }
+                        else if (troopObjective.GetComponent<TowerScript>() != null)
+                        {
+                            AttackTower(troopObjective);
+                            ShootProjectile();
+                            if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
+                            {
+                                troopObjective = DetectClosestEnemy();
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (StillInRange(troopObjective))
+                {
+                    if (troopObjective.GetComponent<Troop>() != null)
+                    {
+                        AttackEnemy(troopObjective);
+                        ShootProjectile();
+                    }
+                    else if (troopObjective.GetComponent<TowerScript>() != null)
+                    {
+                        AttackTower(troopObjective);
+                        ShootProjectile();
+                        if ((this.tag == "AllyTroop" && troopObjective.GetComponent<TowerScript>().tag == "AllyTower") || (this.tag == "EnemyTroop" && troopObjective.GetComponent<TowerScript>().tag == "EnemyTower"))
+                        {
+                            troopObjective = DetectClosestEnemy();
+                        }
+                    }
+                }
+            }
+        }
         if (StillInRange(troopObjective))
         {
             if (troopObjective.GetComponent<Troop>() != null)

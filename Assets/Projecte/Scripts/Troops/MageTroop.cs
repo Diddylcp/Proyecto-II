@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MageTroop : Troop
 {
+    public bool areaAttack = false;
     // Start is called before the first frame update
     public MageTroop()
     {
@@ -20,5 +21,32 @@ public class MageTroop : Troop
     {
         base.Start();
         startHealth = stats.health;
+        SearchMageTower();
+    }
+
+    void SearchMageTower()
+    {
+        if (CompareTag("AllyTroop"))
+        {
+            foreach (GameObject tower in GameObject.FindGameObjectsWithTag("AllyTower"))
+            {
+                if (tower.GetComponent<TowerScript>().type == TowerType.MAGE_TOWER)
+                {
+                    areaAttack = true;
+                    break;
+                }
+            }
+        }
+        else if (CompareTag("EnemyTroop"))
+        {
+            foreach (GameObject tower in GameObject.FindGameObjectsWithTag("EnemyTower"))
+            {
+                if (tower.GetComponent<TowerScript>().type == TowerType.MAGE_TOWER)
+                {
+                    areaAttack = true;
+                    break;
+                }
+            }
+        }
     }
 }
