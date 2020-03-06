@@ -12,15 +12,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyTroopPriest Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 2575723404311200800, guid: e4e9393651af29b42a318f5bd49fb26e,
+    - target: {fileID: 2657007728316715243, guid: e4e9393651af29b42a318f5bd49fb26e,
         type: 3}
-      propertyPath: m_Offset.y
-      value: -0.39813554
+      propertyPath: m_LocalScale.x
+      value: 0.4
       objectReference: {fileID: 0}
-    - target: {fileID: 2575723404311200800, guid: e4e9393651af29b42a318f5bd49fb26e,
+    - target: {fileID: 2657007728316715243, guid: e4e9393651af29b42a318f5bd49fb26e,
         type: 3}
-      propertyPath: m_Size.y
-      value: 2.046271
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2657007728316715243, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
         type: 3}
@@ -61,6 +66,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.882
+      objectReference: {fileID: 0}
+    - target: {fileID: 5768015334578174524, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_WarningMessage
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 71481914759088065, guid: e4e9393651af29b42a318f5bd49fb26e,
         type: 3}
