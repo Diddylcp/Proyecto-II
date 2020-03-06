@@ -129,8 +129,7 @@ public class Troop : MonoBehaviour
         gosNodes = GameObject.FindGameObjectsWithTag("Node");
         GameObject closest = null;
         float distance = Mathf.Infinity;
-
-        foreach(GameObject go in gosNodes)
+        foreach (GameObject go in gosNodes)
         {
             float currDistance = Vector2.Distance(this.transform.position, go.transform.position);
             if(currDistance < distance)

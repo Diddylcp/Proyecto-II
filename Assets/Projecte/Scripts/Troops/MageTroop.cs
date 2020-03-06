@@ -8,7 +8,7 @@ public class MageTroop : Troop
     // Start is called before the first frame update
     public MageTroop()
     {
-        stats.movSpeed = 1.35f;
+        stats.movSpeed = 1.15f;
         stats.health = 250;
         stats.area = 2f;
         stats.residualDamage = 0;
