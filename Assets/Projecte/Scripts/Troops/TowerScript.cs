@@ -25,7 +25,7 @@ public struct TowerStates
                 damage = 130;
                 attackSpeed = 0.8f;
                 range = 2.4f; //11
-                moneyPerSecond = 30;
+                moneyPerSecond = 0; // abans 30
                 area = 0;
                 break;
             case TowerType.MAGE_TOWER:
@@ -33,7 +33,7 @@ public struct TowerStates
                 damage = 40;
                 attackSpeed = 1.6f;
                 range = 2.4f;
-                moneyPerSecond = 30;
+                moneyPerSecond = 05; // abans 30
                 area = 2;
                 break;
             case TowerType.ARCHER_TOWER:
@@ -41,7 +41,7 @@ public struct TowerStates
                 damage = 30;
                 attackSpeed = 2.1f;
                 range = 2.7f;
-                moneyPerSecond = 30;
+                moneyPerSecond = 05; // abans 30
                 area = 0;       
                 break;
 
@@ -50,7 +50,7 @@ public struct TowerStates
                 damage = 30;
                 attackSpeed = 1.6f;
                 range = 2.4f;
-                moneyPerSecond = 45;
+                moneyPerSecond = 30;
                 area = 0;
                 break;
 
@@ -59,7 +59,7 @@ public struct TowerStates
                 damage = 30;
                 attackSpeed = 2f;
                 range = 2.4f;
-                moneyPerSecond = 30;
+                moneyPerSecond = 05; // abans 30
                 area = 0;
                 break;
 
@@ -68,7 +68,7 @@ public struct TowerStates
                 damage = 30;
                 attackSpeed = 1.6f;
                 range = 2.4f;
-                moneyPerSecond = 30;
+                moneyPerSecond = 05;
                 area = 0;
                 break;
         }
@@ -101,12 +101,13 @@ public class TowerScript : MonoBehaviour
     public Mesh towerVelocity;
     public Mesh towerEconomy;
 
+    public CreateFloatingMoney objToCreateFloatingMoney;
 
     // Start is called before the first frame update
     void Start()
     {
         positionToShowEnhance = new Vector3(454.3f, 36.9375f, 0);
-        type = TowerType.NORMAL;
+        //type = TowerType.NORMAL;
         objective = AnyoneToAttack();
         if (tag == "AllyTower") player = GameObject.Find("AllyEconomy").GetComponent<PlayerController>();
         else player = player = GameObject.Find("EnemyEconomy").GetComponent<PlayerController>();
@@ -148,7 +149,11 @@ public class TowerScript : MonoBehaviour
     //Augmenta el money
     void DropCoin()
     {
-        player.SumMoney(stats.moneyPerSecond);
+
+            player.SumMoney(stats.moneyPerSecond);
+        if(tag == "AllyTower")
+            objToCreateFloatingMoney.AddFloatingText(stats.moneyPerSecond);
+        
 
     }
 
