@@ -250,7 +250,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6966044536423539238
@@ -280,7 +280,7 @@ Transform:
   m_GameObject: {fileID: 6966044536423539238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.585, y: 0.65, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 1171745685502152117}
   - {fileID: 7235055902775385719}
@@ -307,6 +307,7 @@ MonoBehaviour:
   healthBar: {fileID: 323282579532959422}
   projectile: {fileID: 3284185663800144625, guid: b641cb8bc871a3946801b823ca56758f,
     type: 3}
+  returnDamage: 0
 --- !u!61 &6966044536423539239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -477,12 +478,7 @@ PrefabInstance:
     - target: {fileID: 3905295095595263331, guid: 30e4688de531de040a05889e008ed4a6,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed by
-        Humanoid clips.\n\tTransform 'Root'\n\tTransform 'Elbow_R'\n\tTransform 'Ball_L'\n\tTransform
-        'Ball_R'\n\tTransform 'Clavicle_L'\n\tTransform 'Neck'\n\tTransform 'Elbow_L'\n\tTransform
-        'Head'\n\tTransform 'UpperLeg_L'\n\tTransform 'UpperLeg_R'\n\tand more ...\n\tFrom
-        animation clip 'Slash'"
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30e4688de531de040a05889e008ed4a6, type: 3}

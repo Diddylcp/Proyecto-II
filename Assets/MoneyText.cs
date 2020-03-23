@@ -17,8 +17,8 @@ public class MoneyText : MonoBehaviour
     void Start()
     {
        
-        posInitial = new Vector3(-4.2f, 7, -3.63f);
-        posFinal = new Vector3(-4.2f, 20, -3.63f);
+        posInitial = new Vector3(0, 7f, -3.63f);
+        posFinal = new Vector3(0, 20, -3.63f);
         textMoney = GetComponent<TextMeshPro>();
         textMoney.faceColor = new Color32(251, 243, 36, 255);
         alphaCounter = 255;
