@@ -34,14 +34,18 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
         else player = GameObject.Find("EnemyEconomy");
         playerController = player.GetComponent<PlayerController>();
         if (playerController.GetMoney() > soldierCost)
+        {
             Instantiate(soldierImage, new Vector3(0, 1, -19), Quaternion.identity);
+          
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if(soldierImageInstanciated != null)
         {
-            soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            soldierPos = Input.mousePosition;
             soldierImageInstanciated.transform.position = soldierPos;
         }
     }
@@ -64,8 +68,11 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
         col = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
         if (col != null && playerController.GetMoney() > soldierCost)
         {
-            soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            soldierPos = Input.mousePosition;
+
             soldierImageInstanciated = Instantiate(soldierImage, soldierPos, Quaternion.identity);
+            soldierImageInstanciated.transform.SetParent(gameObject.transform.parent);
         }
         if (col != null && playerController.GetMoney() < soldierCost)
         {

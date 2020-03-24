@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2944688919029632946}
   - component: {fileID: 5915108951437684085}
+  - component: {fileID: 1547806757323892791}
   m_Layer: 5
   m_Name: imageSoldier
   m_TagString: Untagged
@@ -82,9 +83,21 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1547806757323892791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915108951437684086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f28ba88eac7b543a123fc9d78dc596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8752166676331452928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,6 +108,10 @@ PrefabInstance:
     - target: {fileID: 100138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_Name
       value: xbot@Falling
+      objectReference: {fileID: 0}
+    - target: {fileID: 100138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -142,20 +159,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 1eae73b999090244394b3a379b3c12bd, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
 --- !u!4 &8752166676331053322 stripped

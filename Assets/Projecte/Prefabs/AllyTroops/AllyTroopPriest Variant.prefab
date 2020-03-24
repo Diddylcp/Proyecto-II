@@ -12,6 +12,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyTroopPriest Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2575723404311200800, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.39813554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575723404311200800, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.046271
+      objectReference: {fileID: 0}
     - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
         type: 3}
       propertyPath: m_LocalRotation.x

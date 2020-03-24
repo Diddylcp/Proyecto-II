@@ -132,7 +132,7 @@ public class Troop : MonoBehaviour
 
         foreach(GameObject go in gosNodes)
         {
-            float currDistance = Vector2.Distance(this.transform.position, go.transform.position);
+            float currDistance = Vector3.Distance(this.transform.position, go.transform.position);
             if(currDistance < distance)
             {
                 closest = go;
@@ -232,7 +232,7 @@ public class Troop : MonoBehaviour
     {
         float distance;
         if (objective == null) return false;
-        distance = Vector2.Distance(this.transform.position, objective.transform.position);
+        distance = Vector3.Distance(this.transform.position, objective.transform.position);
         return (distance < stats.range);
     }
 
@@ -356,16 +356,16 @@ public class Troop : MonoBehaviour
     {
         if (targetIndex < pathRequest.waypoints.Length)
         {
-            Vector2 currWaypoint = pathRequest.waypoints[targetIndex];
+            Vector3 currWaypoint = pathRequest.waypoints[targetIndex];
             if (towerToMove != null)
             {
                 if (!StillInRange(troopObjective))
                 {
-                    if (Vector2.Distance((Vector2)transform.position, currWaypoint) < 0.01f*Time.deltaTime)
+                    if (Vector3.Distance((Vector3)transform.position, currWaypoint) < 0.01f*Time.deltaTime)
                     {
                         targetIndex++;
                     }
-                    transform.position = Vector2.MoveTowards(transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
+                    transform.position = Vector3.MoveTowards(transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
                 }
                 else
                 {
