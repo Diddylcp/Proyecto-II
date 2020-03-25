@@ -386,11 +386,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9058405230139969634}
+<<<<<<< HEAD
 <<<<<<< develop
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
 =======
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
 >>>>>>> gitflow-feature-stash: Cambio de vista
+=======
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+>>>>>>> CambioVista
   m_LocalPosition: {x: 0, y: 0, z: 4.690918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -401,11 +405,15 @@ Transform:
   - {fileID: 1509217007314362695}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+<<<<<<< HEAD
 <<<<<<< develop
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 =======
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 >>>>>>> gitflow-feature-stash: Cambio de vista
+=======
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+>>>>>>> CambioVista
 --- !u!33 &9058405230139969647
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -535,21 +543,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9058405230307760929}
+<<<<<<< HEAD
 <<<<<<< develop
   m_LocalRotation: {x: 0, y: 0, z: -0, w: -1}
 =======
   m_LocalRotation: {x: -1, y: 0, z: -0, w: 0}
 >>>>>>> gitflow-feature-stash: Cambio de vista
+=======
+  m_LocalRotation: {x: -1, y: 0, z: -0, w: 0}
+>>>>>>> CambioVista
   m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9058405230139969646}
   m_RootOrder: 0
+<<<<<<< HEAD
 <<<<<<< develop
   m_LocalEulerAnglesHint: {x: 180, y: 180, z: -180}
 =======
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -180}
 >>>>>>> gitflow-feature-stash: Cambio de vista
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -180}
+>>>>>>> CambioVista
 --- !u!33 &9058405230307760930
 MeshFilter:
   m_ObjectHideFlags: 0
