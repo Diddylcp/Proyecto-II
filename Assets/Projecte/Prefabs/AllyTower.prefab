@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 3143668057444573067}
   - component: {fileID: 3143668057444573064}
   - component: {fileID: 3143668057444573065}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Area de Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

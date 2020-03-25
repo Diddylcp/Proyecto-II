@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 9058405230307760941}
   - component: {fileID: 9058405230307760930}
   - component: {fileID: 9058405230307760931}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Area de Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
