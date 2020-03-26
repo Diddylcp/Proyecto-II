@@ -172,6 +172,7 @@ public class TowerScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        //GameObject imageSoldier = GameObject.Find("imageSoldier");
         if (tag == "AllyTower" && this.type == TowerType.NORMAL)
         { 
             if (!player.GetPlayerWithTower())

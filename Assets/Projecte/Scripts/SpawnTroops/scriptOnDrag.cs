@@ -48,26 +48,45 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Collider2D[] cols = Physics2D.OverlapCircleAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
-        foreach(Collider2D collision in cols)
-        { 
-            if (collision.tag == "Respawn" && playerController.GetMoney() > soldierCost)
+  
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Destroy(soldierImageInstanciated);
+
+            if (Physics.Raycast(ray, out hit, 4000))
             {
-                Instantiate(soldierPrefab, soldierPos, Quaternion.identity);
-                playerController.SumMoney(-soldierCost);
-            }  
+                if (hit.transform.tag == "Respawn" && playerController.GetMoney() > soldierCost)
+                {
+                    soldierPos = hit.point;
+                    // soldierPos.y += 1;
+                    Instantiate(soldierPrefab, soldierPos, Quaternion.identity);
+                    playerController.SumMoney(-soldierCost);
+
+
+                }
+
+                /*Collider2D[] cols = Physics2D.OverlapCircleAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
+                foreach(Collider2D collision in cols)
+                { 
+                    if (collision.tag == "Respawn" && playerController.GetMoney() > soldierCost)
+                    {
+                        Instantiate(soldierPrefab, soldierPos, Quaternion.identity);
+                        playerController.SumMoney(-soldierCost);
+                    }  
+                } */
+            
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         col = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
-        if (col != null && playerController.GetMoney() > soldierCost)
+        if (/*col != null && */playerController.GetMoney() > soldierCost)
         {
             soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             soldierImageInstanciated = Instantiate(soldierImage, soldierPos, Quaternion.identity);
         }
-        if (col != null && playerController.GetMoney() < soldierCost)
+        if (/*col != null && */playerController.GetMoney() < soldierCost)
         {
             ChangeColor();
         }

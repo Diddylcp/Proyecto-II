@@ -25,6 +25,9 @@ public class HotKeySystem : MonoBehaviour
     private Vector2 soldierPos = Vector2.zero;
     Collider2D col;
 
+    Ray ray;
+    RaycastHit hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +48,16 @@ public class HotKeySystem : MonoBehaviour
         {
             if (warriorHotKey || mageHotKey || archerHotKey)
                 Destroy(soldierImageInstanciated);
-            warriorHotKey = true;
+          /*  warriorHotKey = true;
             mageHotKey = false;
-            archerHotKey = false;
+            archerHotKey = false; */
             if(playerController.GetMoney() > warriorCost)
             {
                 soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 soldierImageInstanciated = Instantiate(warriorImage, soldierPos, Quaternion.identity);
+                warriorHotKey = true;
+                mageHotKey = false;
+                archerHotKey = false;
             }
             else
             {
@@ -64,13 +70,14 @@ public class HotKeySystem : MonoBehaviour
         {
             if (warriorHotKey || mageHotKey || archerHotKey)
                 Destroy(soldierImageInstanciated);
-            warriorHotKey = false;
-            mageHotKey = true;
-            archerHotKey = false;
+
             if (playerController.GetMoney() > mageCost)
             {
                 soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 soldierImageInstanciated = Instantiate(mageImage, soldierPos, Quaternion.identity);
+                warriorHotKey = false;
+                mageHotKey = true;
+                archerHotKey = false;
             }
             else
             {
@@ -82,13 +89,14 @@ public class HotKeySystem : MonoBehaviour
         {
             if(warriorHotKey || mageHotKey || archerHotKey)
                 Destroy(soldierImageInstanciated);
-            warriorHotKey = false;
-            mageHotKey = false;
-            archerHotKey = true;
+
             if (playerController.GetMoney() > mageCost)
             {
                 soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 soldierImageInstanciated = Instantiate(archerImage, soldierPos, Quaternion.identity);
+                warriorHotKey = false;
+                mageHotKey = false;
+                archerHotKey = true;
             }
             else
             {
@@ -107,8 +115,22 @@ public class HotKeySystem : MonoBehaviour
             // Spawn
             if (warriorHotKey)
             {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Destroy(soldierImageInstanciated);
-                Collider2D[] cols = Physics2D.OverlapCircleAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
+
+                if (Physics.Raycast(ray, out hit, 4000))
+                {
+                    if (hit.transform.tag == "Respawn")
+                    {
+                        soldierPos = hit.point;
+                        // soldierPos.y += 1;
+                        Instantiate(warriorPrefab, soldierPos, Quaternion.identity);
+                        playerController.SumMoney(-warriorCost);
+                        warriorHotKey = false;
+
+                    }
+                }
+                /*Collider2D[] cols = Physics2D.OverlapCircleAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
                 foreach (Collider2D collision in cols)
                 {
                     if (collision.tag == "Respawn" && playerController.GetMoney() > warriorCost)
@@ -116,31 +138,41 @@ public class HotKeySystem : MonoBehaviour
                         Instantiate(warriorPrefab, soldierPos, Quaternion.identity);
                         playerController.SumMoney(-warriorCost);
                     }
-                }
+                } */
             }
             else if (mageHotKey)
             {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Destroy(soldierImageInstanciated);
-                Collider2D[] cols = Physics2D.OverlapCircleAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
-                foreach (Collider2D collision in cols)
+
+                if (Physics.Raycast(ray, out hit, 4000))
                 {
-                    if (collision.tag == "Respawn" && playerController.GetMoney() > mageCost)
+                    if (hit.transform.tag == "Respawn")
                     {
+                        soldierPos = hit.point;
+                        // soldierPos.y += 1;
                         Instantiate(magePrefab, soldierPos, Quaternion.identity);
                         playerController.SumMoney(-mageCost);
+                        mageHotKey = false;
+
                     }
                 }
             }
             else if (archerHotKey)
             {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 Destroy(soldierImageInstanciated);
-                Collider2D[] cols = Physics2D.OverlapCircleAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
-                foreach (Collider2D collision in cols)
+
+                if (Physics.Raycast(ray, out hit, 4000))
                 {
-                    if (collision.tag == "Respawn" && playerController.GetMoney() > archerCost)
-                    {
+                    if (hit.transform.tag == "Respawn")
+                    {   
+                        soldierPos = hit.point;
+                        // soldierPos.y += 1;
                         Instantiate(archerPrefab, soldierPos, Quaternion.identity);
                         playerController.SumMoney(-archerCost);
+                        archerHotKey = false;
+
                     }
                 }
             }

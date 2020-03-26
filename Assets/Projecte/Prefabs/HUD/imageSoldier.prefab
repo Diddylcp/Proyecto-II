@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2944688919029632946}
   - component: {fileID: 5915108951437684085}
+  - component: {fileID: 4559919521273256043}
   m_Layer: 5
   m_Name: imageSoldier
   m_TagString: Untagged
@@ -34,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.539, y: 2.5}
+  m_AnchoredPosition: {x: 0.539, y: 2.157}
   m_SizeDelta: {x: 0.32, y: 0.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5915108951437684085
@@ -82,9 +83,21 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4559919521273256043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915108951437684086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493c48a13bebde649873918bb0f62c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8752166676331452928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,7 +115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.45
+      value: -0.693
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -142,20 +155,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 1eae73b999090244394b3a379b3c12bd, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adf6c582f9924054da1f9263de21fe9e, type: 3}
 --- !u!4 &8752166676331053322 stripped
