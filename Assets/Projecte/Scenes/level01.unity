@@ -14738,7 +14738,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 5
   panBorderThickness: 10
-  panLimit: {x: 3, y: 2.5}
+  panMaxLimit: {x: 2, y: 0}
+  panMinLimit: {x: -2, y: -4}
 --- !u!114 &1567859637 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2068783210791230977, guid: f7a38140abc3da049af1ba7a71f28243,

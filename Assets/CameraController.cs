@@ -4,7 +4,8 @@ public class CameraController : MonoBehaviour
 {
     public float panSpeed = 1f;
     public float panBorderThickness = 10f;
-    public Vector2 panLimit;
+    public Vector2 panMaxLimit;
+    public Vector2 panMinLimit; 
 
     /*public float scrollSpeed = 20f;
     public float maxZ = -6f;
@@ -37,8 +38,8 @@ public class CameraController : MonoBehaviour
         pos.z += scroll * scrollSpeed * 100f * Time.deltaTime;
 
         pos.z = Mathf.Clamp(pos.z, minZ, maxZ);*/
-        pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
-        pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
+        pos.x = Mathf.Clamp(pos.x, panMinLimit.x, panMaxLimit.x);
+        pos.y = Mathf.Clamp(pos.y, panMinLimit.y, panMaxLimit.y);
 
         transform.position = pos;
     }

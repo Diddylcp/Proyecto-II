@@ -5580,7 +5580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 5
   panBorderThickness: 10
-  panLimit: {x: 10, y: 19.15}
+  panMaxLimit: {x: 10, y: -3}
+  panMinLimit: {x: -10, y: -14}
 --- !u!1001 &1565096913
 PrefabInstance:
   m_ObjectHideFlags: 0
