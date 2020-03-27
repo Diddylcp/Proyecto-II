@@ -8,7 +8,7 @@ public class LevelSelector : MonoBehaviour
     // Start is called before the first frame update
     public void Tutorial()
     {
-        SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene("level01");
     }
 
     public void Level02()
