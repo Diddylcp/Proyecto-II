@@ -1069,26 +1069,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyTower (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[0]
-      value: 
-      objectReference: {fileID: 1290287488}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[1]
-      value: 
-      objectReference: {fileID: 604543980}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[2]
-      value: 
-      objectReference: {fileID: 27211035}
     - target: {fileID: 3143668057515220215, guid: 2be9e5e245276154dadb71117745b849,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1159,6 +1139,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.20000003
       objectReference: {fileID: 0}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[0]
+      value: 
+      objectReference: {fileID: 1290287488}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[1]
+      value: 
+      objectReference: {fileID: 604543980}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[2]
+      value: 
+      objectReference: {fileID: 27211035}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be9e5e245276154dadb71117745b849, type: 3}
 --- !u!114 &286264007 stripped
@@ -1260,16 +1260,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyTower (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[0]
-      value: 
-      objectReference: {fileID: 1639994015}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[1]
-      value: 
-      objectReference: {fileID: 1335685975}
     - target: {fileID: 3143668057515220215, guid: 2be9e5e245276154dadb71117745b849,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1340,6 +1330,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.20000003
       objectReference: {fileID: 0}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[0]
+      value: 
+      objectReference: {fileID: 1639994015}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[1]
+      value: 
+      objectReference: {fileID: 1335685975}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be9e5e245276154dadb71117745b849, type: 3}
 --- !u!114 &292642753 stripped
@@ -3050,16 +3050,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyTower (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[1]
-      value: 
-      objectReference: {fileID: 211707496}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[0]
-      value: 
-      objectReference: {fileID: 223441367}
     - target: {fileID: 3143668057515220215, guid: 2be9e5e245276154dadb71117745b849,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3130,6 +3120,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.20000003
       objectReference: {fileID: 0}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[1]
+      value: 
+      objectReference: {fileID: 211707496}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[0]
+      value: 
+      objectReference: {fileID: 223441367}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be9e5e245276154dadb71117745b849, type: 3}
 --- !u!114 &812404911 stripped
@@ -4699,36 +4699,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyTower
       objectReference: {fileID: 0}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[0]
-      value: 
-      objectReference: {fileID: 292642753}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[1]
-      value: 
-      objectReference: {fileID: 1639994015}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[2]
-      value: 
-      objectReference: {fileID: 1567779776}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[3]
-      value: 
-      objectReference: {fileID: 223441367}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[4]
-      value: 
-      objectReference: {fileID: 590279980}
     - target: {fileID: 3143668057515220215, guid: 2be9e5e245276154dadb71117745b849,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4799,6 +4769,41 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.20000003
       objectReference: {fileID: 0}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[0]
+      value: 
+      objectReference: {fileID: 292642753}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[1]
+      value: 
+      objectReference: {fileID: 1639994015}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[2]
+      value: 
+      objectReference: {fileID: 1567779776}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[3]
+      value: 
+      objectReference: {fileID: 223441367}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[4]
+      value: 
+      objectReference: {fileID: 590279980}
+    - target: {fileID: 1340994506401503439, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1554013149}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be9e5e245276154dadb71117745b849, type: 3}
 --- !u!114 &1335685975 stripped
@@ -5489,6 +5494,7 @@ GameObject:
   - component: {fileID: 1554013150}
   - component: {fileID: 1554013149}
   - component: {fileID: 1554013148}
+  - component: {fileID: 1554013151}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5529,7 +5535,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 8.060738
   m_Depth: -1
   m_CullingMask:
@@ -5560,6 +5566,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
+--- !u!114 &1554013151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554013147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f902dd26b5b7824f862d05ead36db46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 5
+  panBorderThickness: 10
+  panLimit: {x: 10, y: 19.15}
 --- !u!1001 &1565096913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5849,26 +5870,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllyTower (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[0]
-      value: 
-      objectReference: {fileID: 292642753}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[1]
-      value: 
-      objectReference: {fileID: 1335685975}
-    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
-        type: 3}
-      propertyPath: neighbours.Array.data[2]
-      value: 
-      objectReference: {fileID: 1320165158}
     - target: {fileID: 3143668057515220215, guid: 2be9e5e245276154dadb71117745b849,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5938,6 +5939,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.20000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[0]
+      value: 
+      objectReference: {fileID: 292642753}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[1]
+      value: 
+      objectReference: {fileID: 1335685975}
+    - target: {fileID: 7655844285359763798, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: neighbours.Array.data[2]
+      value: 
+      objectReference: {fileID: 1320165158}
+    - target: {fileID: 3143668057515220214, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: type
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be9e5e245276154dadb71117745b849, type: 3}
@@ -6439,6 +6465,11 @@ PrefabInstance:
       propertyPath: enemyPlayer
       value: 
       objectReference: {fileID: 1470952561}
+    - target: {fileID: 9058405230139969641, guid: f7a38140abc3da049af1ba7a71f28243,
+        type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a38140abc3da049af1ba7a71f28243, type: 3}
 --- !u!114 &1834904776 stripped

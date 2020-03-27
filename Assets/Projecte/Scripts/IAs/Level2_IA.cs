@@ -57,7 +57,7 @@ public class Level2_IA : MonoBehaviour
             case 0:
                 if (playerController.GetMoney() > warriorCost)
                 {
-                    Instantiate(warrior, TowerSpawning().transform.position, Quaternion.identity);
+                    Instantiate(warrior, TowerSpawning().transform.position, Quaternion.Euler(-90, 0, 0));
                     playerController.SumMoney(-warriorCost);
                     yield return new WaitForSeconds(4);
                     StartCoroutine(Spawn());
@@ -71,7 +71,7 @@ public class Level2_IA : MonoBehaviour
             case 1:
                 if (playerController.GetMoney() > mageCost)
                 {
-                    Instantiate(mage, TowerSpawning().transform.position, Quaternion.identity);
+                    Instantiate(mage, TowerSpawning().transform.position, Quaternion.Euler(-90, 0, 0));
                     playerController.SumMoney(-mageCost);
                     yield return new WaitForSeconds(4);
                     StartCoroutine(Spawn());
@@ -85,7 +85,7 @@ public class Level2_IA : MonoBehaviour
             case 2:
                 if (playerController.GetMoney() > archerCost)
                 {
-                    Instantiate(archer, TowerSpawning().transform.position, Quaternion.identity);
+                    Instantiate(archer, TowerSpawning().transform.position, Quaternion.Euler(-90, 0, 0));
                     playerController.SumMoney(-archerCost);
                     yield return new WaitForSeconds(4);
                     StartCoroutine(Spawn());

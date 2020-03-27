@@ -134,8 +134,6 @@ public class TowerScript : MonoBehaviour
                 objective = AnyoneToAttack();
             }
         }
-
-
     }
 
     //Si segueix en rang enemic

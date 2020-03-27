@@ -45,6 +45,7 @@ public class MoneyText : MonoBehaviour
             alphaCounter -= alphaSpeed;
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, posFinal, speed * Time.deltaTime);
             textMoney.faceColor = new Color32(251, 243, 36, alphaCounter);
+            
 
         }
     }

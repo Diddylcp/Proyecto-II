@@ -45,7 +45,7 @@ public class Level1_IA : MonoBehaviour
 
     void SetSoldierPosition()
     {
-        Instantiate(soldier, TowerSpawning().transform.position, Quaternion.identity);
+        Instantiate(soldier, TowerSpawning().transform.position, Quaternion.Euler(-90, 0, 0));
     }
 
     IEnumerator Spawn()
