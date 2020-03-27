@@ -124,7 +124,7 @@ public class HotKeySystem : MonoBehaviour
                     {
                         soldierPos = hit.point;
                         // soldierPos.y += 1;
-                        Instantiate(warriorPrefab, soldierPos, Quaternion.identity);
+                        Instantiate(warriorPrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
                         playerController.SumMoney(-warriorCost);
                         warriorHotKey = false;
 
@@ -151,7 +151,7 @@ public class HotKeySystem : MonoBehaviour
                     {
                         soldierPos = hit.point;
                         // soldierPos.y += 1;
-                        Instantiate(magePrefab, soldierPos, Quaternion.identity);
+                        Instantiate(magePrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
                         playerController.SumMoney(-mageCost);
                         mageHotKey = false;
 
@@ -169,7 +169,7 @@ public class HotKeySystem : MonoBehaviour
                     {   
                         soldierPos = hit.point;
                         // soldierPos.y += 1;
-                        Instantiate(archerPrefab, soldierPos, Quaternion.identity);
+                        Instantiate(archerPrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
                         playerController.SumMoney(-archerCost);
                         archerHotKey = false;
 

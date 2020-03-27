@@ -59,7 +59,7 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
                 {
                     soldierPos = hit.point;
                     // soldierPos.y += 1;
-                    Instantiate(soldierPrefab, soldierPos, Quaternion.identity);
+                    Instantiate(soldierPrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
                     playerController.SumMoney(-soldierCost);
 
 
