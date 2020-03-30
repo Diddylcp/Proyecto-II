@@ -234,7 +234,7 @@ public class TowerScript : MonoBehaviour
         {
             ChangeTeam();
             type = TowerType.NORMAL;
-            this.GetComponent<MeshFilter>().mesh = towerNormal;
+            GameObject.Find("Tower").GetComponent<MeshFilter>().mesh = towerNormal;
         }
     }
 
@@ -243,7 +243,7 @@ public class TowerScript : MonoBehaviour
         if(team == "AllyTower")
         {
             this.tag = "EnemyTower";
-            this.GetComponent<MeshRenderer>().material = MaterialEnemigo;
+            GameObject.Find("Flag").GetComponent<MeshRenderer>().material = MaterialEnemigo;
             stats.health = 1500;
             HealthBar.fillAmount = stats.health / stats.startHealth;
             player = enemyPlayer;
@@ -253,7 +253,7 @@ public class TowerScript : MonoBehaviour
         else if(team == "EnemyTower")
         {
             this.tag = "AllyTower";
-            this.GetComponent<MeshRenderer>().material = MaterialAliado;
+            GameObject.Find("Flag").GetComponent<MeshRenderer>().material = MaterialAliado;
             stats.health = 1500;
             HealthBar.fillAmount = stats.health / stats.startHealth;
             player = allyPlayer;

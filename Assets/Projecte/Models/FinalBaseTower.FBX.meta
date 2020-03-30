@@ -1,26 +1,46 @@
 fileFormatVersion: 2
-guid: 8393aaa51c42b724eb0eb799c4328a67
+guid: db6d7f9dde518fa44b07de2e421d5ad5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: 'Material #2'
-    2300000: //RootNode
-    3300000: //RootNode
+    100000: Box001
+    100002: Cylinder001
+    100004: //RootNode
+    400000: Box001
+    400002: Cylinder001
+    400004: //RootNode
+    2100000: 'Material #4'
+    2100002: 'Material #3'
+    2300000: Box001
+    2300002: Cylinder001
+    3300000: Box001
+    3300002: Cylinder001
     4300000: Box001
+    4300002: Cylinder001
+    7400000: Take 001
+    9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 'Material #2'
-    second: {fileID: 2100000, guid: 168631cf6039fb845959f71eb055d1cc, type: 2}
+      name: 'Material #3'
+    second: {fileID: 2100000, guid: 87a69d26913d84e44acca99b209748d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #4'
+    second: {fileID: 2100000, guid: 6937efc8a081ac641954bcb5b18fd0ec, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: UVMapTorreBase
-    second: {fileID: 2800000, guid: 7719ca2a97462c6488fd9319c8094220, type: 3}
+      name: TextureFlag2
+    second: {fileID: 2800000, guid: d1bb82b47eee8ca4c92989d0c086bbea, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: UVMapTorreBase3
+    second: {fileID: 2800000, guid: b8025216e6affff488891e2e6b1c2cbb, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -72,8 +92,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -100,7 +120,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
