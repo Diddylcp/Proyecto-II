@@ -48,21 +48,17 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-  
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //USAR Ray2D
+            RaycastHit hit; //USAR RaycastHit2D
             Destroy(soldierImageInstanciated);
-
-            if (Physics.Raycast(ray, out hit, 4000))
+            if (Physics.Raycast(ray, out hit, 4000)) //ESTO NO ES 2D SE TIENE QUE USAR Physics2D.Raycast
             {
                 if (hit.transform.tag == "Respawn" && playerController.GetMoney() > soldierCost)
                 {
                     soldierPos = hit.point;
                     // soldierPos.y += 1;
-                    Instantiate(soldierPrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
+                    Instantiate(soldierPrefab, soldierPos, Quaternion.Euler(-90, 0, 0)); 
                     playerController.SumMoney(-soldierCost);
-
-
                 }
 
                 /*Collider2D[] cols = Physics2D.OverlapCircleAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
