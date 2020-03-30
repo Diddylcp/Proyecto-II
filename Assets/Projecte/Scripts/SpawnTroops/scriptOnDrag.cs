@@ -56,7 +56,7 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
                 if (hit.transform.tag == "Respawn" && playerController.GetMoney() > soldierCost)
                 {
                     soldierPos = hit.point;
-                    // soldierPos.y += 1;
+                    //soldierPos.y += 1;
                     Instantiate(soldierPrefab, soldierPos, Quaternion.Euler(-90, 0, 0)); 
                     playerController.SumMoney(-soldierCost);
                 }
