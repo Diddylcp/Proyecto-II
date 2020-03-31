@@ -366,7 +366,8 @@ public class Troop : MonoBehaviour
                         targetIndex++;
                     }
                     transform.LookAt(currWaypoint);
-                    transform.rotation = Quaternion.Euler(this.transform.eulerAngles.x, this.transform.eulerAngles.y, 90*transform.right.z);
+                    transform.rotation = Quaternion.Euler(this.transform.eulerAngles.x, this.transform.eulerAngles.y, 90 * transform.right.z);
+                   
                     transform.position = Vector2.MoveTowards(transform.position, currWaypoint, stats.movSpeed * Time.deltaTime);
                 }
                 else
