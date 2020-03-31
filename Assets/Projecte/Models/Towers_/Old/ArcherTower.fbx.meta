@@ -1,24 +1,15 @@
 fileFormatVersion: 2
-guid: 2befd62f671c2994a97a37e27f77d10d
+guid: e64e5e6bc2127bb4ca1b710ed2440001
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cylinder004
-    100002: Economy
-    100004: //RootNode
-    400000: Cylinder004
-    400002: Economy
-    400004: //RootNode
-    2100000: 'Material #5'
-    2100002: 'Material #3'
-    2300000: Cylinder004
-    2300002: Economy
-    3300000: Cylinder004
-    3300002: Economy
-    4300000: Economy
-    4300002: Cylinder004
-    7400000: Take 001
-    9500000: //RootNode
+    100000: //RootNode
+    400000: //RootNode
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Archer
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -71,8 +62,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.0254
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -99,7 +90,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
