@@ -12,8 +12,9 @@ public class ArcherTroop : Troop
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 45;
-        stats.range = 1.5f;
+        stats.range = 2f;
         stats.attackSpeed = 0.75f;
+        stats.dropedCoins = 50;
     }
 
     void Start()

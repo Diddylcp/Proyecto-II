@@ -13,8 +13,9 @@ public class MageTroop : Troop
         stats.area = 2f;
         stats.residualDamage = 0;
         stats.damage = 150;
-        stats.range = 1f;
+        stats.range = 1.5f;
         stats.attackSpeed = 1.75f;
+        stats.dropedCoins = 70;
     }
 
     void Start()

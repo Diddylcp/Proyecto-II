@@ -15,8 +15,9 @@ public class WarriorTroop : Troop
         stats.area = 1f;
         stats.residualDamage = 0;
         stats.damage = 50;
-        stats.range = 0.5f;
+        stats.range = 0.3f;
         stats.attackSpeed = 1f;
+        stats.dropedCoins = 30;
     }
 
     void Start()
@@ -25,8 +26,6 @@ public class WarriorTroop : Troop
         startHealth = stats.health;
 
         SearchWarriorTower();
-
-
     }
 
     void SearchWarriorTower()
