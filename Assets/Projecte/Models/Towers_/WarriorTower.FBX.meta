@@ -4,11 +4,74 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cylinder002
+    100004: Warrior
+    100006: Archer
+    100008: Box001
+    100010: Cylinder001
+    100012: Cylinder003
+    100014: Cylinder004
+    100016: Cylinder005
+    100018: Cylinder006
+    100020: Economy
+    100022: Velocity
+    100024: Wizard
     400000: //RootNode
+    400002: Cylinder002
+    400004: Warrior
+    400006: Archer
+    400008: Box001
+    400010: Cylinder001
+    400012: Cylinder003
+    400014: Cylinder004
+    400016: Cylinder005
+    400018: Cylinder006
+    400020: Economy
+    400022: Velocity
+    400024: Wizard
     2100000: No Name
+    2100002: 'Material #5'
+    2100004: 'Material #3'
+    2100006: 'Material #4'
     2300000: //RootNode
+    2300002: Cylinder002
+    2300004: Warrior
+    2300006: Archer
+    2300008: Box001
+    2300010: Cylinder001
+    2300012: Cylinder003
+    2300014: Cylinder004
+    2300016: Cylinder005
+    2300018: Cylinder006
+    2300020: Economy
+    2300022: Velocity
+    2300024: Wizard
     3300000: //RootNode
+    3300002: Cylinder002
+    3300004: Warrior
+    3300006: Archer
+    3300008: Box001
+    3300010: Cylinder001
+    3300012: Cylinder003
+    3300014: Cylinder004
+    3300016: Cylinder005
+    3300018: Cylinder006
+    3300020: Economy
+    3300022: Velocity
+    3300024: Wizard
     4300000: Warrior
+    4300002: Cylinder002
+    4300004: Box001
+    4300006: Cylinder001
+    4300008: Velocity
+    4300010: Economy
+    4300012: Archer
+    4300014: Wizard
+    4300016: Cylinder003
+    4300018: Cylinder004
+    4300020: Cylinder005
+    4300022: Cylinder006
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

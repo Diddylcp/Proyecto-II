@@ -4,11 +4,22 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cylinder005
+    100004: Wizard
     400000: //RootNode
+    400002: Cylinder005
+    400004: Wizard
     2100000: No Name
+    2100002: 'Material #5'
+    2100004: 'Material #3'
     2300000: //RootNode
+    2300002: Cylinder005
+    2300004: Wizard
     3300000: //RootNode
+    3300002: Cylinder005
+    3300004: Wizard
     4300000: Wizard
+    4300002: Cylinder005
   externalObjects: {}
   materials:
     importMaterials: 1
