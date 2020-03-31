@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class CanvasControl : MonoBehaviour
 {
-    float rotX;
-
+    //float rotX;
+    /*
     void Start()
     {
         
         rotX = Camera.main.transform.eulerAngles.x * (-1);
         transform.Rotate(rotX, 0, 0);
-    }
+    }*/
     // Update is called once per frame
     void Update()
     {
-        // transform.LookAt(Camera.main.transform.position, Camera.main.transform.up);
+       transform.LookAt(Camera.main.transform.position, Camera.main.transform.up);
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, 0);
        // transform.Rotate(rotX, 0, 0);
     }
 }
