@@ -290,8 +290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0a4846409302640a5640e4f120f833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingText: {fileID: 3347793777948610578, guid: dd4ffc9a9a28a694b982215eca9f683b,
+  floatingText: {fileID: 2276567957058572144, guid: dd4ffc9a9a28a694b982215eca9f683b,
     type: 3}
+  tower: {fileID: 3143668057515220214}
 --- !u!1 &3143668057444573071
 GameObject:
   m_ObjectHideFlags: 0

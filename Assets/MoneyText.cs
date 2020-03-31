@@ -9,7 +9,7 @@ public class MoneyText : MonoBehaviour
     Vector3 posInitial;
     Vector3 posFinal;
     public float speed;
-    TextMeshPro textMoney;
+    public TextMeshPro textMoney;
     byte alphaCounter;
     public byte alphaSpeed;
 

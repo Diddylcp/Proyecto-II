@@ -219,4 +219,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  textMoney: {fileID: 2883433859896437884}
   alphaSpeed: 6

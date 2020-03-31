@@ -5,15 +5,20 @@ using UnityEngine;
 public class CreateFloatingMoney : MonoBehaviour
 {
    
-   public GameObject floatingText;
+   public MoneyText floatingText;
+   public TowerScript tower;
+    string moneyToGive;
 
     public void AddFloatingText(int money)
     {
         if (money != 0)
         {
-            GameObject objInst = Instantiate(floatingText);
+            moneyToGive = "+" + tower.stats.moneyPerSecond ;
+            MoneyText objInst = Instantiate(floatingText);
             objInst.transform.SetParent(gameObject.transform.parent);
-           
+            objInst.textMoney.text = moneyToGive;
+
+
         }
     }
     
