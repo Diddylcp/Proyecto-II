@@ -42,8 +42,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.594471, y: 2.1225414, z: 10.127123}
-  m_Center: {x: -0.81762576, y: -0.5612707, z: -0.796793}
+  m_Size: {x: 10.594471, y: 0.86198807, z: 10.127123}
+  m_Center: {x: -0.817626, y: 0.069005966, z: -0.796793}
 --- !u!1 &54542374627914594
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,13 +68,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54542374627914594}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.998691, y: 3.998691, z: 3.998691}
   m_Children: []
   m_Father: {fileID: 3143668057515220215}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!212 &5993120458522661481
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ MonoBehaviour:
     type: 3}
   type: 0
   respawnArea: {fileID: 363929281535238}
-  enhanceButtons: {fileID: 7815171546284655493, guid: a8b2f7b856c0d2e42937a04b3d6ecb34,
+  enhanceButtons: {fileID: 4607097280964113989, guid: 1b6ff3a56d042ff4b97f9917b4f38091,
     type: 3}
   selected: {fileID: 54542374627914594}
   HealthBar: {fileID: 8863800492210058416}

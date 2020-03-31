@@ -88,7 +88,7 @@ public class TowerScript : MonoBehaviour
     Vector2 posMouse;
     public GameObject respawnArea;
     bool isClicked = false;
-    public MilloresTower enhanceButtons;
+    public Canvas enhanceButtons;
     MilloresTower hudEnhance;
     Vector3 positionToShowEnhance;
     public GameObject selected;
@@ -109,7 +109,7 @@ public class TowerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        positionToShowEnhance = new Vector3(454.3f, 36.9375f, 0);
+        positionToShowEnhance = new Vector3(-21.4f, -72.9f, -6);
         //type = TowerType.NORMAL;
         objective = AnyoneToAttack();
         if (tag == "AllyTower") player = GameObject.Find("AllyEconomy").GetComponent<PlayerController>();
@@ -181,7 +181,8 @@ public class TowerScript : MonoBehaviour
             if (!player.GetPlayerWithTower())
             {
                 player.SetPlayerWithTower(true);
-                hudEnhance = Instantiate(enhanceButtons, positionToShowEnhance, Quaternion.identity, GameObject.Find("ButtonsHUD").transform);
+                Instantiate(enhanceButtons);
+                hudEnhance = (MilloresTower)GameObject.FindObjectOfType<MilloresTower>();// ("/EnhanceTowerCanvas/MilloresTower");
                 hudEnhance.tower = this;
                 hudEnhance.tower.selected.GetComponent<SpriteRenderer>().enabled = true;
             }

@@ -193,7 +193,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\nMagic Tower\n+300 health\n+10 damage\nYour magic soldiers will make \ndamage
+  m_text: "Magic Tower\n\n+300 health\n+10 damage\nYour magic soldiers will make \ndamage
     in area"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -266,7 +266,7 @@ MonoBehaviour:
     characterCount: 81
     spriteCount: 0
     spaceCount: 15
-    wordCount: 15
+    wordCount: 14
     linkCount: 0
     lineCount: 6
     pageCount: 1

@@ -29,9 +29,9 @@ public class MilloresTower : MonoBehaviour
     {
         if (tower.player.GetMoney() >= 600)
         {
-            buttonWizard.GetComponent<Image>().color = Color.green;
-            buttonWarrior.GetComponent<Image>().color = Color.green;
-            buttonArcher.GetComponent<Image>().color = Color.green;
+            buttonWizard.GetComponent<Image>().color = Color.white;
+            buttonWarrior.GetComponent<Image>().color = Color.white;
+            buttonArcher.GetComponent<Image>().color = Color.white;
             buttonAvailable[0] = true;
             buttonAvailable[1] = true;
             buttonAvailable[4] = true;
@@ -48,7 +48,7 @@ public class MilloresTower : MonoBehaviour
 
         if (tower.player.GetMoney() >= 400)
         {
-            buttonSpeed.GetComponent<Image>().color = Color.green;
+            buttonSpeed.GetComponent<Image>().color = Color.white;
             buttonAvailable[2] = true;
         }
         else
@@ -59,7 +59,7 @@ public class MilloresTower : MonoBehaviour
 
         if (tower.player.GetMoney() >= 450)
         {
-            buttonEconomy.GetComponent<Image>().color = Color.green;
+            buttonEconomy.GetComponent<Image>().color = Color.white;
             buttonAvailable[3] = true;
         }
         else
