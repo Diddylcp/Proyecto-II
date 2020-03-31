@@ -478,6 +478,8 @@ MonoBehaviour:
     type: 3}
   selected: {fileID: 54542374627914594}
   HealthBar: {fileID: 8863800492210058416}
+  allyHealthBar: {r: 0.101960786, g: 0.21568628, b: 0.9137255, a: 1}
+  enemyHealthBar: {r: 0.95686275, g: 0.08627451, b: 0.06666667, a: 1}
   towerNormal: {fileID: 4300000, guid: db6d7f9dde518fa44b07de2e421d5ad5, type: 3}
   towerArcher: {fileID: 4300000, guid: e64e5e6bc2127bb4ca1b710ed2440001, type: 3}
   towerWizard: {fileID: 4300000, guid: 28e6f737809f2df4282b69c49f480ef7, type: 3}
@@ -487,6 +489,9 @@ MonoBehaviour:
   objToCreateFloatingMoney: {fileID: 1710098485183356699}
   MaterialEnemigo: {fileID: 2100000, guid: d52c9d73172a0df4f8629f45c3196ed4, type: 2}
   MaterialAliado: {fileID: 2100000, guid: 87a69d26913d84e44acca99b209748d9, type: 2}
+  MaterialTorreEnemigo: {fileID: 2100000, guid: 6937efc8a081ac641954bcb5b18fd0ec,
+    type: 2}
+  MaterialTorreAliado: {fileID: 2100000, guid: 0b90ad766c886ee4f9b6e0a5f44ffc91, type: 2}
   team: 
 --- !u!65 &2002784176070028108
 BoxCollider:
@@ -763,6 +768,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: db6d7f9dde518fa44b07de2e421d5ad5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b90ad766c886ee4f9b6e0a5f44ffc91, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db6d7f9dde518fa44b07de2e421d5ad5, type: 3}
 --- !u!4 &1446905719746909503 stripped

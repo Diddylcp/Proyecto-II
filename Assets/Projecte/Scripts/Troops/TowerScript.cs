@@ -94,6 +94,9 @@ public class TowerScript : MonoBehaviour
     public GameObject selected;
     public Image HealthBar;
 
+    [SerializeField] Color allyHealthBar;
+    [SerializeField] Color enemyHealthBar;
+
     public Mesh towerNormal;
     public Mesh towerArcher;
     public Mesh towerWizard;
@@ -118,6 +121,8 @@ public class TowerScript : MonoBehaviour
 
     [SerializeField] private Material MaterialEnemigo;
     [SerializeField] private Material MaterialAliado;
+    [SerializeField] private Material MaterialTorreEnemigo;
+    [SerializeField] private Material MaterialTorreAliado;
     [SerializeField] private string team;
 
     // Update is called once per frame
@@ -243,7 +248,9 @@ public class TowerScript : MonoBehaviour
         if(team == "AllyTower")
         {
             this.tag = "EnemyTower";
-            GameObject.Find("Flag").GetComponent<MeshRenderer>().material = MaterialEnemigo;
+            this.transform.Find("FinalBaseTower").transform.Find("Flag").GetComponent<MeshRenderer>().material = MaterialEnemigo;
+            this.transform.Find("FinalBaseTower").transform.Find("Tower").GetComponent<MeshRenderer>().material = MaterialTorreEnemigo;
+            this.transform.Find("Canvas").transform.Find("HealthBG").transform.Find("HealthBar").GetComponent<Image>().color = enemyHealthBar;
             stats.health = 1500;
             HealthBar.fillAmount = stats.health / stats.startHealth;
             player = enemyPlayer;
@@ -253,13 +260,14 @@ public class TowerScript : MonoBehaviour
         else if(team == "EnemyTower")
         {
             this.tag = "AllyTower";
-            GameObject.Find("Flag").GetComponent<MeshRenderer>().material = MaterialAliado;
+            this.transform.Find("FinalBaseTower").transform.Find("Flag").GetComponent<MeshRenderer>().material = MaterialAliado;
+            this.transform.Find("FinalBaseTower").transform.Find("Tower").GetComponent<MeshRenderer>().material = MaterialTorreAliado;
+            this.transform.Find("Canvas").transform.Find("HealthBG").transform.Find("HealthBar").GetComponent<Image>().color = allyHealthBar;
             stats.health = 1500;
             HealthBar.fillAmount = stats.health / stats.startHealth;
             player = allyPlayer;
             respawnArea.tag = "Respawn";
         }
         team = this.tag;
-        
     }
 }
