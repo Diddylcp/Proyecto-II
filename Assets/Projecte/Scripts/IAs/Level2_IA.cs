@@ -15,6 +15,10 @@ public class Level2_IA : MonoBehaviour
     int warriorCost = 190;
     int mageCost = 250;
     int archerCost = 210;
+    int mageCounter;
+    int archerCounter;
+    int warriorCounter;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,43 @@ public class Level2_IA : MonoBehaviour
         player = GameObject.Find("EnemyEconomy");
         playerController = player.GetComponent<PlayerController>();
         StartCoroutine(Spawn());
+        StartCoroutine(MoreSpawning());
+    }
+
+    IEnumerator MoreSpawning()
+    {
+        archerCounter = 0;
+        mageCounter = 0;
+        warriorCounter = 0;
+        GameObject[] enemyTroops, allyTroops;
+        enemyTroops = GameObject.FindGameObjectsWithTag("EnemyTroop");
+        allyTroops = GameObject.FindGameObjectsWithTag("AllyTroop");
+        foreach (GameObject troop in enemyTroops)
+        {
+            if (troop.GetComponent<ArcherTroop>() != null) archerCounter++;
+            if (troop.GetComponent<WarriorTroop>() != null) warriorCounter++;
+            if (troop.GetComponent<MageTroop>() != null) mageCounter++;
+        }
+        foreach (GameObject troop in allyTroops)
+        {
+            if (troop.GetComponent<ArcherTroop>() != null) archerCounter--;
+            if (troop.GetComponent<WarriorTroop>() != null) warriorCounter--;
+            if (troop.GetComponent<MageTroop>() != null) mageCounter--;
+        }
+        if(warriorCounter < -2 && playerController.GetMoney() > warriorCost)
+        {
+            Instantiate(warrior, TowerSpawning().transform.position, Quaternion.Euler(-90, 0, 0));
+        }
+        if (mageCounter < -2 && playerController.GetMoney() > mageCost)
+        {
+            Instantiate(mage, TowerSpawning().transform.position, Quaternion.Euler(-90, 0, 0));
+        }
+        if (archerCounter < -2 && playerController.GetMoney() > archerCost)
+        {
+            Instantiate(mage, TowerSpawning().transform.position, Quaternion.Euler(-90, 0, 0));
+        }
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(MoreSpawning());
     }
 
     public GameObject TowerSpawning()

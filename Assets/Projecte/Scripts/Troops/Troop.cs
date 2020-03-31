@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
-using System.Collections.Generic;
 
 public class Troop : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class Troop : MonoBehaviour
         public int damage;
         public float range;
         public float attackSpeed;
+        public int dropedCoins;
     };
     protected Animator myAnimator;
     [SerializeField]protected TroopState troopState;
@@ -117,6 +117,8 @@ public class Troop : MonoBehaviour
 
             case TroopState.DYING:
                 StopAllCoroutines();
+                if (this.tag == "EnemyTroop") GameObject.Find("AllyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
+                else GameObject.Find("EnemyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
                 Destroy(this.gameObject);
                 break;
         }

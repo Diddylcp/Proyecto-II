@@ -22,7 +22,7 @@ public struct TowerStates
         {
             case TowerType.NORMAL:
                 health = 1500;       // Vida original 1500
-                damage = 130;
+                damage = 20;
                 attackSpeed = 0.8f;
                 range = 2.4f; //11
                 moneyPerSecond = 0; // abans 30
