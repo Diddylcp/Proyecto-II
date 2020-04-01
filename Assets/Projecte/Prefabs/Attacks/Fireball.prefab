@@ -4761,7 +4761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b1601abe73c594791f5b15206905e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 10
   range: 8
 --- !u!135 &4467235808821309440
 SphereCollider:
@@ -4801,7 +4801,7 @@ AudioSource:
   m_GameObject: {fileID: 5876749387759512449}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: b00c03e610d6a194b9b7bcbdb854718c,
+  OutputAudioMixerGroup: {fileID: 243250825891106606, guid: 085f185b51964334c8892ba4d991a1cd,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: e33cbb669b788354d9372be0e67ff53e, type: 3}
   m_PlayOnAwake: 1
