@@ -79,12 +79,11 @@ public class MilloresTower : MonoBehaviour
             tower.player.SumMoney(-600);
             tower.type = TowerType.MAGE_TOWER;
             tower.stats.SetStats(tower.type);
-            tower.GetComponent<MeshFilter>().mesh = tower.towerWizard;
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
             tower.player.SetPlayerWithTower(false);
             EnhanceAllWizard();
-            
+            tower.ChangeTower();
         }
 
     }
@@ -95,10 +94,10 @@ public class MilloresTower : MonoBehaviour
             tower.player.SumMoney(-600);
             tower.type = TowerType.ARCHER_TOWER;
             tower.stats.SetStats(tower.type);
-            tower.GetComponent<MeshFilter>().mesh = tower.towerArcher;
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
             tower.player.SetPlayerWithTower(false);
+            tower.ChangeTower();
         }
 
     }
@@ -109,11 +108,11 @@ public class MilloresTower : MonoBehaviour
             tower.player.SumMoney(-400);
             tower.type = TowerType.SPEED_TOWER;
             tower.stats.SetStats(tower.type);
-            tower.GetComponent<MeshFilter>().mesh = tower.towerVelocity;
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
             tower.player.SetPlayerWithTower(false);
             EnhanceAllTroopsVelocity();
+            tower.ChangeTower();
         }
 
     }
@@ -124,10 +123,10 @@ public class MilloresTower : MonoBehaviour
             tower.player.SumMoney(-450);
             tower.type = TowerType.GOLD_TOWER;
             tower.stats.SetStats(tower.type);
-            tower.GetComponent<MeshFilter>().mesh = tower.towerEconomy;
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
             tower.player.SetPlayerWithTower(false);
+            tower.ChangeTower();
         }
     }
     public void ClickWarrior()
@@ -137,12 +136,11 @@ public class MilloresTower : MonoBehaviour
             tower.player.SumMoney(-600);
             tower.type = TowerType.WARRIOR_TOWER;
             tower.stats.SetStats(tower.type);
-            tower.GetComponent<MeshFilter>().mesh = tower.towerWarrior;
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject);
             tower.player.SetPlayerWithTower(false);
             EnhanceAllWarriors();
-
+            tower.ChangeTower();
         }
     }
 

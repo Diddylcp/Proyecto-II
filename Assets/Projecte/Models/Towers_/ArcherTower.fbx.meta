@@ -20,7 +20,17 @@ ModelImporter:
     7400000: Take 001
     9500000: //RootNode
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #3'
+    second: {fileID: 2100000, guid: 87a69d26913d84e44acca99b209748d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #5'
+    second: {fileID: 2100000, guid: 005f0bc8d86b5404f913f4b4e4f4fce1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

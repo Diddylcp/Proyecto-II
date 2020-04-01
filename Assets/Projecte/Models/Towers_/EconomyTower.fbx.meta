@@ -19,7 +19,27 @@ ModelImporter:
     4300002: Cylinder004
     7400000: Take 001
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #3'
+    second: {fileID: 2100000, guid: 87a69d26913d84e44acca99b209748d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #5'
+    second: {fileID: 2100000, guid: 005f0bc8d86b5404f913f4b4e4f4fce1, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Red-Brick-Cartoon-Seamless-Pattern-by-superzizie
+    second: {fileID: 2800000, guid: 5e3fb54803031fc40a8167d22dc010c9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TextureFlag2
+    second: {fileID: 2800000, guid: f776df26a827f8f4caf97e0a8f7a0e9d, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
