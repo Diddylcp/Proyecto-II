@@ -430,7 +430,7 @@ MonoBehaviour:
   towerWarrior: {fileID: 4300000, guid: 7b33a7f9e42a80a40b130b8f6d41a42f, type: 3}
   towerVelocity: {fileID: 4300000, guid: 329a69d06a5b1b34487ef27eef4feb5e, type: 3}
   towerEconomy: {fileID: 4300000, guid: dfded056366ba7c4f94ab9e14e1a79d8, type: 3}
-  capturedAudio: {fileID: 0}
+  capturedAudio: {fileID: 4713768207836571269}
   updateAudio: {fileID: 0}
   objToCreateFloatingMoney: {fileID: 0}
   MaterialEnemigo: {fileID: 2100000, guid: d52c9d73172a0df4f8629f45c3196ed4, type: 2}
