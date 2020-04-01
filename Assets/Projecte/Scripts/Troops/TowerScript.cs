@@ -104,6 +104,9 @@ public class TowerScript : MonoBehaviour
     public Mesh towerVelocity;
     public Mesh towerEconomy;
 
+    [SerializeField] private AudioSource capturedAudio;
+    [SerializeField] private AudioSource updateAudio;
+
     public CreateFloatingMoney objToCreateFloatingMoney;
 
     // Start is called before the first frame update
@@ -192,6 +195,7 @@ public class TowerScript : MonoBehaviour
                 hudEnhance.tower = this;
                 hudEnhance.tower.selected.GetComponent<SpriteRenderer>().enabled = true;
             }
+            updateAudio.Play();
         }
         
     }
@@ -268,6 +272,7 @@ public class TowerScript : MonoBehaviour
             player = allyPlayer;
             respawnArea.tag = "Respawn";
         }
+        capturedAudio.Play();
         team = this.tag;
     }
 }
