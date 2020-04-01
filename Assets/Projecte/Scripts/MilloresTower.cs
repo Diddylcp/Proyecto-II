@@ -157,6 +157,7 @@ public class MilloresTower : MonoBehaviour
                 if (troop.GetComponent<WarriorTroop>())
                 {
                     troop.GetComponent<WarriorTroop>().returnDamage = true;
+                    troop.GetComponent<WarriorTroop>().WarriorTowerFX = Instantiate(troop.GetComponent<WarriorTroop>().WarriorTowerFX, troop.GetComponent<WarriorTroop>().transform);
                 }
             }
         }
@@ -167,6 +168,7 @@ public class MilloresTower : MonoBehaviour
                 if (troop.GetComponent<WarriorTroop>())
                 {
                     troop.GetComponent<WarriorTroop>().returnDamage = true;
+                    troop.GetComponent<WarriorTroop>().WarriorTowerFX = Instantiate(troop.GetComponent<WarriorTroop>().WarriorTowerFX, troop.GetComponent<WarriorTroop>().transform);
                 }
             }
         }
@@ -182,6 +184,7 @@ public class MilloresTower : MonoBehaviour
                 if (troop.GetComponent<MageTroop>())
                 {
                     troop.GetComponent<MageTroop>().areaAttack = true;
+                    troop.GetComponent<MageTroop>().MageTowerFX = Instantiate(troop.GetComponent<MageTroop>().MageTowerFX, troop.GetComponent<MageTroop>().transform);
                 }
             }
         }
@@ -192,6 +195,7 @@ public class MilloresTower : MonoBehaviour
                 if (troop.GetComponent<MageTroop>())
                 {
                     troop.GetComponent<MageTroop>().areaAttack = true;
+                    troop.GetComponent<MageTroop>().MageTowerFX = Instantiate(troop.GetComponent<MageTroop>().MageTowerFX, troop.GetComponent<MageTroop>().transform);
                 }
             }
         }
@@ -207,6 +211,7 @@ public class MilloresTower : MonoBehaviour
                 if (troop.GetComponent<Troop>())
                 {
                     troop.GetComponent<Troop>().stats.attackSpeed += troop.GetComponent<Troop>().stats.attackSpeed * 20 / 100;
+                    troop.GetComponent<Troop>().VelocityTowerFX = Instantiate(troop.GetComponent<Troop>().VelocityTowerFX, troop.GetComponent<Troop>().transform);
                 }
             }
         }

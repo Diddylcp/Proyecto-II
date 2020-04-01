@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MageTroop : Troop
 {
+    public ParticleSystem MageTowerFX;
+
     public bool areaAttack = false;
     // Start is called before the first frame update
     public MageTroop()
@@ -34,6 +36,7 @@ public class MageTroop : Troop
                 if (tower.GetComponent<TowerScript>().type == TowerType.MAGE_TOWER)
                 {
                     areaAttack = true;
+        
                     break;
                 }
             }
@@ -48,6 +51,12 @@ public class MageTroop : Troop
                     break;
                 }
             }
+        }
+
+        if (areaAttack)
+        {
+            MageTowerFX = Instantiate(MageTowerFX, this.transform);
+
         }
     }
 }

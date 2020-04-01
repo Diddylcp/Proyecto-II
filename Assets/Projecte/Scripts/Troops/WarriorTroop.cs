@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class WarriorTroop : Troop
 {
+    public ParticleSystem WarriorTowerFX;
+    
 
     public bool returnDamage = false;
+    
 
     // Start is called before the first frame update
     public WarriorTroop()
@@ -27,6 +30,7 @@ public class WarriorTroop : Troop
 
         SearchWarriorTower();
     }
+
 
     void SearchWarriorTower()
     {
@@ -51,6 +55,12 @@ public class WarriorTroop : Troop
                     break;
                 }
             }
+        }
+
+        if (returnDamage)
+        {
+            WarriorTowerFX = Instantiate(WarriorTowerFX, this.transform);
+
         }
     }
 }

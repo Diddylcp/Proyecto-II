@@ -192,6 +192,8 @@ MonoBehaviour:
   healthBar: {fileID: 5175311864868709053}
   projectile: {fileID: 3284185663800144625, guid: 45387c700c128a74d8bc03232d441b21,
     type: 3}
+  VelocityTowerFX: {fileID: 198755127273645396, guid: e243632bb3aff9549abdcfcc2ef0c4f0,
+    type: 3}
 --- !u!1 &1287089377442781064
 GameObject:
   m_ObjectHideFlags: 0

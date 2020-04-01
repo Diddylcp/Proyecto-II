@@ -33,8 +33,9 @@ public class Troop : MonoBehaviour
     protected bool isAttacking = false, isMoving = false;
     protected int targetIndex = 0;
 
+    public ParticleSystem VelocityTowerFX;
 
-    
+
     protected void Start()
     {
         myAnimator = GetComponentInChildren<Animator>();
@@ -419,8 +420,9 @@ public class Troop : MonoBehaviour
         if(existTower)
         { 
             stats.attackSpeed += stats.attackSpeed * 20 / 100;
-            
+            VelocityTowerFX = Instantiate(VelocityTowerFX, this.transform);
         }
+
     }
 
 }

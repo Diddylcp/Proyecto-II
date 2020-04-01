@@ -234,6 +234,7 @@ MonoBehaviour:
   healthBar: {fileID: 9015092632809369759}
   projectile: {fileID: 5876749387759512449, guid: cdddffa6a48b3bb499b5193311532e2e,
     type: 3}
+  MageTowerFX: {fileID: 19800008, guid: e3d819d8722fa1f47a3f68574b56dfb3, type: 3}
   areaAttack: 0
 --- !u!1 &7991261495904592664
 GameObject:
