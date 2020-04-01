@@ -12,6 +12,8 @@ TagManager:
   - EnemyRespawn
   - Node
   - TextureCharacter
+  - Tower
+  - Flag
   layers:
   - Default
   - TransparentFX

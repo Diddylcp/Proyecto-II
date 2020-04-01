@@ -6497,6 +6497,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonsHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 4645780420351087975, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4645780420351087978, guid: a191d33a191cd48439d60ebe82d8eee9,
         type: 3}
       propertyPath: m_LocalPosition.x

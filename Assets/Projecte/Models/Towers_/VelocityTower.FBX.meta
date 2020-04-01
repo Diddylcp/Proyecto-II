@@ -20,7 +20,27 @@ ModelImporter:
     3300004: Velocity
     4300000: Velocity
     4300002: Cylinder003
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #3'
+    second: {fileID: 2100000, guid: 87a69d26913d84e44acca99b209748d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #5'
+    second: {fileID: 2100000, guid: 005f0bc8d86b5404f913f4b4e4f4fce1, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Red-Brick-Cartoon-Seamless-Pattern-by-superzizie
+    second: {fileID: 2800000, guid: 1e65cbeabf806e74db430d052472c269, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TextureFlag2
+    second: {fileID: 2800000, guid: 9baf1c992954c4c4c9e24ceeaa717600, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
