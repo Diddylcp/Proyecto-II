@@ -469,12 +469,18 @@ MonoBehaviour:
   HealthBar: {fileID: 8244257750037488439}
   allyHealthBar: {r: 0.101960786, g: 0.21568628, b: 0.9137255, a: 1}
   enemyHealthBar: {r: 0.95686275, g: 0.08627451, b: 0.06666667, a: 1}
-  towerNormal: {fileID: 4300000, guid: db6d7f9dde518fa44b07de2e421d5ad5, type: 3}
-  towerArcher: {fileID: 4300000, guid: e64e5e6bc2127bb4ca1b710ed2440001, type: 3}
-  towerWizard: {fileID: 4300000, guid: 28e6f737809f2df4282b69c49f480ef7, type: 3}
-  towerWarrior: {fileID: 4300000, guid: 7b33a7f9e42a80a40b130b8f6d41a42f, type: 3}
-  towerVelocity: {fileID: 4300000, guid: 329a69d06a5b1b34487ef27eef4feb5e, type: 3}
-  towerEconomy: {fileID: 4300000, guid: dfded056366ba7c4f94ab9e14e1a79d8, type: 3}
+  towerNormal: {fileID: 1622022780325913792, guid: bb8f6fe7fa2709148a7ed26247d6c47e,
+    type: 3}
+  towerArcher: {fileID: 434119743793845245, guid: 0c42b94c24ddc5a498908514e6847e3b,
+    type: 3}
+  towerWizard: {fileID: 9198455836049383465, guid: 48ec5bac32e9ba3429ee3865407e3121,
+    type: 3}
+  towerWarrior: {fileID: 1950861418373592056, guid: ba6c08c703028564cb55153d5e9ed957,
+    type: 3}
+  towerVelocity: {fileID: 2386362888412054238, guid: a88e5d28cff5a9d4fab69e736d6ef71b,
+    type: 3}
+  towerEconomy: {fileID: 6287777593195599377, guid: 3f00442763860434082f939af639d2cc,
+    type: 3}
   objToCreateFloatingMoney: {fileID: 0}
   MaterialTorreAliado: {fileID: 2100000, guid: 0b90ad766c886ee4f9b6e0a5f44ffc91, type: 2}
   MejoraTorreAliado: {fileID: 2100000, guid: 005f0bc8d86b5404f913f4b4e4f4fce1, type: 2}

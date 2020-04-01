@@ -117,6 +117,7 @@ public class TowerScript : MonoBehaviour
         positionToShowEnhance = new Vector3(-21.4f, -72.9f, -6);
         //type = TowerType.NORMAL;
         actualTower = Instantiate(towerNormal, this.transform);
+        actualTower = Instantiate(towerNormal, this.transform);
         positionToShowEnhance = new Vector3(454.3f, 36.9375f, 0);
         objective = AnyoneToAttack();
         if (tag == "AllyTower") player = GameObject.Find("AllyEconomy").GetComponent<PlayerController>();
