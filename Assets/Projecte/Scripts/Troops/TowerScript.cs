@@ -166,8 +166,6 @@ public class TowerScript : MonoBehaviour
             player.SumMoney(stats.moneyPerSecond);
         if(tag == "AllyTower")
             objToCreateFloatingMoney.AddFloatingText(stats.moneyPerSecond);
-        
-
     }
 
     IEnumerator WaitSec()
