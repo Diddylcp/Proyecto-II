@@ -484,7 +484,7 @@ MonoBehaviour:
     type: 3}
   capturedAudio: {fileID: 4713768207836571269}
   updateAudio: {fileID: 7158892052057800173}
-  objToCreateFloatingMoney: {fileID: 0}
+  objToCreateFloatingMoney: {fileID: 6651810305242498813}
   MaterialTorreAliado: {fileID: 2100000, guid: 0b90ad766c886ee4f9b6e0a5f44ffc91, type: 2}
   MejoraTorreAliado: {fileID: 2100000, guid: 005f0bc8d86b5404f913f4b4e4f4fce1, type: 2}
   FlagAliado: {fileID: 2100000, guid: 87a69d26913d84e44acca99b209748d9, type: 2}
