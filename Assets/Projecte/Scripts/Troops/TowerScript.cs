@@ -21,24 +21,24 @@ public struct TowerStates
         switch (tipo)
         {
             case TowerType.NORMAL:
-                health = 1500;       // Vida original 1500
-                damage = 20;
+                health = 1800;       // Vida original 1500
+                damage = 40;
                 attackSpeed = 0.8f;
                 range = 2.4f; //11
                 moneyPerSecond = 0; // abans 30
                 area = 0;
                 break;
             case TowerType.MAGE_TOWER:
-                health = 1800;
-                damage = 40;
+                health = 2000;
+                damage = 50;
                 attackSpeed = 1.6f;
                 range = 2.4f;
                 moneyPerSecond = 05; // abans 30
                 area = 2;
                 break;
             case TowerType.ARCHER_TOWER:
-                health = 1800;
-                damage = 30;
+                health = 2100;
+                damage = 40;
                 attackSpeed = 2.1f;
                 range = 2.7f;
                 moneyPerSecond = 05; // abans 30
@@ -46,7 +46,7 @@ public struct TowerStates
                 break;
 
             case TowerType.GOLD_TOWER:
-                health = 1800;
+                health = 2100;
                 damage = 30;
                 attackSpeed = 1.6f;
                 range = 2.4f;
@@ -55,8 +55,8 @@ public struct TowerStates
                 break;
 
             case TowerType.SPEED_TOWER:
-                health = 1800;
-                damage = 30;
+                health = 2100;
+                damage = 50;
                 attackSpeed = 2f;
                 range = 2.4f;
                 moneyPerSecond = 05; // abans 30
@@ -64,8 +64,8 @@ public struct TowerStates
                 break;
 
             case TowerType.WARRIOR_TOWER:
-                health = 2000;
-                damage = 30;
+                health = 2500;
+                damage = 45;
                 attackSpeed = 1.6f;
                 range = 2.4f;
                 moneyPerSecond = 05;

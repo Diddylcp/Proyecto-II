@@ -21,6 +21,11 @@ public class LevelSelector : MonoBehaviour
         SceneManager.LoadScene("Level03");
     }
 
+    public void Level04()
+    {
+        SceneManager.LoadScene("Level04");
+    }
+
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");

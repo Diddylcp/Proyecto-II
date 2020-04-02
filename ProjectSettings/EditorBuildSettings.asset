@@ -15,15 +15,15 @@ EditorBuildSettings:
     path: Assets/Projecte/Scenes/Level Selection.unity
     guid: 3ddf35181f2e1204e845bb6a2158b1ab
   - enabled: 1
-    path: Assets/Projecte/Scenes/level01.unity
+    path: Assets/Projecte/Scenes/Level01.unity
     guid: 883e29bd68bcc884a8a01e462493f6b4
   - enabled: 1
     path: Assets/Projecte/Scenes/Level02.unity
     guid: 3944a08b5d38cb1439daaa1ec5b29079
   - enabled: 1
-    path: Assets/Projecte/Scenes/level03.unity
+    path: Assets/Projecte/Scenes/Level03.unity
     guid: 5e9397bb57cca8c4086f112bfb99242d
   - enabled: 1
-    path: Assets/Projecte/Scenes/level04.unity
+    path: Assets/Projecte/Scenes/Level04.unity
     guid: 77a6dec65c8828e49b56896360c2ee88
   m_configObjects: {}
