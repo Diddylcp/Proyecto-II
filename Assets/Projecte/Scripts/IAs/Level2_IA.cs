@@ -25,11 +25,11 @@ public class Level2_IA : MonoBehaviour
     {
         GameObject player;
         rnd = new System.Random();
-        referencePointSpawn = new Vector3(-58, 140, 211);   // Pos utilizada para encontrar la torre enemiga más cercana al campo aliado
+        referencePointSpawn = new Vector3(-15, 0, 0);   // Pos utilizada para encontrar la torre enemiga más cercana al campo aliado
         player = GameObject.Find("EnemyEconomy");
         playerController = player.GetComponent<PlayerController>();
         StartCoroutine(Spawn());
-        StartCoroutine(MoreSpawning());
+        //StartCoroutine(MoreSpawning());
     }
 
     IEnumerator MoreSpawning()

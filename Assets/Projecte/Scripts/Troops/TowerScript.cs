@@ -120,7 +120,7 @@ public class TowerScript : MonoBehaviour
         objective = AnyoneToAttack();
         if (tag == "AllyTower") player = GameObject.Find("AllyEconomy").GetComponent<PlayerController>();
         else player = player = GameObject.Find("EnemyEconomy").GetComponent<PlayerController>();
-        ChangeMaterial();
+        ChangeTower();
         stats.SetStats(type);
         StartCoroutine(AttackEnemy());
         StartCoroutine(WaitSec());

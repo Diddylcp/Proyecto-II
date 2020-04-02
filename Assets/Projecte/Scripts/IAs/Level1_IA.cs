@@ -13,7 +13,7 @@ public class Level1_IA : MonoBehaviour
 
     void Start()
     {
-        referencePointSpawn = new Vector3(-58, 140, 211);   // Pos utilizada para encontrar la torre enemiga más cercana al campo aliado
+        referencePointSpawn = new Vector3(-6, 20, 0);   // Pos utilizada para encontrar la torre enemiga más cercana al campo aliado
         moneyCost = 190;
         player = GameObject.Find("EnemyEconomy");
         playerController = player.GetComponent<PlayerController>();
