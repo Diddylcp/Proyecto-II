@@ -79,7 +79,7 @@ Transform:
   m_LocalScale: {x: 0.19999999, y: 0.2000001, z: 0.2000001}
   m_Children: []
   m_Father: {fileID: 9058405230139969646}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6651810305242498813
 MonoBehaviour:
@@ -415,9 +415,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9058405230139969646}
   - component: {fileID: 9058405230139969641}
-  - component: {fileID: 1095089401927745950}
   - component: {fileID: 7158892052057800173}
   - component: {fileID: 4713768207836571269}
+  - component: {fileID: 2960327487734185036}
   m_Layer: 0
   m_Name: EnemyTower
   m_TagString: EnemyTower
@@ -441,6 +441,7 @@ Transform:
   - {fileID: 8051400099021426770}
   - {fileID: 3537046246823870577}
   - {fileID: 1509217007314362695}
+  - {fileID: 4216926154186534364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -481,6 +482,8 @@ MonoBehaviour:
     type: 3}
   towerEconomy: {fileID: 6287777593195599377, guid: 3f00442763860434082f939af639d2cc,
     type: 3}
+  capturedAudio: {fileID: 4713768207836571269}
+  updateAudio: {fileID: 7158892052057800173}
   objToCreateFloatingMoney: {fileID: 0}
   MaterialTorreAliado: {fileID: 2100000, guid: 0b90ad766c886ee4f9b6e0a5f44ffc91, type: 2}
   MejoraTorreAliado: {fileID: 2100000, guid: 005f0bc8d86b5404f913f4b4e4f4fce1, type: 2}
@@ -490,19 +493,6 @@ MonoBehaviour:
   MejoraTorreEnemigo: {fileID: 2100000, guid: 7098351a637249843a6c9d074f634556, type: 2}
   FlagEnemigo: {fileID: 2100000, guid: d52c9d73172a0df4f8629f45c3196ed4, type: 2}
   team: 
---- !u!65 &2960327487734185036
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9058405230139969634}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.0012555, y: 9.281279}
-  m_EdgeRadius: 0
 --- !u!82 &7158892052057800173
 AudioSource:
   m_ObjectHideFlags: 0
@@ -697,6 +687,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2960327487734185036
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9058405230139969634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0012555, y: 9.281279, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9058405230307760929
 GameObject:
   m_ObjectHideFlags: 0

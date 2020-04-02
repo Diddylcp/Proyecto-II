@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour
 {
     bool firstText = false, secondText = false, thirdText = false, firstUnit = false;
-    [SerializeField] GameObject buttonsHud, areaSpawn, mageButton, archerButton, otherButtons;
+    [SerializeField] GameObject buttonsHud, areaSpawn, mageButton, archerButton, otherButtons, redCircle;
 
     void Start()
     {
@@ -28,6 +28,7 @@ public class Tutorial : MonoBehaviour
                 secondText = true;
                 Time.timeScale = 1;
                 areaSpawn.SetActive(false);
+                Destroy(redCircle);
             }
             else if (!thirdText)
             {
