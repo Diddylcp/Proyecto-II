@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    bool firstText = false, secondText = false, thirdText = false, firstUnit = false;
-    [SerializeField] GameObject buttonsHud, areaSpawn, mageButton, archerButton, otherButtons, redCircle;
+    bool firstText = false, firstUpgrade = false, secondText = false, thirdText = false, firstUnit = false;
+    [SerializeField] GameObject buttonsHud, areaSpawn, mageButton, archerButton, otherButtons, redCircle, upgradeMenu;
 
     void Start()
     {
@@ -36,11 +36,22 @@ public class Tutorial : MonoBehaviour
                 otherButtons.SetActive(false);
                 Time.timeScale = 1;
             }
+            if (firstUpgrade)
+            {
+                upgradeMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
         if(GameObject.Find("AllyTroopWarrior Variant(Clone)") != null && !firstUnit)
         {
             StartCoroutine("ShowMageButton");
             firstUnit = true;
+        }
+        if(GameObject.Find("EnhanceTowerCanvas(Clone)") != null && !firstUpgrade)
+        {
+            upgradeMenu.SetActive(true);
+            firstUpgrade = true;
+            Time.timeScale = 0;
         }
     }
 
