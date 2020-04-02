@@ -364,7 +364,7 @@ public class Troop : MonoBehaviour
             {
                 if (!StillInRange(troopObjective))
                 {
-                    if (Vector2.Distance((Vector2)transform.position, currWaypoint) < 0.01f*Time.deltaTime)
+                    if (Vector2.Distance((Vector2)transform.position, currWaypoint) < 0.01f/**Time.deltaTime*/)
                     {
                         targetIndex++;
                     }

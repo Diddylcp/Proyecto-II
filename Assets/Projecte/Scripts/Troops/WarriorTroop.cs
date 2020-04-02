@@ -17,8 +17,8 @@ public class WarriorTroop : Troop
         stats.health = 350;   // Vida original 700
         stats.area = 1f;
         stats.residualDamage = 0;
-        stats.damage = 50;
-        stats.range = 0.3f;
+        stats.damage = 75;
+        stats.range = 0.75f;
         stats.attackSpeed = 1f;
         stats.dropedCoins = 30;
     }

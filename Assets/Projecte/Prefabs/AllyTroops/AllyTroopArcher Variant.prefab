@@ -193,6 +193,8 @@ MonoBehaviour:
   healthBar: {fileID: 5175311864868709053}
   projectile: {fileID: 3284185663800144625, guid: 45387c700c128a74d8bc03232d441b21,
     type: 3}
+  VelocityTowerFX: {fileID: 198755127273645396, guid: e243632bb3aff9549abdcfcc2ef0c4f0,
+    type: 3}
 --- !u!82 &5961679179075858659
 AudioSource:
   m_ObjectHideFlags: 0
@@ -525,14 +527,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1287089377186125514}
     m_Modifications:
-    - target: {fileID: 171706, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
-      propertyPath: m_Name
-      value: Archer
-      objectReference: {fileID: 0}
-    - target: {fileID: 171706, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 408822, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -576,6 +570,14 @@ PrefabInstance:
     - target: {fileID: 408822, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 171706, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
+      propertyPath: m_Name
+      value: Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 171706, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 194754, guid: 0925457c2b2fe9f4a8747c59013d56d4, type: 3}
       propertyPath: m_TagString
