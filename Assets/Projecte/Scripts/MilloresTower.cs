@@ -27,7 +27,7 @@ public class MilloresTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tower.player.GetMoney() >= 600)
+        if (tower.player.GetMoney() >= 550)
         {
             buttonWizard.GetComponent<Image>().color = Color.white;
             buttonWarrior.GetComponent<Image>().color = Color.white;
@@ -57,7 +57,7 @@ public class MilloresTower : MonoBehaviour
             buttonAvailable[2] = false;
         }
 
-        if (tower.player.GetMoney() >= 450)
+        if (tower.player.GetMoney() >= 600)
         {
             buttonEconomy.GetComponent<Image>().color = Color.white;
             buttonAvailable[3] = true;
@@ -76,7 +76,7 @@ public class MilloresTower : MonoBehaviour
     {
         if (buttonAvailable[0])
         {
-            tower.player.SumMoney(-600);
+            tower.player.SumMoney(-550);
             tower.type = TowerType.MAGE_TOWER;
             tower.stats.SetStats(tower.type);
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
@@ -91,7 +91,7 @@ public class MilloresTower : MonoBehaviour
     {
         if (buttonAvailable[1])
         {
-            tower.player.SumMoney(-600);
+            tower.player.SumMoney(-550);
             tower.type = TowerType.ARCHER_TOWER;
             tower.stats.SetStats(tower.type);
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
@@ -120,7 +120,7 @@ public class MilloresTower : MonoBehaviour
     {
         if (buttonAvailable[3])
         {
-            tower.player.SumMoney(-450);
+            tower.player.SumMoney(-600);
             tower.type = TowerType.GOLD_TOWER;
             tower.stats.SetStats(tower.type);
             tower.selected.GetComponent<SpriteRenderer>().enabled = false;
