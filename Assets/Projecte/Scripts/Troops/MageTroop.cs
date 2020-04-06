@@ -36,7 +36,7 @@ public class MageTroop : Troop
                 if (tower.GetComponent<TowerScript>().type == TowerType.MAGE_TOWER)
                 {
                     areaAttack = true;
-        
+                    
                     break;
                 }
             }

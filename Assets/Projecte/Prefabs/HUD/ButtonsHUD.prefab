@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 1768846190596698143}
   - component: {fileID: 2869718239120355169}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1554,7 +1554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 62.899963, y: 36.69995}
+  m_AnchoredPosition: {x: 62.899902, y: 36.69995}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4645780421430485528
@@ -1969,7 +1969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 46.299988, y: 48.100006}
+  m_AnchoredPosition: {x: 46.30005, y: 48.100006}
   m_SizeDelta: {x: 145, y: 153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4645780421764782117
@@ -1993,7 +1993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9303578, g: 0.9338829, b: 0.9528302, a: 1}
+  m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2422,7 +2422,7 @@ GameObject:
   - component: {fileID: 267822723439258898}
   - component: {fileID: 7971749730468515}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

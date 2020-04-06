@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler, IDragHandler, IPointerUpHandler
 {
@@ -16,6 +17,8 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     private Vector2 soldierPos = Vector2.zero;
     Collider2D col;
     Image me;
+    bool changingRed;
+    Text text;
 
     void Start()
     {
@@ -24,6 +27,22 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
         if (tag == "AllyTroop") player = GameObject.Find("AllyEconomy");
         else player = GameObject.Find("EnemyEconomy");
         playerController = player.GetComponent<PlayerController>();
+        changingRed = false;
+        text = transform.GetComponentInChildren<Text>();
+    }
+
+    void Update()
+    {
+        if (!changingRed && playerController.GetMoney() > soldierCost)
+        {
+            me.color = new Color32(255, 255, 255, 255); // a blanc
+            text.color = new Color32(255, 255, 255, 255); // a blanc
+        }
+        if (!changingRed && playerController.GetMoney() < soldierCost)
+        {
+            me.color = new Color32(150, 150, 150, 255); // a gris
+            text.color = new Color32(150, 150, 150, 255);
+        }
     }
 
     // Start is called before the first frame update
@@ -84,6 +103,7 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
         }
         if (/*col != null && */playerController.GetMoney() < soldierCost)
         {
+           // me.color = new Color32(96,96,96,255);
             ChangeColor();
         }
         rectTransform = soldierImage.GetComponent<RectTransform>();
@@ -99,32 +119,27 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
         StartCoroutine("ChangingRed");
     }
 
-    IEnumerator ChangingRed()
+  IEnumerator ChangingRed()
     {
-        for (float i=0f; i<= 1f; i += 0.02f)
+        changingRed = true;
+        for (float i=0f; i<= 0.3f; i += 0.02f)
         {
-            Color c= me.color;
-            c.r += i;
-            c.b -= i;
-            me.color = c;
+            me.color = new Color32(255, 57, 57, 255); ; // a red
             yield return new WaitForEndOfFrame();
             //yield  return new WaitForSeconds(0.01f);
         }
-        //StopCoroutine("ChangingRed");
-        StartCoroutine("ChangingBlue");
+        changingRed = false;
+        StopCoroutine("ChangingRed");
+        //StartCoroutine("ChangingBlue");
     }
 
     IEnumerator ChangingBlue()
     {
-        for (float i = 1f; i >= 0f; i -= 0.02f)
-        {
-            Color c = me.color;
-            c.r -= i;
-            c.b += i;
-            me.color = c;
-            yield return new WaitForEndOfFrame();
-            //yield return new WaitForSeconds(0.01f);
-        }
+        me.color = new Color32(255, 255, 255, 255); ; // a blan
+       // me.color = new Color32(96, 96, 96, 255); ;
+        yield return new WaitForEndOfFrame();
+        //yield return new WaitForSeconds(0.01f);
+
         StopCoroutine("ChangingBlue");
     }
 }
