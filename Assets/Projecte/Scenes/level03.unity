@@ -864,16 +864,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8046499775698204181, guid: 1630baa128119f3439ccf8c39905fe5a,
-        type: 3}
-      propertyPath: buttonsHUD
-      value: 
-      objectReference: {fileID: 1845295464}
-    - target: {fileID: 8046499775698204181, guid: 1630baa128119f3439ccf8c39905fe5a,
-        type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1801697451}
     - target: {fileID: 8046499775698204183, guid: 1630baa128119f3439ccf8c39905fe5a,
         type: 3}
       propertyPath: m_Name
@@ -884,6 +874,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8046499775698204181, guid: 1630baa128119f3439ccf8c39905fe5a,
+        type: 3}
+      propertyPath: buttonsHUD
+      value: 
+      objectReference: {fileID: 1845295464}
+    - target: {fileID: 8046499775698204181, guid: 1630baa128119f3439ccf8c39905fe5a,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1801697451}
     - target: {fileID: 8046499775698204180, guid: 1630baa128119f3439ccf8c39905fe5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6442,7 +6442,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.66
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -6450,9 +6450,9 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_Strength: 0.52
+    m_Bias: 0.1
+    m_NormalBias: 0.04
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
