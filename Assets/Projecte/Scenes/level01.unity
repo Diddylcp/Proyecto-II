@@ -2195,8 +2195,8 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
+    m_Strength: 0.53
+    m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
@@ -2571,31 +2571,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -230
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780420386695573, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780420392784022, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4645780421168493871, guid: a191d33a191cd48439d60ebe82d8eee9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2670,6 +2645,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780420386695573, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780420392784022, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a191d33a191cd48439d60ebe82d8eee9, type: 3}
@@ -4368,6 +4368,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1217668058}
     m_Modifications:
+    - target: {fileID: 2517467004685489819, guid: da2cdda9ed873f84dbf708dbe66ea70a,
+        type: 3}
+      propertyPath: m_Name
+      value: AllyEconomy
+      objectReference: {fileID: 0}
     - target: {fileID: 7566825251111513996, guid: da2cdda9ed873f84dbf708dbe66ea70a,
         type: 3}
       propertyPath: playerWithTower
@@ -4377,11 +4382,6 @@ PrefabInstance:
         type: 3}
       propertyPath: userMoney
       value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 2517467004685489819, guid: da2cdda9ed873f84dbf708dbe66ea70a,
-        type: 3}
-      propertyPath: m_Name
-      value: AllyEconomy
       objectReference: {fileID: 0}
     - target: {fileID: 4159486382500635600, guid: da2cdda9ed873f84dbf708dbe66ea70a,
         type: 3}
@@ -7445,11 +7445,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7400947775595086239, guid: 363bf935b8a08fd4fa29a563d106ef99,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7400947775365700705, guid: 363bf935b8a08fd4fa29a563d106ef99,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7479,6 +7474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400947775595086239, guid: 363bf935b8a08fd4fa29a563d106ef99,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 363bf935b8a08fd4fa29a563d106ef99, type: 3}
@@ -19837,15 +19837,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1217668058}
     m_Modifications:
-    - target: {fileID: 8966115304980380644, guid: cf235a2388368ab439efc7f9cc76884f,
-        type: 3}
-      propertyPath: userMoney
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4000075817445147379, guid: cf235a2388368ab439efc7f9cc76884f,
         type: 3}
       propertyPath: m_Name
       value: EnemyEconomy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8966115304980380644, guid: cf235a2388368ab439efc7f9cc76884f,
+        type: 3}
+      propertyPath: userMoney
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3230699377911609272, guid: cf235a2388368ab439efc7f9cc76884f,
         type: 3}
