@@ -447,6 +447,9 @@ MonoBehaviour:
   warriorCost: 190
   mageCost: 250
   archerCost: 210
+  archerButton: {fileID: 4645780420392784020}
+  mageButton: {fileID: 4645780420386695579}
+  warriorButton: {fileID: 4645780421764782119}
 --- !u!1 &4645780420386695573
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +462,7 @@ GameObject:
   - component: {fileID: 4645780420386695577}
   - component: {fileID: 4645780420386695578}
   - component: {fileID: 4645780420386695579}
+  - component: {fileID: 4958176631060181637}
   m_Layer: 5
   m_Name: MageButton
   m_TagString: AllyTroop
@@ -542,6 +546,58 @@ MonoBehaviour:
   soldierImage: {fileID: 5915108951437684086, guid: 163efc941f3450441b54b2ab5b300a5c,
     type: 3}
   soldierCost: 250
+  buttonHoldImage: {fileID: 21300000, guid: 8a491f38d3baaf44597fa77c63bf9a95, type: 3}
+  buttonNormalImage: {fileID: 21300000, guid: a7ad693c42169cf4daac7d0c579d5468, type: 3}
+  buttonDragImage: {fileID: 21300000, guid: 1104f5eafb8f0204495ea23203b8460f, type: 3}
+  me: {fileID: 0}
+--- !u!114 &4958176631060181637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645780420386695573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4645780420386695579}
+          m_MethodName: HoverButtonEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4645780420386695579}
+          m_MethodName: HoverButtonExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &4645780420392784022
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,6 +610,7 @@ GameObject:
   - component: {fileID: 4645780420392784026}
   - component: {fileID: 4645780420392784027}
   - component: {fileID: 4645780420392784020}
+  - component: {fileID: 513841964218306075}
   m_Layer: 5
   m_Name: ArcherButton
   m_TagString: AllyTroop
@@ -637,6 +694,58 @@ MonoBehaviour:
   soldierImage: {fileID: 5915108951437684086, guid: 163efc941f3450441b54b2ab5b300a5c,
     type: 3}
   soldierCost: 210
+  buttonHoldImage: {fileID: 21300000, guid: fd45c9d6168f8b843af2342dc7ca2b16, type: 3}
+  buttonNormalImage: {fileID: 21300000, guid: 1303499f1d90f7e46afcc57878528692, type: 3}
+  buttonDragImage: {fileID: 21300000, guid: ea93010592f4eee43a99c939b67a1192, type: 3}
+  me: {fileID: 0}
+--- !u!114 &513841964218306075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645780420392784022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4645780420392784020}
+          m_MethodName: HoverButtonEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4645780420392784020}
+          m_MethodName: HoverButtonExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &4645780420443247433
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +875,10 @@ MonoBehaviour:
   soldierImage: {fileID: 5915108951437684086, guid: 163efc941f3450441b54b2ab5b300a5c,
     type: 3}
   soldierCost: 0
+  buttonHoldImage: {fileID: 0}
+  buttonNormalImage: {fileID: 0}
+  buttonDragImage: {fileID: 0}
+  me: {fileID: 0}
 --- !u!1 &4645780421021086639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,6 +2056,7 @@ GameObject:
   - component: {fileID: 4645780421764782117}
   - component: {fileID: 4645780421764782118}
   - component: {fileID: 4645780421764782119}
+  - component: {fileID: 387410492541363937}
   m_Layer: 5
   m_Name: WarriorButton
   m_TagString: AllyTroop
@@ -2000,7 +2114,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3fdf1330c37f51144a7ba26e537742d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56497907a45ebc7469adb721254b0b5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2026,6 +2140,58 @@ MonoBehaviour:
   soldierImage: {fileID: 5915108951437684086, guid: 163efc941f3450441b54b2ab5b300a5c,
     type: 3}
   soldierCost: 190
+  buttonHoldImage: {fileID: 21300000, guid: 1240ce33b6a84664c87e9a53d4f17983, type: 3}
+  buttonNormalImage: {fileID: 21300000, guid: 56497907a45ebc7469adb721254b0b5c, type: 3}
+  buttonDragImage: {fileID: 21300000, guid: 992326d3fbe8d5441959f276f5e7247a, type: 3}
+  me: {fileID: 0}
+--- !u!114 &387410492541363937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645780421764782113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4645780421764782119}
+          m_MethodName: HoverButtonEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4645780421764782119}
+          m_MethodName: HoverButtonExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &4645780421780504031
 GameObject:
   m_ObjectHideFlags: 0

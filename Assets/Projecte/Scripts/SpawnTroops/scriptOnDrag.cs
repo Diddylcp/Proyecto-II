@@ -11,17 +11,23 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     [SerializeField] private GameObject soldierImage;
     [SerializeField] private int soldierCost;
 
+     public Sprite buttonHoldImage;
+     public Sprite buttonNormalImage;
+     public Sprite buttonDragImage;
+
     PlayerController playerController;
     private GameObject soldierImageInstanciated;
     private RectTransform rectTransform;
     private Vector2 soldierPos = Vector2.zero;
     Collider2D col;
-    Image me;
+    public Image me;
     bool changingRed;
     Text text;
+    bool isPointerDown;
 
     void Start()
     {
+        isPointerDown = false;
         me = this.GetComponent<Image>();
         GameObject player;
         if (tag == "AllyTroop") player = GameObject.Find("AllyEconomy");
@@ -93,11 +99,26 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
         }
     }
 
+   public void HoverButtonEnter()
+    {
+        if (!isPointerDown && playerController.GetMoney() > soldierCost)
+        me.sprite = buttonHoldImage;
+    }
+    public void HoverButtonExit()
+    {
+        if (!isPointerDown)
+            me.sprite = buttonNormalImage;
+    }
+
+
     public void OnPointerDown(PointerEventData eventData)
     {
+      
         col = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
         if (/*col != null && */playerController.GetMoney() > soldierCost)
         {
+            isPointerDown = true;
+            me.sprite = buttonDragImage;
             soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             soldierImageInstanciated = Instantiate(soldierImage, soldierPos, Quaternion.identity);
         }
@@ -111,6 +132,9 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
 
     public void OnPointerUp(PointerEventData eventData)
     {
+
+        me.sprite = buttonNormalImage;
+        isPointerDown = false;
         Destroy(soldierImageInstanciated);
     }
 

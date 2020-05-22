@@ -15,6 +15,11 @@ public class HotKeySystem : MonoBehaviour
     [SerializeField] private int warriorCost;
     [SerializeField] private int mageCost;
     [SerializeField] private int archerCost;
+    [SerializeField] private scriptOnDrag archerButton;
+    [SerializeField] private scriptOnDrag mageButton;
+    [SerializeField] private scriptOnDrag warriorButton;
+
+
     private bool mageHotKey;
     private bool warriorHotKey;
     private bool archerHotKey;
@@ -47,12 +52,16 @@ public class HotKeySystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (warriorHotKey || mageHotKey || archerHotKey)
+            {
                 Destroy(soldierImageInstanciated);
+               
+            }
           /*  warriorHotKey = true;
             mageHotKey = false;
             archerHotKey = false; */
             if(playerController.GetMoney() > warriorCost)
             {
+                warriorButton.me.sprite = warriorButton.buttonDragImage;
                 soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 soldierImageInstanciated = Instantiate(warriorImage, soldierPos, Quaternion.identity);
                 warriorHotKey = true;
@@ -69,10 +78,14 @@ public class HotKeySystem : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.W))
         {
             if (warriorHotKey || mageHotKey || archerHotKey)
+            {
                 Destroy(soldierImageInstanciated);
+                
+            }
 
             if (playerController.GetMoney() > mageCost)
             {
+                mageButton.me.sprite = mageButton.buttonDragImage;
                 soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 soldierImageInstanciated = Instantiate(mageImage, soldierPos, Quaternion.identity);
                 warriorHotKey = false;
@@ -97,6 +110,7 @@ public class HotKeySystem : MonoBehaviour
                 warriorHotKey = false;
                 mageHotKey = false;
                 archerHotKey = true;
+                archerButton.me.sprite = archerButton.buttonDragImage;
             }
             else
             {
@@ -127,6 +141,7 @@ public class HotKeySystem : MonoBehaviour
                         Instantiate(warriorPrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
                         playerController.SumMoney(-warriorCost);
                         warriorHotKey = false;
+                        warriorButton.me.sprite = warriorButton.buttonNormalImage;
 
                     }
                 }
@@ -154,6 +169,7 @@ public class HotKeySystem : MonoBehaviour
                         Instantiate(magePrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
                         playerController.SumMoney(-mageCost);
                         mageHotKey = false;
+                        mageButton.me.sprite = mageButton.buttonNormalImage;
 
                     }
                 }
@@ -172,7 +188,7 @@ public class HotKeySystem : MonoBehaviour
                         Instantiate(archerPrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
                         playerController.SumMoney(-archerCost);
                         archerHotKey = false;
-
+                        archerButton.me.sprite = archerButton.buttonNormalImage;
                     }
                 }
             }
