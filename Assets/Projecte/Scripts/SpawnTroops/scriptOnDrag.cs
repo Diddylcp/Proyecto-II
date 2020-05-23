@@ -10,8 +10,9 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     [SerializeField] private GameObject soldierPrefab;
     [SerializeField] private GameObject soldierImage;
     [SerializeField] private int soldierCost;
+    [SerializeField] private AudioSource clickSound;
 
-     public Sprite buttonHoldImage;
+    public Sprite buttonHoldImage;
      public Sprite buttonNormalImage;
      public Sprite buttonDragImage;
 
@@ -113,8 +114,8 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
 
     public void OnPointerDown(PointerEventData eventData)
     {
-      
-        col = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
+        clickSound.Play();
+          col = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
         if (/*col != null && */playerController.GetMoney() > soldierCost)
         {
             isPointerDown = true;

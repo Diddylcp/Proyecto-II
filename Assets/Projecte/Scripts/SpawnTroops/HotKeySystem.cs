@@ -18,6 +18,7 @@ public class HotKeySystem : MonoBehaviour
     [SerializeField] private scriptOnDrag archerButton;
     [SerializeField] private scriptOnDrag mageButton;
     [SerializeField] private scriptOnDrag warriorButton;
+    [SerializeField] private AudioSource clickSound;
 
 
     private bool mageHotKey;
@@ -51,6 +52,7 @@ public class HotKeySystem : MonoBehaviour
         // HotKeys
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            clickSound.Play();
             if (warriorHotKey || mageHotKey || archerHotKey)
             {
                 Destroy(soldierImageInstanciated);
@@ -77,6 +79,7 @@ public class HotKeySystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
+            clickSound.Play();
             if (warriorHotKey || mageHotKey || archerHotKey)
             {
                 Destroy(soldierImageInstanciated);
@@ -100,7 +103,8 @@ public class HotKeySystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            if(warriorHotKey || mageHotKey || archerHotKey)
+            clickSound.Play();
+            if (warriorHotKey || mageHotKey || archerHotKey)
                 Destroy(soldierImageInstanciated);
 
             if (playerController.GetMoney() > mageCost)
