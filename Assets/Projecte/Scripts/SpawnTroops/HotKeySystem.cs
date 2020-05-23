@@ -55,6 +55,8 @@ public class HotKeySystem : MonoBehaviour
             clickSound.Play();
             if (warriorHotKey || mageHotKey || archerHotKey)
             {
+                archerButton.me.sprite = archerButton.buttonNormalImage;
+                mageButton.me.sprite = mageButton.buttonNormalImage;
                 Destroy(soldierImageInstanciated);
                
             }
@@ -82,6 +84,8 @@ public class HotKeySystem : MonoBehaviour
             clickSound.Play();
             if (warriorHotKey || mageHotKey || archerHotKey)
             {
+                archerButton.me.sprite = archerButton.buttonNormalImage;
+                warriorButton.me.sprite = warriorButton.buttonNormalImage;
                 Destroy(soldierImageInstanciated);
                 
             }
@@ -105,7 +109,11 @@ public class HotKeySystem : MonoBehaviour
         {
             clickSound.Play();
             if (warriorHotKey || mageHotKey || archerHotKey)
+            {
                 Destroy(soldierImageInstanciated);
+                mageButton.me.sprite = mageButton.buttonNormalImage;
+                warriorButton.me.sprite = warriorButton.buttonNormalImage;
+            }
 
             if (playerController.GetMoney() > mageCost)
             {
