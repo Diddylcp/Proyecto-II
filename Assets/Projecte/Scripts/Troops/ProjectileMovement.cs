@@ -8,6 +8,8 @@ public class ProjectileMovement : MonoBehaviour
     public float speed;
     Vector3 pos;
     public float range;
+    public GameObject target;
+    
 
     void Start()
     {
@@ -26,9 +28,12 @@ public class ProjectileMovement : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    /*
-    private void OnCollisionEnter(Collision collision)
+    
+   private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
-    }*/
+        if (collision.gameObject == target)
+         Destroy(this.gameObject);
+
+
+    } 
 }

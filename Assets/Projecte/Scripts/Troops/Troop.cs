@@ -26,7 +26,7 @@ public class Troop : MonoBehaviour
     public GameObject troopObjective;
     protected MyNode towerToMove;
     [SerializeField] private Image healthBar;
-    public GameObject projectile;
+    public ProjectileMovement projectile;
     protected GraphPathfinder pathRequest;
     protected MyNode currNode;
 
@@ -384,7 +384,8 @@ public class Troop : MonoBehaviour
     protected void ShootProjectile()
     {
         Vector3 vectorToEnemy = troopObjective.transform.position - this.transform.position;
-        GameObject projectileSpawned = Instantiate(projectile, new Vector3(this.transform.position.x, this.transform.position.y,-0.5f), Quaternion.LookRotation(vectorToEnemy)) as GameObject;
+        ProjectileMovement projectileSpawned = Instantiate(projectile, new Vector3(this.transform.position.x, this.transform.position.y,-0.5f), Quaternion.LookRotation(vectorToEnemy)) as ProjectileMovement;
+        projectileSpawned.target = troopObjective;
     }
 
 

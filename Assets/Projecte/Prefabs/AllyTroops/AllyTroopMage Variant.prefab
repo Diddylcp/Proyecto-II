@@ -233,7 +233,7 @@ MonoBehaviour:
   team: 
   troopObjective: {fileID: 0}
   healthBar: {fileID: 9015092632809369759}
-  projectile: {fileID: 5876749387759512449, guid: cdddffa6a48b3bb499b5193311532e2e,
+  projectile: {fileID: 2888048188143882957, guid: cdddffa6a48b3bb499b5193311532e2e,
     type: 3}
   VelocityTowerFX: {fileID: 198755127273645396, guid: e243632bb3aff9549abdcfcc2ef0c4f0,
     type: 3}

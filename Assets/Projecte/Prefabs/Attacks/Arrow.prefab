@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2351699059575914984}
   - component: {fileID: 4880590821314452670}
   - component: {fileID: 3953557900733606732}
+  - component: {fileID: 5070199939487528434}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3284185663800144625}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.07877095, w: 0.99689275}
   m_LocalPosition: {x: 8.793999, y: 139.509, z: 152.685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3196106702959732139}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9.036}
 --- !u!114 &4880590821314452670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +145,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &5070199939487528434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3284185663800144625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0075068967, y: 0.044811584, z: 0.5278474}
+  m_Center: {x: 0.004505811, y: -0.002429027, z: -0.07143111}
 --- !u!1001 &3196106702960131883
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -190,8 +190,9 @@ MonoBehaviour:
   team: 
   troopObjective: {fileID: 0}
   healthBar: {fileID: 5175311864868709053}
-  projectile: {fileID: 3284185663800144625, guid: 45387c700c128a74d8bc03232d441b21,
+  projectile: {fileID: 4880590821314452670, guid: 45387c700c128a74d8bc03232d441b21,
     type: 3}
+  VelocityTowerFX: {fileID: 0}
 --- !u!1 &1287089377442781064
 GameObject:
   m_ObjectHideFlags: 0
