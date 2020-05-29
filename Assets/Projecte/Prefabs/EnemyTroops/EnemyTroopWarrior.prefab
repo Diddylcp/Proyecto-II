@@ -318,8 +318,9 @@ MonoBehaviour:
   team: 
   troopObjective: {fileID: 0}
   healthBar: {fileID: 323282579532959422}
-  projectile: {fileID: 3284185663800144625, guid: b641cb8bc871a3946801b823ca56758f,
+  projectile: {fileID: 4880590821314452670, guid: b641cb8bc871a3946801b823ca56758f,
     type: 3}
+  VelocityTowerFX: {fileID: 0}
   WarriorTowerFX: {fileID: 19800006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
   returnDamage: 0
 --- !u!61 &6966044536423539239
