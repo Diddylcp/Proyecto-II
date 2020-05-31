@@ -264,8 +264,9 @@ public class TowerScript : MonoBehaviour
             foreach (Transform tower in transform)
             this.transform.Find("Canvas").transform.Find("HealthBG").transform.Find("HealthBar").GetComponent<Image>().color = enemyHealthBar;
             stats.health = 1500;
+          
             HealthBar.fillAmount = stats.health / stats.startHealth;
-            player = enemyPlayer;
+            player = GameObject.Find("EnemyEconomy").GetComponent<PlayerController>();
             respawnArea.tag = "EnemyRespawn";
             
         }
@@ -275,9 +276,12 @@ public class TowerScript : MonoBehaviour
             this.transform.Find("Canvas").transform.Find("HealthBG").transform.Find("HealthBar").GetComponent<Image>().color = allyHealthBar;
             stats.health = 1500;
             HealthBar.fillAmount = stats.health / stats.startHealth;
-            player = allyPlayer;
+            player = GameObject.Find("AllyEconomy").GetComponent<PlayerController>();
+
             respawnArea.tag = "Respawn";
         }
+
+        stats.SetStats(type);
         capturedAudio.Play();
         team = this.tag;
     }

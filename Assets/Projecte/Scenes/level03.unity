@@ -2857,6 +2857,16 @@ PrefabInstance:
       propertyPath: neighbours.Array.data[1]
       value: 
       objectReference: {fileID: 1335685975}
+    - target: {fileID: 3143668057515220214, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: allyPlayer
+      value: 
+      objectReference: {fileID: 1199061882}
+    - target: {fileID: 3143668057515220214, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: enemyPlayer
+      value: 
+      objectReference: {fileID: 1470952561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be9e5e245276154dadb71117745b849, type: 3}
 --- !u!114 &292642753 stripped
@@ -9460,6 +9470,16 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1554013149}
+    - target: {fileID: 3143668057515220214, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: allyPlayer
+      value: 
+      objectReference: {fileID: 1199061882}
+    - target: {fileID: 3143668057515220214, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: enemyPlayer
+      value: 
+      objectReference: {fileID: 1470952561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be9e5e245276154dadb71117745b849, type: 3}
 --- !u!114 &1335685975 stripped
@@ -11487,6 +11507,16 @@ PrefabInstance:
       propertyPath: type
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3143668057515220214, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: allyPlayer
+      value: 
+      objectReference: {fileID: 1199061882}
+    - target: {fileID: 3143668057515220214, guid: 2be9e5e245276154dadb71117745b849,
+        type: 3}
+      propertyPath: enemyPlayer
+      value: 
+      objectReference: {fileID: 1470952561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be9e5e245276154dadb71117745b849, type: 3}
 --- !u!114 &1639994015 stripped
