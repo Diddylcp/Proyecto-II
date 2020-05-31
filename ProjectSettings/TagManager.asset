@@ -10,6 +10,10 @@ TagManager:
   - EnemyTroop
   - EnemyController
   - EnemyRespawn
+  - Node
+  - TextureCharacter
+  - Tower
+  - Flag
   layers:
   - Default
   - TransparentFX
@@ -21,9 +25,9 @@ TagManager:
   - 
   - PostProcessing
   - BG
-  - 
-  - 
-  - 
+  - Unwalkable
+  - RespawnMask
+  - AreasRespawn
   - 
   - 
   - 

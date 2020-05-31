@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8116409085125163910
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6655637812387142518, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_Name
+      value: AllyTroopPriest Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818733357525675973, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.882
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088065, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_Name
+      value: AllyTroopPriest Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.154897
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 140.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 220.38426
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088088, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 71481914759088093, guid: e4e9393651af29b42a318f5bd49fb26e,
+        type: 3}
+      propertyPath: tipus
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7088958888723345526, guid: e4e9393651af29b42a318f5bd49fb26e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: e4e9393651af29b42a318f5bd49fb26e, type: 3}
