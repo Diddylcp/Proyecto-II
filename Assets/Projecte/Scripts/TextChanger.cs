@@ -31,4 +31,9 @@ public class TextChanger : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         this.GetComponent<TextMeshProUGUI>().color = pressedColor;
 
     }
+    public void ReturnToNormalColor()
+    {
+        this.GetComponent<TextMeshProUGUI>().color = defaultColor;
+        this.GetComponent<TextMeshProUGUI>().text = defaultText;
+    }
 }
