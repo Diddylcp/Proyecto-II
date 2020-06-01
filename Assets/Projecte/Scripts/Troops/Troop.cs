@@ -386,6 +386,7 @@ public class Troop : MonoBehaviour
         Vector3 vectorToEnemy = troopObjective.transform.position - this.transform.position;
         ProjectileMovement projectileSpawned = Instantiate(projectile, new Vector3(this.transform.position.x, this.transform.position.y,-0.5f), Quaternion.LookRotation(vectorToEnemy)) as ProjectileMovement;
         projectileSpawned.target = troopObjective;
+        projectileSpawned.posTarget = troopObjective.transform.position;
     }
 
 

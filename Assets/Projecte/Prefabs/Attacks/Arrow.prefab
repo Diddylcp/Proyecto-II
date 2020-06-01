@@ -46,8 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b1601abe73c594791f5b15206905e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 4
+  posTarget: {x: 0, y: 0, z: 0}
   range: 5
+  target: {fileID: 0}
 --- !u!82 &3953557900733606732
 AudioSource:
   m_ObjectHideFlags: 0
@@ -153,11 +155,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3284185663800144625}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0075068967, y: 0.044811584, z: 0.5278474}
-  m_Center: {x: 0.004505811, y: -0.002429027, z: -0.07143111}
+  m_Size: {x: 4.155274, y: 2.4411216, z: 1.3621366}
+  m_Center: {x: -0.50443673, y: -0.048397303, z: -0.72145593}
 --- !u!1001 &3196106702960131883
 PrefabInstance:
   m_ObjectHideFlags: 0
