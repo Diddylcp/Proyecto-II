@@ -63,7 +63,7 @@ public class HotKeySystem : MonoBehaviour
           /*  warriorHotKey = true;
             mageHotKey = false;
             archerHotKey = false; */
-            if(playerController.GetMoney() > warriorCost)
+            if(playerController.GetMoney() > warriorCost && !warriorButton.cd.GetIsActive())
             {
                 warriorButton.me.sprite = warriorButton.buttonDragImage;
                 soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -71,6 +71,7 @@ public class HotKeySystem : MonoBehaviour
                 warriorHotKey = true;
                 mageHotKey = false;
                 archerHotKey = false;
+                warriorButton.cd.SetIsActive(true);
             }
             else
             {
@@ -90,7 +91,7 @@ public class HotKeySystem : MonoBehaviour
                 
             }
 
-            if (playerController.GetMoney() > mageCost)
+            if (playerController.GetMoney() > mageCost && !mageButton.cd.GetIsActive())
             {
                 mageButton.me.sprite = mageButton.buttonDragImage;
                 soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -98,6 +99,7 @@ public class HotKeySystem : MonoBehaviour
                 warriorHotKey = false;
                 mageHotKey = true;
                 archerHotKey = false;
+                mageButton.cd.SetIsActive(true);
             }
             else
             {
@@ -115,7 +117,7 @@ public class HotKeySystem : MonoBehaviour
                 warriorButton.me.sprite = warriorButton.buttonNormalImage;
             }
 
-            if (playerController.GetMoney() > mageCost)
+            if (playerController.GetMoney() > archerCost && !archerButton.cd.GetIsActive())
             {
                 soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 soldierImageInstanciated = Instantiate(archerImage, soldierPos, Quaternion.identity);
@@ -123,6 +125,7 @@ public class HotKeySystem : MonoBehaviour
                 mageHotKey = false;
                 archerHotKey = true;
                 archerButton.me.sprite = archerButton.buttonDragImage;
+                archerButton.cd.SetIsActive(true);
             }
             else
             {
