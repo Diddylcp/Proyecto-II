@@ -11,11 +11,13 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     [SerializeField] private GameObject soldierImage;
     [SerializeField] private int soldierCost;
     [SerializeField] private AudioSource clickSound;
+    
 
     public Sprite buttonHoldImage;
      public Sprite buttonNormalImage;
      public Sprite buttonDragImage;
 
+    public CoolDown cd;
     PlayerController playerController;
     private GameObject soldierImageInstanciated;
     private RectTransform rectTransform;
@@ -25,6 +27,7 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     bool changingRed;
     Text text;
     bool isPointerDown;
+    bool hasClicked;
 
     void Start()
     {
@@ -74,6 +77,8 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (hasClicked)
+        {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //USAR Ray2D
             RaycastHit hit; //USAR RaycastHit2D
             Destroy(soldierImageInstanciated);
@@ -83,8 +88,10 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
                 {
                     soldierPos = hit.point;
                     //soldierPos.y += 1;
-                    Instantiate(soldierPrefab, soldierPos, Quaternion.Euler(-90, 0, 0)); 
+                    Instantiate(soldierPrefab, soldierPos, Quaternion.Euler(-90, 0, 0));
                     playerController.SumMoney(-soldierCost);
+                    cd.SetIsActive(true);
+                    
                 }
 
                 /*Collider2D[] cols = Physics2D.OverlapCircleAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
@@ -96,8 +103,11 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
                         playerController.SumMoney(-soldierCost);
                     }  
                 } */
-            
+
+            }
+            hasClicked = false;
         }
+        
     }
 
    public void HoverButtonEnter()
@@ -116,16 +126,17 @@ public class scriptOnDrag : MonoBehaviour, IPointerDownHandler, IEndDragHandler,
     {
         clickSound.Play();
           col = Physics2D.OverlapCircle(Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.1f);
-        if (/*col != null && */playerController.GetMoney() > soldierCost)
+        if (/*col != null && */playerController.GetMoney() > soldierCost && !cd.GetIsActive())
         {
             isPointerDown = true;
+            hasClicked = true;
             me.sprite = buttonDragImage;
             soldierPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             soldierImageInstanciated = Instantiate(soldierImage, soldierPos, Quaternion.identity);
         }
-        if (/*col != null && */playerController.GetMoney() < soldierCost)
+        if (/*col != null && */playerController.GetMoney() < soldierCost || cd.GetIsActive())
         {
-           // me.color = new Color32(96,96,96,255);
+            // me.color = new Color32(96,96,96,255);
             ChangeColor();
         }
         rectTransform = soldierImage.GetComponent<RectTransform>();
