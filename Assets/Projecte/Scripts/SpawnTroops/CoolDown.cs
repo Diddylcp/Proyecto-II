@@ -28,7 +28,6 @@ public class CoolDown : MonoBehaviour
             {
                 cdTimeCounter = timeCD;
                 isActive = false;
-                Debug.Log("YouCAN!!");
             }
 
             FillCDHud();
