@@ -71,7 +71,7 @@ public class HotKeySystem : MonoBehaviour
                 warriorHotKey = true;
                 mageHotKey = false;
                 archerHotKey = false;
-                warriorButton.cd.SetIsActive(true);
+                
             }
             else
             {
@@ -99,7 +99,6 @@ public class HotKeySystem : MonoBehaviour
                 warriorHotKey = false;
                 mageHotKey = true;
                 archerHotKey = false;
-                mageButton.cd.SetIsActive(true);
             }
             else
             {
@@ -125,7 +124,7 @@ public class HotKeySystem : MonoBehaviour
                 mageHotKey = false;
                 archerHotKey = true;
                 archerButton.me.sprite = archerButton.buttonDragImage;
-                archerButton.cd.SetIsActive(true);
+               
             }
             else
             {
@@ -157,7 +156,7 @@ public class HotKeySystem : MonoBehaviour
                         playerController.SumMoney(-warriorCost);
                         warriorHotKey = false;
                         warriorButton.me.sprite = warriorButton.buttonNormalImage;
-                        
+                        warriorButton.cd.SetIsActive(true);
 
                     }
                 }
@@ -186,7 +185,7 @@ public class HotKeySystem : MonoBehaviour
                         playerController.SumMoney(-mageCost);
                         mageHotKey = false;
                         mageButton.me.sprite = mageButton.buttonNormalImage;
-
+                        mageButton.cd.SetIsActive(true);
                     }
                 }
             }
@@ -205,6 +204,7 @@ public class HotKeySystem : MonoBehaviour
                         playerController.SumMoney(-archerCost);
                         archerHotKey = false;
                         archerButton.me.sprite = archerButton.buttonNormalImage;
+                        archerButton.cd.SetIsActive(true);
                     }
                 }
             }
