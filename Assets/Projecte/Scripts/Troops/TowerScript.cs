@@ -105,6 +105,9 @@ public class TowerScript : MonoBehaviour
     public GameObject towerEconomy;
 
     private GameObject actualTower;
+    [SerializeField] private GameObject laser;
+    private Vector3 laserInitPos;
+    bool particleSystemActive;
 
     [SerializeField] private AudioSource capturedAudio;
     [SerializeField] private AudioSource updateAudio;
@@ -114,6 +117,8 @@ public class TowerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        laser.GetComponent<ParticleSystem>().Stop();
+        laserInitPos = this.transform.Find("Sphere").position;
         positionToShowEnhance = new Vector3(-21.4f, -72.9f, -6);
         actualTower = Instantiate(towerNormal, this.transform);
         positionToShowEnhance = new Vector3(454.3f, 36.9375f, 0);
@@ -144,8 +149,21 @@ public class TowerScript : MonoBehaviour
         }
         else
         {
-            if (!StillInRange())
+
+            if (StillInRange())
             {
+                laser.GetComponent<LineRenderer>().positionCount = 2;
+                laser.GetComponent<LineRenderer>().SetPositions(new Vector3[] { laserInitPos, objective.transform.position - Vector3.forward * 0.22f });
+
+                if (!laser.GetComponent<ParticleSystem>().isEmitting) laser.GetComponent<ParticleSystem>().Play();
+                Vector3 dir = laserInitPos - objective.transform.position;
+                laser.GetComponent<ParticleSystem>().transform.position = objective.transform.position + dir.normalized * 0.2f - Vector3.forward * 0.22f;
+                laser.GetComponent<ParticleSystem>().transform.rotation = Quaternion.LookRotation(dir);
+            }
+            else
+            {
+                laser.GetComponent<LineRenderer>().positionCount = 0;
+                laser.GetComponent<ParticleSystem>().Stop();
                 objective = AnyoneToAttack();
             }
         }
