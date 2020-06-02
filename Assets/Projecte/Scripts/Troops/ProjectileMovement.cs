@@ -33,7 +33,7 @@ public class ProjectileMovement : MonoBehaviour
         finalA = this.transform.position;
         finalA.z -= 0.35f;
         distance = Vector3.Distance(finalA, posTarget);
-        print(distance);
+        //print(distance);
 
         if (Mathf.Abs(Vector3.Distance(pos, this.transform.position)) > range)
         {

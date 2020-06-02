@@ -34,7 +34,7 @@ public class Troop : MonoBehaviour
     protected int targetIndex = 0;
 
     public ParticleSystem VelocityTowerFX;
-
+    protected Troop target;
 
     protected void Start()
     {
@@ -51,6 +51,7 @@ public class Troop : MonoBehaviour
     void Update()
     {
         troopObjective = DetectClosestEnemy();
+        
         switch (troopState)
         {
             case TroopState.INIT:
@@ -118,9 +119,10 @@ public class Troop : MonoBehaviour
 
             case TroopState.DYING:
                 StopAllCoroutines();
+                myAnimator.SetBool("Dead", true);
                 if (this.tag == "EnemyTroop") GameObject.Find("AllyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
                 else GameObject.Find("EnemyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
-                Destroy(this.gameObject);
+                Destroy(this.gameObject, 2);
                 break;
         }
         currNode = findClosestNode();
@@ -160,11 +162,25 @@ public class Troop : MonoBehaviour
         float distance = Vector3.Distance(this.transform.position, closest.transform.position);
         foreach (GameObject go in gosTroops)
         {
-            float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
-            if (curDistance < distance)
+            if (!go.GetComponent<TowerScript>())
             {
-                closest = go;
-                distance = curDistance;
+                if (go.GetComponent<ArcherTroop>() != null) target = go.GetComponent<ArcherTroop>();
+                else if (go.GetComponent<WarriorTroop>() != null) target = go.GetComponent<WarriorTroop>();
+                else if (go.GetComponent<MageTroop>() != null) target = go.GetComponent<MageTroop>();
+                else
+                {
+                    target = null;
+                }
+            }
+            if (target != null && target.troopState != TroopState.DYING)
+            {
+                float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
+                if (curDistance < distance)
+                {
+                    closest = go;
+                    distance = curDistance;
+                }
+
             }
         }
         return closest;
@@ -201,6 +217,7 @@ public class Troop : MonoBehaviour
         
         GameObject[] gosTroops;
         GameObject[] gosTowers;
+     
         if (tag == "AllyTroop")
         {
             gosTroops = GameObject.FindGameObjectsWithTag("EnemyTroop");
@@ -214,6 +231,7 @@ public class Troop : MonoBehaviour
         List<GameObject> closest = new List<GameObject>();
         foreach (GameObject go in gosTroops)
         {
+           
             float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
             if (curDistance < stats.range)
             {
