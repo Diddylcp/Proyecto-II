@@ -154,6 +154,7 @@ public class HotKeySystem : MonoBehaviour
                         playerController.SumMoney(-warriorCost);
                         warriorHotKey = false;
                         warriorButton.me.sprite = warriorButton.buttonNormalImage;
+                        
 
                     }
                 }
