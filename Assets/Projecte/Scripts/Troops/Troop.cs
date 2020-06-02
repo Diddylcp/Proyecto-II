@@ -36,6 +36,8 @@ public class Troop : MonoBehaviour
     public ParticleSystem VelocityTowerFX;
     protected Troop target;
 
+    protected bool isDead;
+
     protected void Start()
     {
         myAnimator = GetComponentInChildren<Animator>();
@@ -45,87 +47,96 @@ public class Troop : MonoBehaviour
         troopObjective = DetectClosestEnemy();
         currNode = findClosestNode();
         pathRequest = new GraphPathfinder();
-        StartCoroutine(Attack());
+        isDead = false;
+        StartCoroutine(Attack());  
     }
 
     void Update()
     {
         troopObjective = DetectClosestEnemy();
-        
-        switch (troopState)
+        if(!isDead)
         {
-            case TroopState.INIT:
-                if (pathRequest.findPath(currNode, towerToMove) && !StillInRange(troopObjective))
-                {
-                    troopState = TroopState.MOVING;
-                    myAnimator.SetBool("Running", true);
-                    myAnimator.SetBool("Attack", false);
-                }
-                else if (troopObjective != null)
-                    if (StillInRange(troopObjective))
+            switch (troopState)
+            {
+                case TroopState.INIT:
+                    if (pathRequest.findPath(currNode, towerToMove) && !StillInRange(troopObjective))
                     {
+                        troopState = TroopState.MOVING;
+                        myAnimator.SetBool("Running", true);
+                        myAnimator.SetBool("Attack", false);
+                    }
+                    else if (troopObjective != null)
+                        if (StillInRange(troopObjective))
+                        {
+                            troopState = TroopState.ATTACKING;
+                            myAnimator.SetBool("Running", false);
+                            myAnimator.SetBool("Attack", true);
+                            //StartCoroutine(Attack());
+                        }
+                    break;
+
+                case TroopState.MOVING:
+                    if (!AmIAlive())
+                    {
+                        isMoving = false;
+                        troopState = TroopState.DYING;
+                    }
+                    else if (StillInRange(troopObjective))
+                    {
+                        isMoving = false;
                         troopState = TroopState.ATTACKING;
-                        myAnimator.SetBool("Running", false);
                         myAnimator.SetBool("Attack", true);
+                        myAnimator.SetBool("Running", false);
+                        targetIndex = 0;
                         //StartCoroutine(Attack());
                     }
-                break;
-
-            case TroopState.MOVING:
-                if (!AmIAlive())
-                {
-                    isMoving = false;
-                    troopState = TroopState.DYING;
-                }
-                else if (StillInRange(troopObjective))
-                {
-                    isMoving = false;
-                    troopState = TroopState.ATTACKING;
-                    myAnimator.SetBool("Attack", true);
-                    myAnimator.SetBool("Running", false);
-                    targetIndex = 0;
-                    //StartCoroutine(Attack());
-                }
-                else
-                {                   
-                    isMoving = true;
-                    if(tag == "AllyTroop" && towerToMove.tag == "AllyTower")
-                    {
+                    else
+                    {                   
+                        isMoving = true;
+                        if(tag == "AllyTroop" && towerToMove.tag == "AllyTower")
+                        {
+                            pathRequest.findPath(currNode, towerToMove);
+                            DetectClosestTower();
+                        }
                         pathRequest.findPath(currNode, towerToMove);
-                        DetectClosestTower();
+                        FollowPath();
                     }
-                    pathRequest.findPath(currNode, towerToMove);
-                    FollowPath();
-                }
-                break;
+                    break;
 
-            case TroopState.ATTACKING:
-                if (!AmIAlive())
-                {
-                    isAttacking = false;
-                    //StopCoroutine(Attack());
-                    troopState = TroopState.DYING;
-                }
-                else if (!StillInRange(troopObjective) && pathRequest.findPath(currNode, towerToMove))
-                {
+                case TroopState.ATTACKING:
+                    if (!AmIAlive())
+                    {
+                        isAttacking = false;
+                        //StopCoroutine(Attack());
+                        troopState = TroopState.DYING;
+                    }
+                    else if (!StillInRange(troopObjective) && pathRequest.findPath(currNode, towerToMove))
+                    {
                     
-                    //StopCoroutine(Attack());
-                    isAttacking = false;
-                    myAnimator.SetBool("Running", true);
-                    myAnimator.SetBool("Attack", false);
-                    troopState = TroopState.MOVING;
-                }
-                break;
+                        //StopCoroutine(Attack());
+                        isAttacking = false;
+                        myAnimator.SetBool("Running", true);
+                        myAnimator.SetBool("Attack", false);
+                        troopState = TroopState.MOVING;
+                    }
+                    break;
 
-            case TroopState.DYING:
-                StopAllCoroutines();
-                myAnimator.SetBool("Dead", true);
-                if (this.tag == "EnemyTroop") GameObject.Find("AllyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
-                else GameObject.Find("EnemyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
-                Destroy(this.gameObject, 2);
-                break;
+                case TroopState.DYING:
+                    StopAllCoroutines();
+                    myAnimator.SetBool("Running", false);
+                    myAnimator.SetBool("Attack", false);
+
+                    if (this.tag == "EnemyTroop") GameObject.Find("AllyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
+                    else GameObject.Find("EnemyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
+                    Destroy(this.gameObject, 4);
+                    isDead = true;
+                    break;
+            }
+
+            currNode = findClosestNode();
         }
-        currNode = findClosestNode();
+        else myAnimator.SetBool("Dead", true);
+
     }
 
     public MyNode findClosestNode()
