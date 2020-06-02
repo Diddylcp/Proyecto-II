@@ -105,10 +105,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2944688919029632946}
     m_Modifications:
-    - target: {fileID: 100018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
-      propertyPath: m_Name
-      value: Characters@Sword And Shield Slash
-      objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.03
@@ -119,11 +115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_LocalRotation.y
@@ -135,7 +131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8660254
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_RootOrder
@@ -143,7 +139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -164,6 +160,10 @@ PrefabInstance:
     - target: {fileID: 400018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 36b0a928129b183459654d43e2e13308, type: 3}
+      propertyPath: m_Name
+      value: Characters@Sword And Shield Slash
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 36b0a928129b183459654d43e2e13308, type: 3}
       propertyPath: m_Controller

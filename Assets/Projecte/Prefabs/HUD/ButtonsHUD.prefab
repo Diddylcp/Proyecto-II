@@ -439,11 +439,11 @@ MonoBehaviour:
     type: 3}
   archerPrefab: {fileID: 1287089377186125516, guid: 89a663756035a4d4ab256e91689f8a6b,
     type: 3}
-  warriorImage: {fileID: 5915108951437684086, guid: 163efc941f3450441b54b2ab5b300a5c,
+  warriorImage: {fileID: 5915108951437684086, guid: 6a0f6201899da5c4b8ced2f2db26f5ff,
     type: 3}
-  mageImage: {fileID: 5915108951437684086, guid: 163efc941f3450441b54b2ab5b300a5c,
+  mageImage: {fileID: 5915108951437684086, guid: af9e590946d8e0145a8e3c0e03f456d2,
     type: 3}
-  archerImage: {fileID: 5915108951437684086, guid: 163efc941f3450441b54b2ab5b300a5c,
+  archerImage: {fileID: 5915108951437684086, guid: 13db2645f95cd614e8d39bd583361af0,
     type: 3}
   warriorCost: 190
   mageCost: 250
