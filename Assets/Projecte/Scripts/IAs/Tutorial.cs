@@ -63,5 +63,6 @@ public class Tutorial : MonoBehaviour
         mageButton.SetActive(true);
         archerButton.SetActive(true);
         buttonsHud.SetActive(false);
+        buttonsHud.GetComponent<TutorialHotKeySystem>().newHotKeys = true;
     }
 }

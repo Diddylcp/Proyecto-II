@@ -196,8 +196,9 @@ MonoBehaviour:
   m_text: "Magic Tower\n\n+300 health\n+10 damage\nYour magic soldiers will make \ndamage
     in area"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

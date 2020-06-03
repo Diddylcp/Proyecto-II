@@ -20,7 +20,6 @@ public class HotKeySystem : MonoBehaviour
     [SerializeField] private scriptOnDrag warriorButton;
     [SerializeField] private AudioSource clickSound;
 
-
     private bool mageHotKey;
     private bool warriorHotKey;
     private bool archerHotKey;

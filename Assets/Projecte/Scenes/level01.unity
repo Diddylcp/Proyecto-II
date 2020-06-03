@@ -177,8 +177,8 @@ MonoBehaviour:
 
     Try spawning a Warrior!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -250,7 +250,7 @@ MonoBehaviour:
     spaceCount: 39
     wordCount: 40
     linkCount: 0
-    lineCount: 6
+    lineCount: 5
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1231,7 +1231,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press Space to Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
   m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
     type: 2}
   m_fontSharedMaterials: []
@@ -1310,7 +1310,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1404,6 +1404,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113732778}
   m_CullTransparentMesh: 0
+--- !u!114 &116048247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4645780421764782119, guid: a191d33a191cd48439d60ebe82d8eee9,
+    type: 3}
+  m_PrefabInstance: {fileID: 278632654}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8e258003bf6004cb5fdddedb787166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &138783773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2571,6 +2583,51 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780420386695573, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780420392784022, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7682573353083489414, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7682573353083489414, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 26.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780421168493871, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645780421168493871, guid: a191d33a191cd48439d60ebe82d8eee9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4645780421168493869, guid: a191d33a191cd48439d60ebe82d8eee9,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2595,41 +2652,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780421138339711, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -230
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780420386695573, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780420392784022, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780421168493871, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 381.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4645780421168493871, guid: a191d33a191cd48439d60ebe82d8eee9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 185.3
       objectReference: {fileID: 0}
     - target: {fileID: 4645780420250387387, guid: a191d33a191cd48439d60ebe82d8eee9,
         type: 3}
@@ -2671,7 +2693,8 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4645780420351087974, guid: a191d33a191cd48439d60ebe82d8eee9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a191d33a191cd48439d60ebe82d8eee9, type: 3}
 --- !u!4 &302322726 stripped
 Transform:
@@ -4368,11 +4391,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1217668058}
     m_Modifications:
-    - target: {fileID: 2517467004685489819, guid: da2cdda9ed873f84dbf708dbe66ea70a,
-        type: 3}
-      propertyPath: m_Name
-      value: AllyEconomy
-      objectReference: {fileID: 0}
     - target: {fileID: 7566825251111513996, guid: da2cdda9ed873f84dbf708dbe66ea70a,
         type: 3}
       propertyPath: playerWithTower
@@ -4382,6 +4400,11 @@ PrefabInstance:
         type: 3}
       propertyPath: userMoney
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517467004685489819, guid: da2cdda9ed873f84dbf708dbe66ea70a,
+        type: 3}
+      propertyPath: m_Name
+      value: AllyEconomy
       objectReference: {fileID: 0}
     - target: {fileID: 4159486382500635600, guid: da2cdda9ed873f84dbf708dbe66ea70a,
         type: 3}
@@ -5019,8 +5042,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Spawn Area
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5098,7 +5121,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -7778,8 +7801,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Troop Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7857,7 +7880,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -7949,13 +7972,13 @@ MonoBehaviour:
   m_text: '
 
     You''ve clicked a tower, seems like you want to upgrade it. You are seeing the
-    upgrade menu on the right-botom of the screen.
+    upgrade menu on the bottom-right of the screen.
 
 
     There are 5 differents upgrades with different effects, read it carefully and
     choose wisely.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
   m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
     type: 2}
   m_fontSharedMaterials: []
@@ -8034,7 +8057,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -9399,7 +9422,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press Space to Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
   m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
     type: 2}
   m_fontSharedMaterials: []
@@ -9478,7 +9501,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -9710,6 +9733,38 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 278632654}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &875177571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875177570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4eefa82721daff468d9a231bde15b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warriorPrefab: {fileID: 6966044536423539238, guid: 70f8282ab49be6145850ec24171a692f,
+    type: 3}
+  magePrefab: {fileID: 5797991765935176803, guid: 10fd41f56dbbcfa438c098169850146d,
+    type: 3}
+  archerPrefab: {fileID: 1287089377186125516, guid: 89a663756035a4d4ab256e91689f8a6b,
+    type: 3}
+  warriorImage: {fileID: 5915108951437684086, guid: 6a0f6201899da5c4b8ced2f2db26f5ff,
+    type: 3}
+  mageImage: {fileID: 5915108951437684086, guid: af9e590946d8e0145a8e3c0e03f456d2,
+    type: 3}
+  archerImage: {fileID: 5915108951437684086, guid: 13db2645f95cd614e8d39bd583361af0,
+    type: 3}
+  warriorCost: 190
+  mageCost: 250
+  archerCost: 210
+  archerButton: {fileID: 1630544050}
+  mageButton: {fileID: 1632718152}
+  warriorButton: {fileID: 116048247}
+  clickSound: {fileID: 1271183912}
+  newHotKeys: 0
 --- !u!1001 &893975893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11707,8 +11762,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press Space to Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -11751,7 +11806,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 15
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -11780,7 +11835,7 @@ MonoBehaviour:
     spaceCount: 3
     wordCount: 4
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -12798,6 +12853,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9006771194763414896, guid: ce9c11b05e5e3e14cb5f7918ce734991,
     type: 3}
   m_PrefabInstance: {fileID: 1255272595}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1271183912 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8454059503311133045, guid: a191d33a191cd48439d60ebe82d8eee9,
+    type: 3}
+  m_PrefabInstance: {fileID: 278632654}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1288485607
 PrefabInstance:
@@ -14041,8 +14102,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press Space to Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -14085,7 +14146,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 15
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -14114,13 +14175,13 @@ MonoBehaviour:
     spaceCount: 3
     wordCount: 4
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -14202,7 +14263,7 @@ MonoBehaviour:
     of damage.\n\nRemember that you can upgrade your towers if you \nleft click on
     them!!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
   m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
     type: 2}
   m_fontSharedMaterials: []
@@ -14281,7 +14342,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -15728,12 +15789,36 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 278632654}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1630544050 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4645780420392784020, guid: a191d33a191cd48439d60ebe82d8eee9,
+    type: 3}
+  m_PrefabInstance: {fileID: 278632654}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630544049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8e258003bf6004cb5fdddedb787166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1632718151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4645780420386695573, guid: a191d33a191cd48439d60ebe82d8eee9,
     type: 3}
   m_PrefabInstance: {fileID: 278632654}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1632718152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4645780420386695579, guid: a191d33a191cd48439d60ebe82d8eee9,
+    type: 3}
+  m_PrefabInstance: {fileID: 278632654}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632718151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8e258003bf6004cb5fdddedb787166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1634773681
 PrefabInstance:
   m_ObjectHideFlags: 0
