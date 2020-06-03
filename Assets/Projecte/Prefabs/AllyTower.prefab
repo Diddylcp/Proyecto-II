@@ -729,6 +729,7 @@ GameObject:
   - component: {fileID: 4607644305399716414}
   - component: {fileID: 5790922413387012731}
   - component: {fileID: 2888888982738287537}
+  - component: {fileID: 2290020827055925844}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -5474,6 +5475,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2290020827055925844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610133805528025081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e31be95dcdf724bb9f9722fb65c0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4147617137344919161
 GameObject:
   m_ObjectHideFlags: 0
@@ -5673,6 +5686,7 @@ GameObject:
   - component: {fileID: 2963425876746599587}
   - component: {fileID: 1611142660304019686}
   - component: {fileID: 6363167551087650466}
+  - component: {fileID: 5888721572512419740}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -5711,7 +5725,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2b4740fc41bb2c7458e955399f871f79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5736,13 +5750,13 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 1.8
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.02553375
-        value: 0.040816993
+        time: 0.08085454
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -10455,3 +10469,17 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5888721572512419740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238379812830074118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e772f4e91f1d189438abaa1ced8d94ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollX: 0.5
+  scrollY: 0.5
