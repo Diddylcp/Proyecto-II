@@ -37,6 +37,7 @@ public class Troop : MonoBehaviour
     protected Troop target;
 
     protected bool isDead;
+    protected Transform initTransform;
 
     protected void Start()
     {

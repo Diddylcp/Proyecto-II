@@ -20,16 +20,17 @@ public class WarriorTutorial : Troop
     {
         base.Start();
         startHealth = stats.health;
+        troopState = TroopState.INIT;
     }
 
     void Update()
     {
         if (!AmIAlive())
         {
-            troopState = TroopState.DYING;
+            myAnimator.SetBool("Running", false);
+            myAnimator.SetBool("Attack", false);
             myAnimator.SetBool("Dead", true);
-            if (this.tag == "EnemyTroop") GameObject.Find("AllyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
-            else GameObject.Find("EnemyEconomy").GetComponent<PlayerController>().SumMoney(stats.dropedCoins);
+            troopState = TroopState.DYING;
             Destroy(this.gameObject, 4);
         }
     }
