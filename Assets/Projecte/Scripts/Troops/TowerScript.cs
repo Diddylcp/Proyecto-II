@@ -93,6 +93,7 @@ public class TowerScript : MonoBehaviour
     Vector3 positionToShowEnhance;
     public GameObject selected;
     public Image HealthBar;
+    protected Troop target;
 
     [SerializeField] Color allyHealthBar;
     [SerializeField] Color enemyHealthBar;
@@ -150,7 +151,7 @@ public class TowerScript : MonoBehaviour
         else
         {
 
-            if (StillInRange())
+            if (StillInRange() && objective.GetComponent<Troop>().troopState != Troop.TroopState.DYING)
             {
                 laser.GetComponent<LineRenderer>().positionCount = 2;
                 laser.GetComponent<LineRenderer>().SetPositions(new Vector3[] { laserInitPos, objective.transform.position - Vector3.forward * 0.22f });
@@ -233,11 +234,23 @@ public class TowerScript : MonoBehaviour
         pos = transform.position;
         foreach (GameObject go in gos)
         {
-            float curDistance = Vector3.Distance(pos, go.transform.position);
-            if (curDistance < distance)
+            if (go.GetComponent<ArcherTroop>() != null) target = go.GetComponent<ArcherTroop>();
+            else if (go.GetComponent<WarriorTroop>() != null) target = go.GetComponent<WarriorTroop>();
+            else if (go.GetComponent<MageTroop>() != null) target = go.GetComponent<MageTroop>();
+            else if (go.GetComponent<WarriorTutorial>() != null) target = go.GetComponent<WarriorTutorial>();
+            else
             {
-                closest = go;
-                distance = curDistance;
+                target = null;
+            }
+            if (target != null && target.troopState != Troop.TroopState.DYING)
+            {
+                float curDistance = Vector3.Distance(this.transform.position, go.transform.position);
+                if (curDistance < distance)
+                {
+                    closest = go;
+                    distance = curDistance;
+                }
+
             }
         }
         return closest;
@@ -298,7 +311,7 @@ public class TowerScript : MonoBehaviour
 
             respawnArea.tag = "Respawn";
         }
-
+        objective = null;
         stats.SetStats(type);
         capturedAudio.Play();
         team = this.tag;

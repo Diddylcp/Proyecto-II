@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Troop : MonoBehaviour
 {
-    protected enum TroopState { INIT, MOVING, ATTACKING, DYING, COUNT};
+    public enum TroopState { INIT, MOVING, ATTACKING, DYING, COUNT};
     public struct ability
     {
         [SerializeField]public float health;
@@ -19,7 +19,7 @@ public class Troop : MonoBehaviour
         public int dropedCoins;
     };
     protected Animator myAnimator;
-    [SerializeField]protected TroopState troopState;
+    [SerializeField]public TroopState troopState;
     [SerializeField]protected float startHealth;
     public string team;
     public ability stats;
