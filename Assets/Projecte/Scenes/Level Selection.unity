@@ -489,8 +489,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Level 02
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fa4dadd756520a44a1dc771264ad363, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: 4fa4dadd756520a44a1dc771264ad363,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -665,8 +665,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Tutorial
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fa4dadd756520a44a1dc771264ad363, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: 4fa4dadd756520a44a1dc771264ad363,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1267,8 +1267,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Level 04
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fa4dadd756520a44a1dc771264ad363, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: 4fa4dadd756520a44a1dc771264ad363,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1726,8 +1726,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Level 03
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4fa4dadd756520a44a1dc771264ad363, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: 4fa4dadd756520a44a1dc771264ad363,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2080,8 +2080,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Back to Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd, type: 2}
-  m_sharedMaterial: {fileID: 21182811417146840, guid: e9e4c7389121a3c4fa2d8a603ed7e8bd,
+  m_fontAsset: {fileID: 11400000, guid: 573104779b616f541a3f08578bd04fd7, type: 2}
+  m_sharedMaterial: {fileID: 21028637013915474, guid: 573104779b616f541a3f08578bd04fd7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
