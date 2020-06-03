@@ -14,10 +14,11 @@ public class ProjectileMovement : MonoBehaviour
     float distance;
     float distance2;
     Vector3 finalA;
-
+    private Vector3 initForward;
 
     void Start()
     {
+        initForward = transform.forward;
         projectileAudio = GetComponent<AudioSource>();
         projectileAudio.Play();
         pos = this.transform.position;
@@ -28,36 +29,50 @@ public class ProjectileMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * (speed * Time.deltaTime);
-
-        finalA = this.transform.position;
-        finalA.z -= 0.35f;
-        distance = Vector3.Distance(finalA, posTarget);
-        //print(distance);
-
-        if (Mathf.Abs(Vector3.Distance(pos, this.transform.position)) > range)
+        if (target != null)
         {
-            Destroy(this.gameObject);
+            transform.position += initForward * (speed * Time.deltaTime);
+
+            finalA = this.transform.position;
+            finalA.z -= 0.35f;
+            distance = Vector3.Distance(finalA, target.transform.position);
+            if (Mathf.Abs(Vector3.Distance(pos, this.transform.position)) > range || target == null)
+            {
+                if (this.CompareTag("FireBall"))
+                {
+                    HideFireBall();
+                    StartCoroutine(FireWaitEnd());
+                }
+                else
+                    Destroy(this.gameObject);
+            }
+            else if (distance < 0.9f || target == null)
+            {
+                if (this.CompareTag("FireBall"))
+                {
+                    HideFireBall();
+                    StartCoroutine(FireWaitEnd());
+                }
+                else
+                    Destroy(this.gameObject);
+            } 
         }
-        else if (distance < 0.9f)
+        else Destroy(this.gameObject);
+        Debug.Log(target);
+    }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == target)
         {
             if (this.CompareTag("FireBall"))
             {
+                HideFireBall();
                 StartCoroutine(FireWaitEnd());
             }
             else
-            Destroy(this.gameObject);
+                Destroy(this.gameObject);
         }
-        
-
-    }
-    
-   private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject == target)
-         Destroy(this.gameObject);
-
-
     } 
 
     IEnumerator FireWaitEnd()
@@ -65,5 +80,12 @@ public class ProjectileMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Destroy(this.gameObject);
 
+    }
+    private void HideFireBall()
+    {
+        this.gameObject.GetComponentInChildren<Light>().enabled = false;
+        ParticleSystem.EmissionModule em = this.GetComponent<ParticleSystem>().emission;
+        em.enabled = false;
+        this.GetComponent<MeshRenderer>().enabled = false;
     }
 }

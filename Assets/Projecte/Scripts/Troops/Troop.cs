@@ -178,6 +178,7 @@ public class Troop : MonoBehaviour
                 if (go.GetComponent<ArcherTroop>() != null) target = go.GetComponent<ArcherTroop>();
                 else if (go.GetComponent<WarriorTroop>() != null) target = go.GetComponent<WarriorTroop>();
                 else if (go.GetComponent<MageTroop>() != null) target = go.GetComponent<MageTroop>();
+                else if (go.GetComponent<WarriorTutorial>() != null) target = go.GetComponent<WarriorTutorial>();
                 else
                 {
                     target = null;
@@ -412,10 +413,13 @@ public class Troop : MonoBehaviour
 
     protected void ShootProjectile()
     {
-        Vector3 vectorToEnemy = troopObjective.transform.position - this.transform.position;
-        ProjectileMovement projectileSpawned = Instantiate(projectile, new Vector3(this.transform.position.x, this.transform.position.y,-0.5f), Quaternion.LookRotation(vectorToEnemy)) as ProjectileMovement;
-        projectileSpawned.target = troopObjective;
-        projectileSpawned.posTarget = troopObjective.transform.position;
+        if(troopObjective != null)
+        {
+            Vector3 vectorToEnemy = troopObjective.transform.position - this.transform.position;
+            ProjectileMovement projectileSpawned = Instantiate(projectile, new Vector3(this.transform.position.x, this.transform.position.y,-0.5f), Quaternion.LookRotation(vectorToEnemy)) as ProjectileMovement;
+            projectileSpawned.target = troopObjective;
+            projectileSpawned.posTarget = troopObjective.transform.position;
+        }
     }
 
 
